@@ -1509,6 +1509,14 @@ body.menu-open .drawer{transform:translateX(0)}
 }
 .m-social a:hover{background:var(--surface)}
 
+
+/* wyszukiwarka jako lupka rozwijana */
+.nav-search .ns-btn{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:100px;border:1px solid transparent;background:transparent;color:var(--text-dim);cursor:pointer;flex:0 0 auto;padding:0;transition:.25s}
+.nav-search .ns-btn:hover{color:#fff;background:var(--surface)}
+.nav-search .ns-btn svg{position:static;left:auto;width:16px;height:16px;pointer-events:none;color:inherit}
+.nav-search input{width:0;min-width:0;opacity:0;padding:0;border-color:transparent;pointer-events:none;transition:width .3s ease,opacity .25s ease,padding .3s ease,border-color .3s ease}
+.nav-search.open input{width:200px;opacity:1;padding:0 .9rem;border-color:var(--line);pointer-events:auto;margin-left:.4rem}
+.nav-search.open input:focus{width:200px;border-color:rgba(122,1,182,.6)}
 </style>
 </head>
 <body>
@@ -1526,9 +1534,9 @@ body.menu-open .drawer{transform:translateX(0)}
           <a href="oferta.html" class="nav-link">Nasz sprzęt</a>
         <a href="kontakt.html" class="nav-link">Kontakt</a>
         <div class="nav-search">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <button type="button" class="ns-btn" aria-label="Szukaj sprzętu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
             <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
-          </svg>
+          </svg></button>
           <input type="search" id="navSearch" placeholder="Szukaj sprzętu…" autocomplete="off" aria-label="Szukaj sprzętu">
           <div class="search-results" id="searchResults"></div>
         </div>
@@ -2104,6 +2112,12 @@ seoCols.forEach(function(col){
     if(stored){var items=JSON.parse(stored);var t=items.reduce(function(s,i){return s+i.qty;},0);mc.textContent=t;}
   }catch(e){}
 })();
+</script>
+<script>
+(function(){var ns=document.querySelector('.nav-search');if(!ns)return;var b=ns.querySelector('.ns-btn'),inp=ns.querySelector('input');if(!b||!inp)return;
+b.addEventListener('click',function(e){e.stopPropagation();var o=ns.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');if(o)inp.focus();});
+document.addEventListener('click',function(e){if(!ns.contains(e.target))ns.classList.remove('open');});
+inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remove('open');});})();
 </script>
 </body>
 </html>
