@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Katalog produktów — cały sprzęt DJ | The Loop</title>
-<meta name="description" content="Przeszukaj cały katalog sprzętu DJ The Loop — miksery, odtwarzacze, gramofony, kontrolery, nagłośnienie i multimedia w jednym miejscu.">
+<title>Stands — wynajem | The Loop</title>
+<meta name="description" content="Stands na wynajem — The Loop.">>
 <style>
 /* ============================================================
    THE LOOP — kopia strony głównej
@@ -1448,36 +1448,108 @@ body.menu-open .drawer{transform:translateX(0)}
 .footer-base-link{color:var(--text-dim);font-size:.9rem;letter-spacing:.02em;transition:color .2s}
 .footer-base-link:hover{color:#fff}
 
-.srch-wrap{position:relative;max-width:620px;margin:0 auto 1rem;display:flex;align-items:center}
-.srch-wrap>svg{position:absolute;left:1.3rem;width:19px;height:19px;color:var(--text-dim);pointer-events:none}
-.srch-wrap input{width:100%;height:58px;padding:0 1.4rem 0 3.3rem;background:var(--surface);border:1px solid var(--line);border-radius:100px;color:var(--text);font-family:inherit;font-size:1.05rem;transition:border-color .3s,box-shadow .3s}
-.srch-wrap input::placeholder{color:var(--text-dim)}
-.srch-wrap input:focus{outline:none;border-color:rgba(122,1,182,.6);box-shadow:0 0 0 4px rgba(122,1,182,.12)}
-.srch-wrap input::-webkit-search-cancel-button{-webkit-appearance:none}
-.srch-info{text-align:center;color:var(--text-dim);font-size:.85rem;margin:0 auto 2.75rem;min-height:1.1rem}
-.catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-@media(max-width:991px){.catalog{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.catalog{grid-template-columns:1fr}}
-.cat-block{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.5rem 1.4rem;transition:border-color .3s}
-.cat-block:hover{border-color:rgba(122,1,182,.4)}
-.cat-block-title{display:flex;align-items:center;gap:.7rem;font-size:.9rem;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#fff;margin:0 0 1rem}
-.cat-block-title .ci{color:var(--accent-a);flex:0 0 auto;display:inline-flex}
-.cat-block-title .ci svg{width:20px;height:20px}
-.cat-block-title a{color:#fff}.cat-block-title a:hover{color:var(--accent-a)}
-.cat-block-cnt{margin-left:auto;font-size:.7rem;color:var(--text-dim);background:var(--surface-2);border-radius:100px;padding:.18rem .6rem}
-.cat-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.15rem}
-.cat-list a{display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.55rem .7rem;border-radius:8px;color:var(--text);font-size:.88rem;transition:background .2s,color .2s,padding .2s}
-.cat-list a:hover{background:var(--surface-2);color:#fff}
-.cat-list .pn-arr{opacity:0;color:var(--accent-a);transform:translateX(-4px);transition:.2s}
-.cat-list a:hover .pn-arr{opacity:1;transform:translateX(0)}
-.cat-list li.hide{display:none}
-.cat-block.hide{display:none}
-.catalog-empty{text-align:center;color:var(--text-dim);margin:2rem 0;font-size:.95rem}
-
 main .crumbs{display:none}
 main h1{margin-bottom:1.5rem}
 @media(max-width:767px){main h1{margin-bottom:1.25rem}}
 .m-search{display:none}
+.xsell{margin-top:4.5rem}
+
+.xs-head{margin-bottom:2.5rem}
+
+.xs-head .sec-title{margin-bottom:.5rem}
+
+.xs-sub{color:var(--text-dim);font-size:.88rem;margin:0}
+
+.xs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+
+.xs-card{
+  display:flex;flex-direction:column;
+  background:var(--surface);border-radius:8px;padding:1.5rem;
+  transition:transform .4s ease, box-shadow .4s ease;
+  margin-top:56px;   /* miejsce na wystające zdjęcie */
+}
+
+.xs-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px -30px rgba(122,1,182,.55)}
+
+.xs-media{
+  height:150px;display:flex;align-items:center;justify-content:center;
+  margin:-56px 0 1.5rem;   /* zdjęcie wystaje ponad kafelek */
+}
+
+.xs-media img{max-width:100%;max-height:150px;object-fit:contain;border-radius:8px;transition:transform .4s ease}
+
+.xs-card:hover .xs-media img{transform:scale(1.05)}
+
+.xs-name{font-size:.95rem;font-weight:400;color:var(--white);margin:0 0 .45rem;letter-spacing:.5px}
+
+.xs-desc{font-size:.8rem;color:var(--text-dim);line-height:1.55;margin:0 0 1.25rem;flex:1 1 auto}
+
+.xs-actions{display:flex;gap:.6rem;margin-top:auto;align-items:stretch}
+
+.xs-txt{white-space:nowrap}
+
+.xs-add{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  flex:1 1 auto;
+  padding:.85rem 1rem;border:0;border-radius:100px;cursor:pointer;
+  font-family:inherit;font-size:.75rem;letter-spacing:.04em;
+  color:#fff;background:linear-gradient(101deg,var(--accent-a),var(--accent-b));
+  transition:filter .3s ease, box-shadow .3s ease;
+  box-shadow:0 14px 30px -18px rgba(122,1,182,.9);
+}
+
+.xs-add:hover{filter:brightness(1.12);box-shadow:0 18px 38px -16px rgba(122,1,182,1)}
+
+.xs-add .xs-ico{font-size:1rem;line-height:1;transition:transform .3s ease}
+
+.xs-add:hover .xs-ico{transform:rotate(90deg)}
+
+.xs-add.added{background:var(--surface-2);color:var(--text);box-shadow:none}
+
+.xs-add.added .xs-ico{transform:none}
+
+.xs-more{
+  display:inline-block;margin-top:2rem;font-size:.85rem;color:var(--text-dim);
+  transition:color .3s ease;
+}
+
+.xs-more:hover{color:var(--accent-a)}
+.shop{display:grid;grid-template-columns:260px 1fr;gap:2.25rem;align-items:start;margin-top:2rem}
+.shop-aside{position:sticky;top:calc(var(--nav-h) + 18px)}
+.shop-aside-inner{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:1.1rem}
+.shop-aside-title{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);margin:0 0 .8rem;font-weight:700}
+.shop-cats{list-style:none;display:flex;flex-direction:column;gap:.1rem;margin:0;padding:0}
+.shop-cats a{display:flex;align-items:center;gap:.7rem;padding:.6rem .8rem;border-radius:8px;color:var(--text);font-size:.86rem;cursor:pointer;border:1px solid transparent;transition:background .2s,color .2s}
+.shop-ico{flex:0 0 auto;display:inline-flex;opacity:.85}.shop-ico svg{width:18px;height:18px}.shop-name{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shop-cats a .cnt{font-size:.72rem;color:var(--text-dim);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.shop-cats a:hover{background:var(--surface-2);color:#fff}.shop-cats a:hover .cnt{color:var(--text)}
+.shop-cats a.active{background:var(--grad);color:#fff;font-weight:500}.shop-cats a.active .shop-ico{opacity:1}.shop-cats a.active .cnt{color:rgba(255,255,255,.82)}
+.shop-toggle{display:none}
+.brand-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.brand-tab{padding:.5rem 1rem;border-radius:100px;border:1px solid var(--line);background:transparent;color:var(--text);font-family:inherit;font-size:.82rem;cursor:pointer;transition:.25s;white-space:nowrap}
+.brand-tab .tab-cnt{color:var(--text-dim);font-size:.72rem;margin-left:.4rem}
+.brand-tab:hover{border-color:var(--accent-a);color:#fff}.brand-tab.active{background:var(--grad);border-color:transparent;color:#fff}.brand-tab.active .tab-cnt{color:rgba(255,255,255,.8)}
+.xs-ph{flex-direction:column;gap:.5rem;color:var(--text-dim)}.xs-ph svg{width:54px;height:54px;opacity:.4}.xs-ph span{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;opacity:.55}
+.xs-desc-empty{min-height:.5rem}
+.shop-main .xs-grid{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1100px){.shop-main .xs-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:767px){
+  .shop{grid-template-columns:1fr;gap:1.5rem;margin-top:1.6rem}
+  .shop-aside{position:static}.shop-aside-inner{padding:0;background:none;border:none}.shop-aside-title{display:none}
+  .shop-toggle{display:flex;align-items:center;justify-content:space-between;gap:.6rem;min-width:0;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:8px;color:#fff;font-family:inherit;font-size:.98rem;padding:.95rem 1.1rem;cursor:pointer}
+  .shop-toggle-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .shop-toggle .chev{transition:transform .3s ease;flex:0 0 auto;color:var(--text-dim)}
+  .shop-aside-inner.open .shop-toggle{border-color:var(--accent-a)}.shop-aside-inner.open .shop-toggle .chev{transform:rotate(180deg)}
+  .shop-cats{display:none;margin-top:.6rem;gap:.5rem}.shop-aside-inner.open .shop-cats{display:flex}
+  .shop-cats a{background:var(--surface);border:1px solid var(--line);padding:.9rem 1rem;font-size:.95rem}.shop-cats a.active{background:var(--grad);border-color:transparent}
+  .brand-tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:.4rem;margin-bottom:1.25rem}
+  .shop-main .xs-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .xs-card{padding:1rem .8rem}.xs-media{height:auto;min-height:96px;margin:.2rem 0 .8rem}.xs-media img{max-height:104px}
+  .xs-name{font-size:.84rem;letter-spacing:.3px}.xs-desc{font-size:.73rem;line-height:1.5;margin-bottom:.85rem}.xs-more-btn{padding:7px .85rem;font-size:.7rem}.xs-ph svg{width:40px;height:40px}.xs-ph span{font-size:.6rem}
+}
+@media(max-width:520px){.shop-main .xs-grid{grid-template-columns:repeat(2,1fr);gap:.7rem}}
+.xs-more-btn{display:inline-flex;align-items:center;gap:.5rem;margin-top:auto;text-decoration:none;padding:11px 1.35rem;border-radius:100px;border:1px solid var(--line);color:#d8d8d8;font-size:.85rem;font-weight:500;letter-spacing:.02em;text-transform:uppercase;transition:.35s}
+.xs-more-btn:hover{border-color:var(--accent-a);color:#fff}.xs-more-btn .xs-arr{transition:transform .3s ease}.xs-more-btn:hover .xs-arr{transform:translateX(4px)}
 </style>
 </head>
 <body>
@@ -1572,149 +1644,100 @@ main h1{margin-bottom:1.5rem}
   <!-- ============ NAGŁÓWEK STRONY ============ -->
   <section class="section">
     <div class="container pad page-head">
-      <p class="crumbs"><a href="index.html">Strona główna</a> / <span>Szukaj</span></p>
-      <h1 class="h2">Katalog produktów</h1>
-      <p>Pełny spis sprzętu dostępnego do wynajmu — wybierz kategorię lub produkt.</p>
+      <p class="crumbs"><a href="index.html">Strona główna</a> / <span>Oferta</span></p>
+      <h1 class="h2">Stands</h1>
+      <p>Stands dostępne w wynajmie. Filtruj po producencie, kliknij „Więcej" po szczegóły.</p>
     </div>
   </section>
 
   <!-- ============ KATEGORIE ============ -->
   <section class="section">
-    <div class="container pad">
-      <div class="catalog">
-        <div class="cat-block" data-cat="DJ Mixers">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="4" x2="6" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/><rect x="4" y="7" width="4" height="3" rx="1"/><rect x="10" y="12" width="4" height="3" rx="1"/><rect x="16" y="6" width="4" height="3" rx="1"/></svg></span><a href="oferta-dj-mixery.html">DJ Mixers</a><span class="cat-block-cnt">22</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-A9"><span class="pn-name">Pioneer DJM-A9</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-V10"><span class="pn-name">Pioneer DJM-V10</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-V10-LF"><span class="pn-name">Pioneer DJM-V10-LF</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-900 Nexus"><span class="pn-name">Pioneer DJM-900 Nexus</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-SRT"><span class="pn-name">Pioneer DJM-SRT</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-850"><span class="pn-name">Pioneer DJM-850</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-750MK2"><span class="pn-name">Pioneer DJM-750MK2</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-600"><span class="pn-name">Pioneer DJM-600</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-400"><span class="pn-name">Pioneer DJM-400</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="PlayDifferently MODEL1"><span class="pn-name">PlayDifferently MODEL1</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="produkt.html" data-name="Allen &amp; Heath Xone:96"><span class="pn-name">Allen &amp; Heath Xone:96</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Allen &amp; Heath Xone:92"><span class="pn-name">Allen &amp; Heath Xone:92</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="AlphaTheta Euphonia"><span class="pn-name">AlphaTheta Euphonia</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="E&amp;S DJR400FX"><span class="pn-name">E&amp;S DJR400FX</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Rane MP2015"><span class="pn-name">Rane MP2015</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Isonoe ISO420"><span class="pn-name">Isonoe ISO420</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-S7"><span class="pn-name">Pioneer DJM-S7</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-S9"><span class="pn-name">Pioneer DJM-S9</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-S11"><span class="pn-name">Pioneer DJM-S11</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Rane Seventy-Two"><span class="pn-name">Rane Seventy-Two</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Rane TTM57SL"><span class="pn-name">Rane TTM57SL</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-mixery.html" data-name="Vestax 05PRO"><span class="pn-name">Vestax 05PRO</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
+    <div class="container pad cat-section">
+            <div class="shop">
+      <aside class="shop-aside">
+        <div class="shop-aside-inner">
+          <button type="button" class="shop-toggle" aria-expanded="false" aria-controls="shopCats"><span class="shop-toggle-label">Stands</span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <h2 class="shop-aside-title">Kategorie</h2>
+          <ul class="shop-cats" id="shopCats">
+            <li><a href="oferta-dj-mixery.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="4" x2="6" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/><rect x="4" y="7" width="4" height="3" rx="1"/><rect x="10" y="12" width="4" height="3" rx="1"/><rect x="16" y="6" width="4" height="3" rx="1"/></svg></span><span class="shop-name">DJ Mixers</span><span class="cnt">22</span></a></li>
+            <li><a href="oferta-dj-players.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/></svg></span><span class="shop-name">DJ players | Router</span><span class="cnt">16</span></a></li>
+            <li><a href="oferta-turntables.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="14" r="6"/><circle cx="10" cy="14" r="1.3"/><path d="M20 5l-3.5 3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><span class="shop-name">Turntables</span><span class="cnt">8</span></a></li>
+            <li><a href="oferta-needles.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg></span><span class="shop-name">Needles | ABS</span><span class="cnt">13</span></a></li>
+            <li><a href="oferta-all-in-one.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2.2"/><rect x="13" y="10" width="5" height="4" rx="1"/></svg></span><span class="shop-name">All-in-one DJ systems</span><span class="cnt">4</span></a></li>
+            <li><a href="oferta-drum-fx.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><line x1="12" y1="12" x2="12" y2="5.5"/><line x1="4.8" y1="15" x2="6.2" y2="14.3"/><line x1="19.2" y1="15" x2="17.8" y2="14.3"/></svg></span><span class="shop-name">Drum/FX</span><span class="cnt">6</span></a></li>
+            <li><a href="oferta-synthesizers.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="1"/><line x1="7" y1="7" x2="7" y2="13"/><line x1="11" y1="7" x2="11" y2="13"/><line x1="15" y1="7" x2="15" y2="13"/></svg></span><span class="shop-name">Synthesizers</span><span class="cnt">3</span></a></li>
+            <li><a href="oferta-pa-live.html"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="5" x2="5" y2="19"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="19" y1="5" x2="19" y2="19"/><circle cx="5" cy="10" r="1.6"/><circle cx="12" cy="15" r="1.6"/><circle cx="19" cy="9" r="1.6"/></svg></span><span class="shop-name">PA/Live Mixers</span><span class="cnt">5</span></a></li>
+            <li><a href="oferta-stands.html" class="active" aria-current="page"><span class="shop-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg></span><span class="shop-name">Stands</span><span class="cnt">9</span></a></li>
           </ul>
         </div>
-        <div class="cat-block" data-cat="DJ players | Router">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2"/></svg></span><a href="oferta-dj-players.html">DJ players | Router</a><span class="cat-block-cnt">16</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-dj-players.html" data-name="AlphaTheta CDJ-3000X"><span class="pn-name">AlphaTheta CDJ-3000X</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pioneer CDJ-3000"><span class="pn-name">Pioneer CDJ-3000</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Denon SC6000 Prime"><span class="pn-name">Denon SC6000 Prime</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pioneer CDJ-2000NXS2"><span class="pn-name">Pioneer CDJ-2000NXS2</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pioneer CDJ-2000NXS"><span class="pn-name">Pioneer CDJ-2000NXS</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pioneer CDJ-2000"><span class="pn-name">Pioneer CDJ-2000</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pioneer XDJ-1000Mk2"><span class="pn-name">Pioneer XDJ-1000Mk2</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pioneer CDJ-900NXS"><span class="pn-name">Pioneer CDJ-900NXS</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pioneer CDJ-850k"><span class="pn-name">Pioneer CDJ-850k</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Netgear GS108T v3"><span class="pn-name">Netgear GS108T v3</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="D-Link DGS-108GL"><span class="pn-name">D-Link DGS-108GL</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="D-Link DGS-108"><span class="pn-name">D-Link DGS-108</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="D-Link DES-108"><span class="pn-name">D-Link DES-108</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="D-Link DES-105"><span class="pn-name">D-Link DES-105</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="TP-Link TL-SG105"><span class="pn-name">TP-Link TL-SG105</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-dj-players.html" data-name="Pentagram NEST5p P6201"><span class="pn-name">Pentagram NEST5p P6201</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+      </aside>
+        <div class="shop-main">
+          <div class="brand-tabs" role="tablist">
+            <button class="brand-tab active" data-brand="all">Wszystkie<span class="tab-cnt">9</span></button>
+            <button class="brand-tab" data-brand="inne">Inne<span class="tab-cnt">3</span></button>
+            <button class="brand-tab" data-brand="zomo">Zomo<span class="tab-cnt">3</span></button>
+            <button class="brand-tab" data-brand="pioneer">Pioneer<span class="tab-cnt">2</span></button>
+            <button class="brand-tab" data-brand="udg">UDG<span class="tab-cnt">1</span></button>
+          </div>
+      <div class="xs-grid">
+        <div class="xs-card" data-brand="inne">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">Laptop Stands</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="cat-block" data-cat="Turntables">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="14" r="6"/><circle cx="10" cy="14" r="1.3"/><path d="M20 5l-3.5 3.5"/><circle cx="17.5" cy="6.5" r="1"/></svg></span><a href="oferta-turntables.html">Turntables</a><span class="cat-block-cnt">8</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-turntables.html" data-name="Technics SL-1200MK2"><span class="pn-name">Technics SL-1200MK2</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-turntables.html" data-name="Technics SL-1210MK2"><span class="pn-name">Technics SL-1210MK2</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-turntables.html" data-name="Technics SL-1200MK5"><span class="pn-name">Technics SL-1200MK5</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-turntables.html" data-name="Technics SL-1210MK5"><span class="pn-name">Technics SL-1210MK5</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-turntables.html" data-name="Technics SL-1210M5G"><span class="pn-name">Technics SL-1210M5G</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-turntables.html" data-name="Technics SL-1210MK7"><span class="pn-name">Technics SL-1210MK7</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-turntables.html" data-name="Pioneer PLX-1000"><span class="pn-name">Pioneer PLX-1000</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-turntables.html" data-name="Pioneer PLX-CRSS12"><span class="pn-name">Pioneer PLX-CRSS12</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+        <div class="xs-card" data-brand="pioneer">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">Pioneer RMX-1000 Stands</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="cat-block" data-cat="Needles | ABS">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg></span><a href="oferta-needles.html">Needles | ABS</a><span class="cat-block-cnt">13</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-needles.html" data-name="Shure M44-7 SET"><span class="pn-name">Shure M44-7 SET</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Shure Whitelabel SET"><span class="pn-name">Shure Whitelabel SET</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Ortofon Concorde Scratch MKII"><span class="pn-name">Ortofon Concorde Scratch MKII</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Ortofon Concorde Club MKII"><span class="pn-name">Ortofon Concorde Club MKII</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Ortofon Concorde DJ S MKII"><span class="pn-name">Ortofon Concorde DJ S MKII</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Ortofon Concorde DJ S"><span class="pn-name">Ortofon Concorde DJ S</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Ortofon Concorde PRO S"><span class="pn-name">Ortofon Concorde PRO S</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Reloop OM BK"><span class="pn-name">Reloop OM BK</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Luke Absorber"><span class="pn-name">Luke Absorber</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Marble Block"><span class="pn-name">Marble Block</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Squash Ball"><span class="pn-name">Squash Ball</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Isonoe Feet"><span class="pn-name">Isonoe Feet</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-needles.html" data-name="Isonoe Boots"><span class="pn-name">Isonoe Boots</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+        <div class="xs-card" data-brand="inne">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">RMX-1000 Stands</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="cat-block" data-cat="All-in-one DJ systems">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2.2"/><rect x="13" y="10" width="5" height="4" rx="1"/></svg></span><a href="oferta-all-in-one.html">All-in-one DJ systems</a><span class="cat-block-cnt">4</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-all-in-one.html" data-name="AlphaTheta XDJ-AZ"><span class="pn-name">AlphaTheta XDJ-AZ</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-all-in-one.html" data-name="AlphaTheta OMNIS-DUO"><span class="pn-name">AlphaTheta OMNIS-DUO</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-all-in-one.html" data-name="Pioneer OPUS-QUAD"><span class="pn-name">Pioneer OPUS-QUAD</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-all-in-one.html" data-name="Pioneer XDJ-RX3"><span class="pn-name">Pioneer XDJ-RX3</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+        <div class="xs-card" data-brand="pioneer">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">Pioneer DJC-STS1</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="cat-block" data-cat="Drum/FX">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><line x1="12" y1="12" x2="12" y2="5.5"/></svg></span><a href="oferta-drum-fx.html">Drum/FX</a><span class="cat-block-cnt">6</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-drum-fx.html" data-name="Pioneer DJS-1000"><span class="pn-name">Pioneer DJS-1000</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-drum-fx.html" data-name="AlphaTheta RMX-IGNITE"><span class="pn-name">AlphaTheta RMX-IGNITE</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-drum-fx.html" data-name="Pioneer RMX-1000"><span class="pn-name">Pioneer RMX-1000</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-drum-fx.html" data-name="TEIL3 B&amp;"><span class="pn-name">TEIL3 B&amp;</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-drum-fx.html" data-name="Roland SPD-SX"><span class="pn-name">Roland SPD-SX</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-drum-fx.html" data-name="Roland TR-909"><span class="pn-name">Roland TR-909</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+        <div class="xs-card" data-brand="udg">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">UDG Creator Stand</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="cat-block" data-cat="Synthesizers">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="1"/><line x1="7" y1="7" x2="7" y2="13"/><line x1="11" y1="7" x2="11" y2="13"/><line x1="15" y1="7" x2="15" y2="13"/></svg></span><a href="oferta-synthesizers.html">Synthesizers</a><span class="cat-block-cnt">3</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-synthesizers.html" data-name="Moog Sub37"><span class="pn-name">Moog Sub37</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-synthesizers.html" data-name="Clavia Nord Lead 2"><span class="pn-name">Clavia Nord Lead 2</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-synthesizers.html" data-name="Roland SH-101"><span class="pn-name">Roland SH-101</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+        <div class="xs-card" data-brand="zomo">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">Zomo Pro Stand CDJ</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="cat-block" data-cat="PA/Live Mixers">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="5" x2="5" y2="19"/><line x1="12" y1="5" x2="12" y2="19"/><line x1="19" y1="5" x2="19" y2="19"/><circle cx="5" cy="10" r="1.6"/><circle cx="12" cy="15" r="1.6"/><circle cx="19" cy="9" r="1.6"/></svg></span><a href="oferta-pa-live.html">PA/Live Mixers</a><span class="cat-block-cnt">5</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-pa-live.html" data-name="Allen &amp; Heath GL2400"><span class="pn-name">Allen &amp; Heath GL2400</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-pa-live.html" data-name="Allen &amp; Heath ZED-10FX"><span class="pn-name">Allen &amp; Heath ZED-10FX</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-pa-live.html" data-name="Allen &amp; Heath ZED-12FX"><span class="pn-name">Allen &amp; Heath ZED-12FX</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-pa-live.html" data-name="Mackie 1402VLZ4"><span class="pn-name">Mackie 1402VLZ4</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-pa-live.html" data-name="Midas M32"><span class="pn-name">Midas M32</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+        <div class="xs-card" data-brand="zomo">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">Zomo Pro Stand 2XNXS2</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="cat-block" data-cat="Stands">
-          <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg></span><a href="oferta-stands.html">Stands</a><span class="cat-block-cnt">9</span></h3>
-          <ul class="cat-list">
-            <li><a href="oferta-stands.html" data-name="Laptop Stands"><span class="pn-name">Laptop Stands</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="Pioneer RMX-1000 Stands"><span class="pn-name">Pioneer RMX-1000 Stands</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="RMX-1000 Stands"><span class="pn-name">RMX-1000 Stands</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="Pioneer DJC-STS1"><span class="pn-name">Pioneer DJC-STS1</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="UDG Creator Stand"><span class="pn-name">UDG Creator Stand</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="Zomo Pro Stand CDJ"><span class="pn-name">Zomo Pro Stand CDJ</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="Zomo Pro Stand 2XNXS2"><span class="pn-name">Zomo Pro Stand 2XNXS2</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="Zomo Pro Stand 2CDJ-3000"><span class="pn-name">Zomo Pro Stand 2CDJ-3000</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-            <li><a href="oferta-stands.html" data-name="Keyboard Double Stand"><span class="pn-name">Keyboard Double Stand</span><span class="pn-arr" aria-hidden="true">→</span></a></li>
-          </ul>
+        <div class="xs-card" data-brand="zomo">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">Zomo Pro Stand 2CDJ-3000</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+        </div>
+        <div class="xs-card" data-brand="inne">
+          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v10"/><path d="M12 13 6 21"/><path d="M12 13l6 8"/><circle cx="12" cy="3.5" r="1.6"/></svg><span>zdjęcie wkrótce</span></div>
+          <h3 class="xs-name">Keyboard Double Stand</h3>
+          <p class="xs-desc xs-desc-empty"></p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
       </div>
-      <div class="catalog-empty" id="catEmpty" style="display:none">Brak wyników — napisz do nas, sprowadzimy sprzęt.</div>
+        </div>
+      </div>
+    
     </div>
   </section>
 
@@ -1952,21 +1975,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 (function(){var f=document.getElementById('footSearch');if(!f)return;f.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();var q=f.value.trim();location.href='szukaj.html'+(q?('?q='+encodeURIComponent(q)):'');}});})();
 </script>
 <script>
-(function(){
-  var inp=document.getElementById('pageSearch'),info=document.getElementById('srchInfo'),empty=document.getElementById('catEmpty');
-  if(!inp)return;
-  var items=[].slice.call(document.querySelectorAll('.cat-list li')),blocks=[].slice.call(document.querySelectorAll('.cat-block'));
-  function norm(s){return s.toLowerCase().replace(/[^a-z0-9ąćęłńóśźż ]/gi,'');}
-  function run(q){var v=norm(q).trim(),shown=0;
-    items.forEach(function(li){var a=li.querySelector('a');var m=!v||norm(a.getAttribute('data-name')).indexOf(v)>-1||norm(li.closest('.cat-block').getAttribute('data-cat')).indexOf(v)>-1;li.classList.toggle('hide',!m);if(m)shown++;});
-    blocks.forEach(function(b){b.classList.toggle('hide',b.querySelectorAll('.cat-list li:not(.hide)').length===0);});
-    empty.style.display=shown?'none':'block';info.textContent=v?(shown+' pozycji dla „'+q.trim()+'”'):'';}
-  var qs=new URLSearchParams(location.search).get('q');
-  if(qs){inp.value=qs;run(qs);} inp.addEventListener('input',function(){run(inp.value);});
-})();
-</script>
-<script>
-(function(){var f=document.getElementById('footSearch');if(!f)return;f.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();var q=f.value.trim();location.href='szukaj.html'+(q?('?q='+encodeURIComponent(q)):'');}});})();
+(function(){var t=document.querySelector(".shop-toggle");if(t)t.addEventListener("click",function(){var i=t.closest(".shop-aside-inner");var o=i.classList.toggle("open");t.setAttribute("aria-expanded",o?"true":"false");});var tb=[].slice.call(document.querySelectorAll(".brand-tab")),cd=[].slice.call(document.querySelectorAll(".shop-main .xs-card"));tb.forEach(function(x){x.addEventListener("click",function(){tb.forEach(function(y){y.classList.remove("active");});x.classList.add("active");var b=x.getAttribute("data-brand");cd.forEach(function(c){c.style.display=(b==="all"||c.getAttribute("data-brand")===b)?"":"none";});});});})();
 </script>
 </body>
 </html>
