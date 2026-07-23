@@ -685,7 +685,7 @@ main .container.pad-lg{padding-block:2rem}
     radial-gradient(40% 60% at 20% 50%, rgba(122,1,182,.55), transparent 60%),
     radial-gradient(40% 60% at 60% 50%, rgba(78,33,194,.5), transparent 60%);
   mix-blend-mode:screen;
-  animation:logoSweep 6s ease-in-out infinite;
+  animation:none; /* błysk logo wyłączony */
 }
 @keyframes logoSweep{
   0%   {transform:translateX(-35%)}
@@ -1825,13 +1825,7 @@ main .page-head p:not(.crumbs){
    ANIMACJA STOPKI — kulka odbijająca się od krawędzi
    ========================================================= */
 .footer{position:relative;overflow:hidden}
-.footer::before{
-  content:"";position:absolute;top:20px;left:24px;
-  width:14px;height:14px;border-radius:100px;pointer-events:none;z-index:0;
-  background:linear-gradient(101deg,var(--accent-a),var(--accent-b));
-  box-shadow:0 0 24px 6px rgba(122,1,182,.5);
-  opacity:.7;
-}
+.footer::before{content:none} /* kulka usunięta */
 .footer > *{position:relative;z-index:1}
 @keyframes footerBallX{
   0%{left:0}
