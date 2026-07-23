@@ -2141,15 +2141,15 @@ body.menu-open .drawer{transform:translateX(0)}
 .nav-search.open input{width:200px;opacity:1;padding:0 .9rem;border-color:var(--line);pointer-events:auto;margin-left:.4rem}
 .nav-search.open input:focus{width:200px;border-color:rgba(122,1,182,.6)}
 
-/* link do bazy produktów w stopce */
-.footer-search{max-width:560px;margin:0 auto 2.75rem}
-.footer-base-link{display:flex;align-items:center;gap:.85rem;justify-content:center;padding:1rem 1.6rem;background:var(--surface);border:1px solid var(--line);border-radius:100px;color:var(--text);font-size:.95rem;text-align:center;transition:border-color .3s,color .3s}
-.footer-base-link:hover{border-color:var(--accent-a);color:#fff}
-.footer-base-link>svg{width:18px;height:18px;color:var(--text-dim);flex:0 0 auto}
-.footer-base-link:hover>svg{color:var(--accent-a)}
-.footer-base-link .fbl-arr{color:var(--accent-a);flex:0 0 auto;transition:transform .3s}
-.footer-base-link:hover .fbl-arr{transform:translateX(4px)}
-@media(max-width:600px){.footer-base-link{flex-wrap:wrap;font-size:.88rem;padding:.85rem 1.2rem}}
+/* link do bazy produktów w stopce (nazwa podstrony) */
+.footer-search{text-align:center;margin:0 auto 2.25rem}
+.footer-base-link{color:var(--text-dim);font-size:.9rem;letter-spacing:.02em;transition:color .2s}
+.footer-base-link:hover{color:#fff}
+
+main .crumbs{display:none}
+main h1{margin-bottom:1.5rem}
+@media(max-width:767px){main h1{margin-bottom:1.25rem}}
+.m-search{display:none}
 </style>
 </head>
 <body>
@@ -2340,12 +2340,8 @@ body.menu-open .drawer{transform:translateX(0)}
 <!-- ============ FOOTER ============ -->
 <footer class="section footer">
   <div class="container pad">
-        <div class="footer-search">
-      <a href="szukaj.html" class="footer-base-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <span>Szukasz konkretnego sprzętu? Przejdź do bazy produktów</span>
-        <span class="fbl-arr" aria-hidden="true">→</span>
-      </a>
+            <div class="footer-search">
+      <a href="szukaj.html" class="footer-base-link">Baza produktów</a>
     </div>
     <div class="footer-mod">
       <div class="footer-left" style="display:none">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Szukaj w katalogu sprzętu DJ | The Loop</title>
+<title>Katalog produktów — cały sprzęt DJ | The Loop</title>
 <meta name="description" content="Przeszukaj cały katalog sprzętu DJ The Loop — miksery, odtwarzacze, gramofony, kontrolery, nagłośnienie i multimedia w jednym miejscu.">
 <style>
 /* ============================================================
@@ -1443,15 +1443,10 @@ body.menu-open .drawer{transform:translateX(0)}
 .nav-search.open input{width:200px;opacity:1;padding:0 .9rem;border-color:var(--line);pointer-events:auto;margin-left:.4rem}
 .nav-search.open input:focus{width:200px;border-color:rgba(122,1,182,.6)}
 
-/* link do bazy produktów w stopce */
-.footer-search{max-width:560px;margin:0 auto 2.75rem}
-.footer-base-link{display:flex;align-items:center;gap:.85rem;justify-content:center;padding:1rem 1.6rem;background:var(--surface);border:1px solid var(--line);border-radius:100px;color:var(--text);font-size:.95rem;text-align:center;transition:border-color .3s,color .3s}
-.footer-base-link:hover{border-color:var(--accent-a);color:#fff}
-.footer-base-link>svg{width:18px;height:18px;color:var(--text-dim);flex:0 0 auto}
-.footer-base-link:hover>svg{color:var(--accent-a)}
-.footer-base-link .fbl-arr{color:var(--accent-a);flex:0 0 auto;transition:transform .3s}
-.footer-base-link:hover .fbl-arr{transform:translateX(4px)}
-@media(max-width:600px){.footer-base-link{flex-wrap:wrap;font-size:.88rem;padding:.85rem 1.2rem}}
+/* link do bazy produktów w stopce (nazwa podstrony) */
+.footer-search{text-align:center;margin:0 auto 2.25rem}
+.footer-base-link{color:var(--text-dim);font-size:.9rem;letter-spacing:.02em;transition:color .2s}
+.footer-base-link:hover{color:#fff}
 
 .srch-wrap{position:relative;max-width:620px;margin:0 auto 1rem;display:flex;align-items:center}
 .srch-wrap>svg{position:absolute;left:1.3rem;width:19px;height:19px;color:var(--text-dim);pointer-events:none}
@@ -1478,6 +1473,11 @@ body.menu-open .drawer{transform:translateX(0)}
 .cat-list li.hide{display:none}
 .cat-block.hide{display:none}
 .catalog-empty{text-align:center;color:var(--text-dim);margin:2rem 0;font-size:.95rem}
+
+main .crumbs{display:none}
+main h1{margin-bottom:1.5rem}
+@media(max-width:767px){main h1{margin-bottom:1.25rem}}
+.m-search{display:none}
 </style>
 </head>
 <body>
@@ -1573,19 +1573,14 @@ body.menu-open .drawer{transform:translateX(0)}
   <section class="section">
     <div class="container pad page-head">
       <p class="crumbs"><a href="index.html">Strona główna</a> / <span>Szukaj</span></p>
-      <h1 class="h2">Szukaj w katalogu</h1>
-      <p>Cały bank sprzętu w jednym miejscu — wpisz nazwę lub kategorię, a lista natychmiast się zawęzi.</p>
+      <h1 class="h2">Katalog produktów</h1>
+      <p>Pełny spis sprzętu dostępnego do wynajmu — wybierz kategorię lub produkt.</p>
     </div>
   </section>
 
   <!-- ============ KATEGORIE ============ -->
   <section class="section">
     <div class="container pad">
-      <div class="srch-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <input type="search" id="pageSearch" placeholder="Szukaj sprzętu w katalogu…" autocomplete="off" aria-label="Szukaj w katalogu">
-      </div>
-      <p class="srch-info" id="srchInfo"></p>
       <div class="catalog">
         <div class="cat-block" data-cat="DJ Mixery">
           <h3 class="cat-block-title"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="4" x2="6" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="18" y1="4" x2="18" y2="20"/><rect x="4" y="7" width="4" height="3" rx="1"/><rect x="10" y="12" width="4" height="3" rx="1"/><rect x="16" y="6" width="4" height="3" rx="1"/></svg></span><a href="oferta-dj-mixery.html">DJ Mixery</a><span class="cat-block-cnt">22</span></h3>
@@ -1673,12 +1668,8 @@ body.menu-open .drawer{transform:translateX(0)}
 <!-- ============ FOOTER ============ -->
 <footer class="section footer">
   <div class="container pad">
-        <div class="footer-search">
-      <a href="szukaj.html" class="footer-base-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <span>Szukasz konkretnego sprzętu? Przejdź do bazy produktów</span>
-        <span class="fbl-arr" aria-hidden="true">→</span>
-      </a>
+            <div class="footer-search">
+      <a href="szukaj.html" class="footer-base-link">Baza produktów</a>
     </div>
     <div class="footer-mod">
       <div class="footer-left" style="display:none">
