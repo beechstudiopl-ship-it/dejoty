@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kontakt — wynajem sprzętu DJ | The Loop</title>
-<meta name="description" content="Skontaktuj się z The Loop — wypożyczalnia sprzętu DJ z Trójmiasta. Telefon 690 414 092, kontakt@theloop.pl. Wycena w 24 h, dowóz na terenie całej Polski.">
+<title>Szukaj w katalogu — cały sprzęt i mapa strony | The Loop</title>
+<meta name="description" content="Przeszukaj cały katalog sprzętu DJ The Loop — miksery, odtwarzacze, gramofony, kontrolery, nagłośnienie i multimedia. Mapa strony i wszystkie podstrony w jednym miejscu.">
 <style>
 /* ============================================================
    THE LOOP — kopia strony głównej
@@ -1137,610 +1137,6 @@ border-radius:8px;}
 
   .cat-grid-4 .cat-img{height:210px;margin-top:-56px}
 
-
-/* =========================================================
-   KARTA PRODUKTU
-   ========================================================= */
-.crumbs a{color:var(--text-dim);transition:color .3s ease}
-
-
-/* wyraźny powrót */
-.back-link{
-  display:inline-flex;align-items:center;gap:.6rem;
-  margin:1.5rem 0 0;padding:.7rem 1.25rem;
-  border:1px solid var(--line);border-radius:100px;
-  font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--text);background:var(--surface);
-  transition:border-color .3s ease,color .3s ease,transform .3s ease;
-}
-
-.back-link:hover{border-color:rgba(122,1,182,.6);color:#fff;transform:translateX(-4px)}
-
-.back-link .arr{font-size:1rem;line-height:1}
-
-
-/* układ: zdjęcie + informacje */
-.prod-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
-  align-items:start;margin-top:3rem;
-}
-
-.prod-media{
-  background:var(--surface);border-radius:8px;
-  padding:3rem;display:flex;align-items:center;justify-content:center;
-  min-height:420px;
-}
-
-.prod-media img{width:100%;max-width:420px;height:auto;object-fit:contain;display:block}
-
-
-.prod-lead{color:var(--text);line-height:1.75;margin:0 0 1.75rem}
-
-
-.prod-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
-
-.tag{
-  font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
-  padding:.45rem .85rem;border-radius:100px;
-  background:var(--surface-2);border:1px solid var(--line);color:var(--text-dim);
-}
-
-
-.prod-cta{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-bottom:1.5rem}
-
-.prod-cta .btn-add{width:100%;justify-content:center;font-size:.9rem;padding:1.15rem 2rem}
-
-
-/* korzyści — czytelna lista zamiast drobnego tekstu */
-.prod-note{
-  list-style:none;margin:0;padding:1.25rem 1.5rem;
-  background:var(--surface-2);border:1px solid var(--line);border-radius:8px;
-  display:flex;flex-direction:column;gap:.85rem;
-}
-
-.prod-note li{
-  display:flex;align-items:center;gap:.85rem;
-  font-size:.85rem;color:var(--text);line-height:1.5;padding:0;border:0;
-}
-
-.prod-note li::before{display:none}
-
-.prod-note svg{width:19px;height:19px;flex:0 0 auto;color:var(--accent-a)}
-
-.prod-note strong{color:#fff;font-weight:400}
-
-.note-tel{
-  color:#fff;white-space:nowrap;
-  border-bottom:1px solid rgba(122,1,182,.6);
-  transition:border-color .3s ease,color .3s ease;
-}
-
-.note-tel:hover{color:var(--accent-a);border-bottom-color:var(--accent-a)}
-
-
-/* sekcja: kluczowe cechy */
-.feat-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
-
-.feat-list li{
-  display:flex;gap:.9rem;padding:.5rem 0;
-  font-size:.9rem;color:var(--text);line-height:1.65;
-}
-
-.feat-list li::before{content:"—";color:var(--accent-a);flex:0 0 auto}
-
-
-/* specyfikacja — tabela */
-.spec-wrap{margin-top:1.5rem}
-
-.spec-table{width:100%;border-collapse:collapse;font-size:.88rem}
-
-.spec-table tr{border-bottom:1px solid var(--line)}
-
-.spec-table tr:last-child{border-bottom:0}
-
-.spec-table th{
-  text-align:left;padding:.9rem 1.5rem .9rem 0;font-weight:400;
-  color:var(--text-dim);width:42%;vertical-align:top;
-  font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
-}
-
-.spec-table td{padding:.9rem 0;color:var(--text);vertical-align:top;line-height:1.6}
-
-
-.sec-title{
-  font-size:1.6rem;letter-spacing:2px;text-transform:uppercase;
-  color:var(--white);font-weight:400;margin:0 0 1.5rem;line-height:1.2;
-}
-
-.prod-section{margin-top:4.5rem}
-
-.prod-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-
-
-/* powrót na dole */
-.back-bottom{
-  margin-top:5rem;padding-top:3rem;border-top:1px solid var(--line);
-  display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;justify-content:space-between;
-}
-
-.back-bottom p{color:var(--text-dim);font-size:.85rem;margin:0}
-
-
-/* przycisk dodania do zamówienia */
-.btn-add{
-  display:inline-flex;align-items:center;gap:.7rem;
-  border:0;cursor:pointer;font-family:inherit;
-  padding:1rem 2rem;font-size:.85rem;
-  box-shadow:0 18px 40px -22px rgba(122,1,182,.9);
-}
-
-.btn-add:hover{box-shadow:0 22px 50px -20px rgba(122,1,182,1)}
-
-.btn-add .add-ico{
-  font-size:1.15rem;line-height:1;font-weight:400;
-  transition:transform .3s ease;
-}
-
-.btn-add:hover .add-ico{transform:rotate(90deg)}
-
-.btn-add.added{background:var(--surface);color:var(--text);box-shadow:none}
-
-.btn-add.added .add-ico{transform:none}
-
-
-
-
-
-/* akordeon: cechy + specyfikacja */
-.acc-wrap{margin-top:3.5rem}
-
-.acc:last-child{border-bottom:1px solid var(--line)}
-
-.acc-label{font-size:inherit;font-weight:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;margin:0}
-
-.acc-btn{
-  width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  background:none;border:0;cursor:pointer;font-family:inherit;
-  padding:1.4rem 0;text-align:left;color:var(--heading);
-  font-size:1.15rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:400;
-  transition:color .3s ease;
-}
-
-.acc-btn:hover{color:#fff}
-
-.acc[data-open="true"] .acc-panel{
-  overflow:hidden;max-height:0;
-  transition:max-height .4s ease, opacity .3s ease, padding .3s ease;
-  opacity:0;
-}
-
-.acc[data-open="true"] .acc-panel{opacity:1;padding-bottom:1.75rem}
-
-.feat-2col{display:grid;grid-template-columns:repeat(2,1fr);column-gap:3rem;row-gap:0}
-
-
-
-/* =========================================================
-   PANEL ZAMÓWIENIA
-   ========================================================= */
-.nav-cta{
-  border:1px solid var(--line);cursor:pointer;font-family:inherit;position:relative;
-  background:var(--surface);color:var(--text);
-  font-size:.78rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
-  padding:.7rem 1.25rem;border-radius:100px;box-shadow:none;
-  transition:border-color .3s ease,color .3s ease;
-}
-
-
-.cart-overlay{
-  position:fixed;inset:0;z-index:180;background:rgba(8,9,12,.72);
-  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;
-}
-
-body.cart-open .cart-overlay{opacity:1;visibility:visible}
-
-
-.cart-panel{
-  position:fixed;top:0;right:0;bottom:0;width:420px;max-width:92vw;z-index:190;
-  background:var(--surface-2);border-left:1px solid var(--line);
-  display:flex;flex-direction:column;
-  transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);
-}
-
-body.cart-open .cart-panel{transform:translateX(0)}
-
-
-.cart-head{
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  padding:1.75rem 1.75rem 1.25rem;border-bottom:1px solid var(--line);flex:0 0 auto;
-}
-
-.cart-head h2{
-  font-size:1.15rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--white);margin:0;
-}
-
-.cart-close{
-  background:none;border:0;color:var(--text-dim);font-size:1.9rem;line-height:1;
-  cursor:pointer;padding:0 .25rem;transition:color .3s ease;
-}
-
-.cart-close:hover{color:#fff}
-
-
-.cart-body{flex:1 1 auto;overflow-y:auto;padding:1.25rem 1.75rem}
-
-.cart-empty{color:var(--text-dim);font-size:.88rem;line-height:1.7;margin:1rem 0}
-
-.cart-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem}
-
-.cart-list li{
-  display:grid;grid-template-columns:56px 1fr auto;gap:.9rem;align-items:center;
-  padding:.85rem;border-radius:8px;background:var(--surface);
-  border:1px solid var(--line);
-}
-
-.cart-list li::before{display:none}
-
-.ci-img{
-  width:56px;height:48px;object-fit:contain;
-  background:var(--surface-2);border-radius:8px;padding:3px;
-}
-
-.ci-info{min-width:0}
-
-.ci-name{
-  font-size:.85rem;color:var(--text);margin:0 0 .15rem;line-height:1.35;
-  overflow:hidden;text-overflow:ellipsis;
-}
-
-.ci-kind{font-size:.7rem;color:var(--text-dim);letter-spacing:.06em;text-transform:uppercase}
-
-.ci-side{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem}
-
-.qty{display:flex;align-items:center;gap:.15rem;background:var(--surface-2);border-radius:100px;padding:2px}
-
-.qty button{
-  width:26px;height:26px;border:0;border-radius:100px;cursor:pointer;
-  background:none;color:var(--text);font-size:1rem;line-height:1;font-family:inherit;
-  display:inline-flex;align-items:center;justify-content:center;
-  transition:background .25s ease,color .25s ease;
-}
-
-.qty button:hover{background:var(--accent-a);color:#fff}
-
-.qty-val{min-width:22px;text-align:center;font-size:.85rem;color:var(--text)}
-
-.ci-del{
-  background:none;border:0;cursor:pointer;padding:2px;
-  color:var(--text-dim);transition:color .3s ease;font-family:inherit;font-size:.72rem;
-}
-
-.ci-del:hover{color:#e05a5a}
-
-
-.cart-foot{
-  flex:0 0 auto;padding:1.5rem 1.75rem;border-top:1px solid var(--line);
-  background:var(--surface-2);
-}
-
-.cart-sum{
-  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
-  margin:0 0 1rem;font-size:.85rem;color:var(--text-dim);
-}
-
-.cart-sum strong{font-size:1.35rem;font-weight:300;color:#fff}
-
-.cart-send{width:100%;justify-content:center;padding:1rem}
-
-.cart-note{font-size:.75rem;color:var(--text-dim);line-height:1.6;margin:.85rem 0 0;text-align:center}
-
-
-/* formularz */
-.cart-form,.cart-done{
-  position:absolute;inset:0;z-index:2;background:var(--surface-2);
-  padding:1.75rem;overflow-y:auto;
-  transform:translateX(100%);transition:transform .35s ease;
-  display:flex;flex-direction:column;gap:1.15rem;
-}
-
-.cart-panel.show-form .cart-form,.cart-panel.show-done .cart-done{transform:translateX(0)}
-
-.form-back{
-  background:none;border:0;color:var(--text-dim);cursor:pointer;font-family:inherit;
-  font-size:.8rem;padding:0;text-align:left;align-self:flex-start;transition:color .3s ease;
-}
-
-.form-back:hover{color:var(--accent-a)}
-
-.cart-form h3,.cart-done h3{
-  font-size:1.1rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--white);margin:.25rem 0 .5rem;
-}
-
-.cart-form label{
-  display:block;
-  font-size:.75rem;color:var(--text-dim);letter-spacing:.06em;
-  text-transform:uppercase;line-height:1.4;
-}
-
-.cart-form label span{color:var(--accent-a)}
-
-.cart-form input,.cart-form textarea{
-  display:block;width:100%;box-sizing:border-box;margin-top:.45rem;
-  height:44px;                       /* jednakowa wysokość wszystkich pól */
-  background:var(--surface);border:1px solid var(--line);border-radius:8px;
-  padding:0 .9rem;color:var(--text);font-family:inherit;font-size:.88rem;
-  line-height:normal;
-  transition:border-color .3s ease;
-}
-
-.cart-form input:focus,.cart-form textarea:focus{outline:none;border-color:rgba(122,1,182,.7)}
-
-.cart-form input::placeholder,.cart-form textarea::placeholder{color:var(--text-dim);opacity:.7}
-
-.cart-form textarea{height:auto;min-height:84px;padding:.7rem .9rem;resize:vertical;line-height:1.6}
-
-/* pola daty — Safari/iOS potrafi je rozjeżdżać */
-.cart-form input[type="date"]{
-  -webkit-appearance:none;appearance:none;
-  color-scheme:dark;
-}
-
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;align-items:start}
-
-/* checkboxy */
-.form-checks{display:flex;flex-direction:column;gap:.75rem}
-
-.cart-form .check{
-  display:flex;align-items:flex-start;gap:.7rem;cursor:pointer;
-  font-size:.82rem;color:var(--text);letter-spacing:0;
-  text-transform:none;line-height:1.45;
-}
-
-.check input{
-  position:absolute;opacity:0;width:0;height:0;margin:0;
-}
-
-.check-box{
-  display:block;width:18px;height:18px;flex:0 0 auto;margin-top:1px;
-  border:1px solid var(--line);border-radius:8px;background:var(--surface);
-  position:relative;transition:border-color .25s ease,background .25s ease;
-}
-
-.check-box::after{
-  content:"";position:absolute;left:5px;top:1px;
-  width:5px;height:10px;
-  border-right:2px solid #fff;border-bottom:2px solid #fff;
-  transform:rotate(45deg) scale(.6);opacity:0;
-  transition:opacity .2s ease,transform .2s ease;
-}
-
-.check:hover .check-box{border-color:rgba(122,1,182,.6)}
-
-.check input:checked + .check-box{
-  background:linear-gradient(101deg,var(--accent-a),var(--accent-b));
-  border-color:transparent;
-}
-
-.check input:checked + .check-box::after{opacity:1;transform:rotate(45deg) scale(1)}
-
-.check input:focus-visible + .check-box{border-color:var(--accent-a);box-shadow:0 0 0 3px rgba(122,1,182,.25)}
-
-.check-txt{display:block;padding-top:0}
-
-
-.form-err{color:#e05a5a;font-size:.78rem;margin:0;min-height:1em}
-
-.cart-form .btn{width:100%;justify-content:center;margin-top:.25rem}
-
-
-.cart-done{align-items:center;justify-content:center;text-align:center;gap:1rem}
-
-.done-ico{
-  width:56px;height:56px;border-radius:100px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(101deg,var(--accent-a),var(--accent-b));color:#fff;font-size:1.6rem;
-}
-
-.cart-done p{color:var(--text-dim);font-size:.88rem;line-height:1.7;margin:0;max-width:34ch}
-
-  .cart-head,.cart-body,.cart-foot,.cart-form,.cart-done{padding-left:1.25rem;padding-right:1.25rem}
-
-  .form-row{grid-template-columns:1fr}
-
-
-/* cross-selling */
-.xsell{margin-top:4.5rem}
-
-.xs-head{margin-bottom:2.5rem}
-
-.xs-head .sec-title{margin-bottom:.5rem}
-
-.xs-sub{color:var(--text-dim);font-size:.88rem;margin:0}
-
-.xs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-
-.xs-card{
-  display:flex;flex-direction:column;
-  background:var(--surface);border-radius:8px;padding:1.5rem;
-  transition:transform .4s ease, box-shadow .4s ease;
-  margin-top:56px;   /* miejsce na wystające zdjęcie */
-}
-
-.xs-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px -30px rgba(122,1,182,.55)}
-
-.xs-media{
-  height:150px;display:flex;align-items:center;justify-content:center;
-  margin:-56px 0 1.5rem;   /* zdjęcie wystaje ponad kafelek */
-}
-
-.xs-media img{max-width:100%;max-height:150px;object-fit:contain;transition:transform .4s ease}
-
-.xs-card:hover .xs-media img{transform:scale(1.05)}
-
-.xs-name{font-size:.95rem;font-weight:400;color:var(--white);margin:0 0 .45rem;letter-spacing:.5px}
-
-.xs-desc{font-size:.8rem;color:var(--text-dim);line-height:1.55;margin:0 0 1.25rem;flex:1 1 auto}
-
-.xs-actions{display:flex;gap:.6rem;margin-top:auto;align-items:stretch}
-
-.xs-txt{white-space:nowrap}
-
-.xs-add{
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  flex:1 1 auto;
-  padding:.85rem 1rem;border:0;border-radius:100px;cursor:pointer;
-  font-family:inherit;font-size:.75rem;letter-spacing:.04em;
-  color:#fff;background:linear-gradient(101deg,var(--accent-a),var(--accent-b));
-  transition:filter .3s ease, box-shadow .3s ease;
-  box-shadow:0 14px 30px -18px rgba(122,1,182,.9);
-}
-
-.xs-add:hover{filter:brightness(1.12);box-shadow:0 18px 38px -16px rgba(122,1,182,1)}
-
-.xs-add .xs-ico{font-size:1rem;line-height:1;transition:transform .3s ease}
-
-.xs-add:hover .xs-ico{transform:rotate(90deg)}
-
-.xs-add.added{background:var(--surface-2);color:var(--text);box-shadow:none}
-
-.xs-add.added .xs-ico{transform:none}
-
-.xs-more{
-  display:inline-block;margin-top:2rem;font-size:.85rem;color:var(--text-dim);
-  transition:color .3s ease;
-}
-
-.xs-more:hover{color:var(--accent-a)}
-
-  .acc-btn{font-size:1.05rem}
-
-  .help-bar{padding:1.75rem;flex-direction:column;align-items:flex-start;gap:1.25rem}
-
-  .help-actions{width:100%}
-
-  .help-btn{flex:1 1 auto;justify-content:center}
-
-  .xs-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
-
-  .feat-2col{grid-template-columns:1fr}
-
-  .xsell{margin-top:3.5rem;padding-top:2.5rem}
-
-  .prod-grid{grid-template-columns:1fr;gap:2.5rem}
-
-  .prod-cols{grid-template-columns:1fr;gap:3rem}
-
-  .prod-media{min-height:320px;padding:2rem}
-
-    .prod-section{margin-top:3.5rem}
-
-  .acc-btn{font-size:1rem}
-
-  .xs-grid{grid-template-columns:1fr}
-
-  .spec-table th{width:50%;padding-right:1rem}
-
-  .back-bottom{flex-direction:column;align-items:flex-start;gap:1rem}
-
-
-/* =========================================================
-   KONTAKT
-   ========================================================= */
-
-/* główne kanały */
-.k-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
-
-.k-card{
-  background:var(--surface);border-radius:8px;padding:2rem;
-  display:flex;flex-direction:column;gap:.75rem;
-  transition:transform .4s ease,box-shadow .4s ease;
-}
-
-.k-card:hover{transform:translateY(-6px);box-shadow:0 24px 60px -30px rgba(122,1,182,.55)}
-
-.k-ico{
-  width:42px;height:42px;border-radius:100px;margin-bottom:.5rem;
-  background:transparent;border:1px solid var(--accent-a);
-  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
-  transition:border-color .3s ease,background .3s ease;
-}
-.k-card:hover .k-ico{background:rgba(78,33,194,.12);border-color:var(--accent-b)}
-
-.k-ico svg{width:18px;height:18px;color:var(--accent-a);transition:color .3s ease}
-
-.k-card h3{
-  font-size:.78rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--text-dim);margin:0;
-}
-
-.k-val{font-size:1.2rem;color:#fff;margin:0;letter-spacing:.02em;transition:color .3s ease}
-
-.k-card:hover .k-val{color:var(--accent-a)}
-
-.k-sub{font-size:.8rem;color:var(--text-dim);line-height:1.6;margin:0}
-
-
-/* dwie kolumny: dane + godziny */
-
-
-
-
-
-.k-rows li::before{display:none}
-
-
-
-
-/* jak działamy */
-.k-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem}
-
-.k-step{padding:0}
-
-.k-num{
-  font-size:2rem;font-weight:300;color:#fff;line-height:1;
-  margin-bottom:.6rem;letter-spacing:.01em;
-}
-
-.k-step h3{font-size:.95rem;font-weight:400;color:var(--text);margin:0 0 .4rem;letter-spacing:.5px}
-
-.k-step p{font-size:.82rem;color:var(--text-dim);line-height:1.6;margin:0}
-
-
-/* pas CTA */
-.k-cta{
-  margin-top:5rem;padding:2.75rem 3rem;border-radius:8px;
-  background:
-    radial-gradient(110% 150% at 0% 0%, rgba(78,33,194,.3), transparent 62%),
-    radial-gradient(110% 150% at 100% 100%, rgba(122,1,182,.28), transparent 62%),
-    var(--surface-2);
-  border:1px solid rgba(122,1,182,.28);
-  display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;
-}
-
-.k-cta h2{
-  font-size:1.5rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;
-  color:#fff;margin:0 0 .6rem;line-height:1.2;
-}
-
-.k-cta p{color:rgba(255,255,255,.72);margin:0;font-size:.9rem;line-height:1.6;max-width:46ch}
-
-
-/* FAQ */
-
-
-
-
-
-  
-  .k-steps{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
-
-  
-  .k-cta{padding:2rem;flex-direction:column;align-items:flex-start}
-
-  .k-cta h2{font-size:1.25rem}
-
-  
 main h1 + p,
 main .hero-sub,
 main .k-lead,
@@ -1872,9 +1268,6 @@ main .page-head p:not(.crumbs){
   .marquee .track{animation:none}
   *{transition:none!important}
 }
-@media (max-width:1200px){
-  .xs-grid{grid-template-columns:repeat(2,1fr)}
-}
 @media (max-width:1100px){
   .cat-grid-4{grid-template-columns:repeat(2,1fr);gap:4.5rem 2.5rem;margin-top:4rem}
 }
@@ -1882,51 +1275,11 @@ main .page-head p:not(.crumbs){
   .cat-grid-4{grid-template-columns:1fr;gap:4rem;margin-top:5.5rem}
   .cat-grid-4 .cat-img{height:210px;margin-top:-56px}
 }
-@media (max-width:600px){
-  .cart-panel{width:100%;max-width:100%}
-  .cart-head,.cart-body,.cart-foot,.cart-form,.cart-done{padding-left:1.25rem;padding-right:1.25rem}
-  .form-row{grid-template-columns:1fr}
-}
-@media (max-width:900px){
-  .sec-title{font-size:1.4rem}
-  .acc-btn{font-size:1.05rem}
-  .help-bar{padding:1.75rem;flex-direction:column;align-items:flex-start;gap:1.25rem}
-  .help-actions{width:100%}
-  .help-btn{flex:1 1 auto;justify-content:center}
-  .xs-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
-  .feat-2col{grid-template-columns:1fr}
-  .xsell{margin-top:3.5rem;padding-top:2.5rem}
-  .prod-grid{grid-template-columns:1fr;gap:2.5rem}
-  .prod-cols{grid-template-columns:1fr;gap:3rem}
-  .prod-media{min-height:320px;padding:2rem}
-    .prod-section{margin-top:3.5rem}
-}
-@media (max-width:767px){
-  .sec-title{font-size:1.3rem}
-  .acc-btn{font-size:1rem}
-  .xs-grid{grid-template-columns:1fr}
-  .spec-table th{width:50%;padding-right:1rem}
-  .back-bottom{flex-direction:column;align-items:flex-start;gap:1rem}
-}
-@media (max-width:900px){
-  .k-grid{grid-template-columns:1fr;gap:1rem}
-    .k-steps{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
-    .k-cta{padding:2rem;flex-direction:column;align-items:flex-start}
-  .k-cta h2{font-size:1.25rem}
-  }
-@media (max-width:600px){
-  .k-steps{grid-template-columns:1fr}
-}
 @media (max-width:767px){
   main h1{font-size:1.6rem;letter-spacing:1px;margin-bottom:1rem}
   main .crumbs{margin-bottom:2.5rem}
   main h1 + p,main .hero-sub,main .k-lead,main .o-lead{font-size:.92rem;line-height:1.7}
 }
-
-/* kategorie na kontakcie */
-.kcat:hover @media (max-width:991px){}
-@media (max-width:600px){}
-
 
 /* przycisk „Lista zamówienia” w szufladzie mobilnej */
 
@@ -1949,57 +1302,6 @@ main .page-head p:not(.crumbs){
 }
 @media (prefers-reduced-motion:reduce){
   .footer::before{animation:none;opacity:.6}
-}
-
-
-/* =========================================================
-   FORMULARZ ZAPYTANIA — luźny, bez konfiguratora
-   ========================================================= */
-.k-form-wrap{
-  background:var(--surface);border-radius:8px;
-  padding:3rem;display:grid;grid-template-columns:.85fr 1.15fr;gap:4rem;
-}
-.k-form-txt h2{
-  font-size:1.6rem;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--white);margin:0 0 1rem;line-height:1.25;
-}
-.k-form-txt p{color:var(--text-dim);line-height:1.75;margin:0;font-size:.92rem}
-
-.k-form{display:flex;flex-direction:column;gap:1.25rem}
-.k-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-.k-form label{
-  display:block;font-size:.75rem;color:var(--text-dim);letter-spacing:.06em;
-  text-transform:uppercase;line-height:1.4;
-}
-.k-form label span{color:var(--accent-a)}
-.k-form-full{grid-column:1 / -1}
-.k-form input,.k-form textarea{
-  display:block;width:100%;box-sizing:border-box;margin-top:.5rem;
-  background:var(--surface-2);border:1px solid var(--line);border-radius:6px;
-  padding:.8rem .9rem;color:var(--text);font-family:inherit;font-size:.9rem;
-  transition:border-color .3s ease;
-}
-.k-form input{height:46px}
-.k-form textarea{min-height:90px;resize:vertical;padding:.7rem .9rem;line-height:1.6}
-.k-form input:focus,.k-form textarea:focus{outline:none;border-color:rgba(122,1,182,.7)}
-.k-form input::placeholder,.k-form textarea::placeholder{color:var(--text-dim);opacity:.7}
-.k-form-err{color:#e05a5a;font-size:.8rem;margin:0;min-height:1em}
-.k-form button{align-self:flex-start;padding:.95rem 2rem}
-
-.k-form-done{
-  display:none;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;gap:1rem;padding:2rem;
-}
-.k-form-done .k-form-done-ico{
-  width:56px;height:56px;border-radius:100px;display:flex;align-items:center;justify-content:center;
-  background:linear-gradient(101deg,var(--accent-a),var(--accent-b));color:#fff;font-size:1.6rem;
-}
-.k-form-done h3{font-size:1.2rem;font-weight:400;color:#fff;margin:0}
-.k-form-done p{color:var(--text-dim);font-size:.9rem;margin:0;max-width:34ch}
-
-@media (max-width:900px){
-  .k-form-wrap{grid-template-columns:1fr;gap:2rem;padding:2rem}
-  .k-form-row{grid-template-columns:1fr}
 }
 
 
@@ -2151,6 +1453,31 @@ body.menu-open .drawer{transform:translateX(0)}
 .footer-search-box input:focus{outline:none;border-color:rgba(122,1,182,.6)}
 .footer-search-box input::-webkit-search-cancel-button{-webkit-appearance:none}
 .footer-search-box .search-results{top:54px;left:0;right:0;width:100%;text-align:left}
+
+.srch-wrap{position:relative;max-width:560px;margin:0 0 1rem;display:flex;align-items:center}
+.srch-wrap>svg{position:absolute;left:1.1rem;width:18px;height:18px;color:var(--text-dim);pointer-events:none}
+.srch-wrap input{width:100%;height:52px;padding:0 1.2rem 0 3rem;background:var(--surface);border:1px solid var(--line);border-radius:100px;color:var(--text);font-family:inherit;font-size:1rem;transition:border-color .3s}
+.srch-wrap input::placeholder{color:var(--text-dim)}
+.srch-wrap input:focus{outline:none;border-color:rgba(122,1,182,.6)}
+.srch-wrap input::-webkit-search-cancel-button{-webkit-appearance:none}
+.srch-info{color:var(--text-dim);font-size:.85rem;margin:0 0 2.5rem}
+.catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem 2rem;margin-bottom:3.5rem}
+@media(max-width:991px){.catalog{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.catalog{grid-template-columns:1fr;gap:2rem}}
+.cat-block-title{font-size:1rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:#fff;margin:0 0 1rem;display:flex;align-items:center;gap:.6rem}
+.cat-block-title a{color:#fff}.cat-block-title a:hover{color:var(--accent-a)}
+.cat-block-cnt{font-size:.72rem;color:var(--text-dim)}
+.cat-list,.site-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.cat-list a{color:var(--text);font-size:.9rem;transition:color .2s}
+.cat-list a:hover{color:var(--accent-a)}
+.cat-list li.hide{display:none}
+.cat-block.hide{display:none}
+.catalog-empty{color:var(--text-dim);margin:0 0 3rem;font-size:.95rem}
+.sitemap{border-top:1px solid var(--line);padding-top:2.5rem}
+.site-list a{color:var(--text-dim);font-size:.9rem;transition:color .2s}
+.site-list a:hover{color:#fff}
+.site-list ul{list-style:none;margin:.5rem 0 0 1.1rem;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.site-list>li{margin-bottom:.6rem}
 </style>
 </head>
 <body>
@@ -2165,8 +1492,8 @@ body.menu-open .drawer{transform:translateX(0)}
 
       <nav class="nav-links" aria-label="Menu główne">
         <a href="o-nas.html" class="nav-link">O nas</a>
-          <a href="oferta.html" class="nav-link">Nasz sprzęt</a>
-        <a href="kontakt.html" class="nav-link active">Kontakt</a>
+          <a href="oferta.html" class="nav-link active">Nasz sprzęt</a>
+        <a href="kontakt.html" class="nav-link">Kontakt</a>
         <a href="oferta.html" class="nav-cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
@@ -2242,96 +1569,122 @@ body.menu-open .drawer{transform:translateX(0)}
 
 <main>
 
-  <!-- ============ NAGŁÓWEK ============ -->
+  <!-- ============ NAGŁÓWEK STRONY ============ -->
   <section class="section">
-    <div class="container pad k-head">
-      <p class="crumbs"><a href="index.html">Strona główna</a> / <span>Kontakt</span></p>
-      <p class="grad-text" style="display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.75rem">Ready for Every Rider.</p>
-      <h1 class="h2">Porozmawiajmy o Twoim evencie</h1>
-      <p class="k-lead">
-        Jesteśmy partnerem produkcyjnym w zakresie DJ Backline — doradzimy w doborze
-        sprzętu zgodnego z riderem, sprawdzimy dostępność na Twój termin i przygotujemy
-        wycenę w ciągu 24 h. Bez zobowiązań.
-      </p>
+    <div class="container pad page-head">
+      <p class="crumbs"><a href="index.html">Strona główna</a> / <span>Szukaj</span></p>
+      <h1 class="h2">Szukaj w katalogu</h1>
+      <p>Cały bank sprzętu w jednym miejscu — wpisz nazwę lub kategorię, a lista się zawęzi. Poniżej pełny katalog i mapa strony.</p>
     </div>
   </section>
 
-  <!-- ============ KANAŁY KONTAKTU ============ -->
+  <!-- ============ KATEGORIE ============ -->
   <section class="section">
-    <div class="container pad" style="padding-top:0">
-      <div class="k-grid">
-
-        <a href="tel:+48690414092" class="k-card">
-          <span class="k-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></svg>
-          </span>
-          <h3>Telefon</h3>
-          <p class="k-val">690 414 092</p>
-          <p class="k-sub">Najszybszy kontakt — pn–sb, 9:00–19:00</p>
-        </a>
-
-        <a href="mailto:kontakt@theloop.pl" class="k-card">
-          <span class="k-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-          </span>
-          <h3>E-mail</h3>
-          <p class="k-val">kontakt@theloop.pl</p>
-          <p class="k-sub">Odpowiadamy w ciągu jednego dnia roboczego</p>
-        </a>
-
-        <a href="oferta.html" class="k-card">
-          <span class="k-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          </span>
-          <h3>Wycena online</h3>
-          <p class="k-val">Zbuduj zestaw</p>
-          <p class="k-sub">Dodaj sprzęt do listy i wyślij zapytanie</p>
-        </a>
-
+    <div class="container pad">
+      <div class="srch-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="pageSearch" placeholder="Szukaj sprzętu w katalogu…" autocomplete="off" aria-label="Szukaj w katalogu">
       </div>
-
-    </div>
-  </section>
-
-  <!-- ============ FORMULARZ ZAPYTANIA ============ -->
-  <section class="section">
-    <div class="container pad pad-md">
-      <div class="k-form-wrap">
-        <div class="k-form-txt">
-          <h2>Nie chcesz konfigurować zestawu?</h2>
-          <p>Napisz w kilku słowach, na czym Ci zależy — sami dobierzemy sprzęt
-             i wrócimy z wyceną w 24 h. Bez zobowiązań.</p>
-        </div>
-
-        <form class="k-form" id="inquiryForm">
-          <div class="k-form-row">
-            <label>Imię i nazwisko <span>*</span>
-              <input type="text" name="name" required autocomplete="name">
-            </label>
-            <label>Telefon lub e-mail <span>*</span>
-              <input type="text" name="contact" required autocomplete="email">
-            </label>
-          </div>
-          <div class="k-form-row">
-            <label>Rodzaj eventu
-              <input type="text" name="type" placeholder="np. wesele, impreza klubowa, festyn">
-            </label>
-            <label>Data eventu
-              <input type="text" name="date" placeholder="np. 12 lipca 2026">
-            </label>
-          </div>
-          <label class="k-form-full">Czego potrzebujesz?
-            <textarea name="message" rows="3" placeholder="Opisz w kilku słowach — np. mikser, dwa CDJ-e i nagłośnienie na 150 osób"></textarea>
-          </label>
-          <p class="k-form-err" id="inquiryErr"></p>
-          <button type="submit" class="btn btn-grad">Wyślij zapytanie</button>
-        </form>
-
-        <div class="k-form-done" id="inquiryDone" hidden>
-          <div class="k-form-done-ico">✓</div>
-          <h3>Dziękujemy!</h3>
-          <p>Odezwiemy się w ciągu 24 h z wyceną i propozycją terminu.</p>
-        </div>
+      <p class="srch-info" id="srchInfo"></p>
+      <div class="catalog">
+      <div class="cat-block" data-cat="DJ Mixery">
+        <h2 class="cat-block-title"><a href="oferta-dj-mixery.html">DJ Mixery</a><span class="cat-block-cnt">22</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-A9">Pioneer DJM-A9</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-V10">Pioneer DJM-V10</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-V10-LF">Pioneer DJM-V10-LF</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-900 Nexus">Pioneer DJM-900 Nexus</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-SRT">Pioneer DJM-SRT</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-850">Pioneer DJM-850</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-750MK2">Pioneer DJM-750MK2</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-600">Pioneer DJM-600</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-400">Pioneer DJM-400</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="PlayDifferently MODEL1">PlayDifferently MODEL1</a></li>
+          <li><a href="produkt.html" data-name="Allen &amp; Heath Xone:96">Allen &amp; Heath Xone:96</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Allen &amp; Heath Xone:92">Allen &amp; Heath Xone:92</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="AlphaTheta Euphonia">AlphaTheta Euphonia</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="E&amp;S DJR400FX">E&amp;S DJR400FX</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Rane MP2015">Rane MP2015</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Isonoe ISO420">Isonoe ISO420</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-S7">Pioneer DJM-S7</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-S9">Pioneer DJM-S9</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Pioneer DJM-S11">Pioneer DJM-S11</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Rane Seventy-Two">Rane Seventy-Two</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Rane TTM57SL">Rane TTM57SL</a></li>
+          <li><a href="oferta-dj-mixery.html" data-name="Vestax 05PRO">Vestax 05PRO</a></li>
+        </ul>
+      </div>
+      <div class="cat-block" data-cat="Odtwarzacze CD / USB">
+        <h2 class="cat-block-title"><a href="oferta.html">Odtwarzacze CD / USB</a><span class="cat-block-cnt">3</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta.html" data-name="Pioneer CDJ-3000">Pioneer CDJ-3000</a></li>
+          <li><a href="oferta.html" data-name="AlphaTheta CDJ-1500X">AlphaTheta CDJ-1500X</a></li>
+          <li><a href="oferta.html" data-name="Pioneer XDJ-1000MK2">Pioneer XDJ-1000MK2</a></li>
+        </ul>
+      </div>
+      <div class="cat-block" data-cat="Gramofony">
+        <h2 class="cat-block-title"><a href="oferta.html">Gramofony</a><span class="cat-block-cnt">2</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta.html" data-name="Technics SL-1210 MK7">Technics SL-1210 MK7</a></li>
+          <li><a href="oferta.html" data-name="Pioneer PLX-1000">Pioneer PLX-1000</a></li>
+        </ul>
+      </div>
+      <div class="cat-block" data-cat="Kontrolery DJ">
+        <h2 class="cat-block-title"><a href="oferta.html">Kontrolery DJ</a><span class="cat-block-cnt">2</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta.html" data-name="Pioneer DDJ-FLX10">Pioneer DDJ-FLX10</a></li>
+          <li><a href="oferta.html" data-name="Native Instruments Traktor S4">Native Instruments Traktor S4</a></li>
+        </ul>
+      </div>
+      <div class="cat-block" data-cat="Nagłośnienie">
+        <h2 class="cat-block-title"><a href="oferta.html">Nagłośnienie</a><span class="cat-block-cnt">3</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta.html" data-name="JBL PRX815W">JBL PRX815W</a></li>
+          <li><a href="oferta.html" data-name="JBL SRX835P">JBL SRX835P</a></li>
+          <li><a href="oferta.html" data-name="RCF SUB 8004-AS">RCF SUB 8004-AS</a></li>
+        </ul>
+      </div>
+      <div class="cat-block" data-cat="Efekty i FX">
+        <h2 class="cat-block-title"><a href="oferta.html">Efekty i FX</a><span class="cat-block-cnt">2</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta.html" data-name="Pioneer DJS-1000">Pioneer DJS-1000</a></li>
+          <li><a href="oferta.html" data-name="Roland SP-404 MKII">Roland SP-404 MKII</a></li>
+        </ul>
+      </div>
+      <div class="cat-block" data-cat="Studio">
+        <h2 class="cat-block-title"><a href="oferta.html">Studio</a><span class="cat-block-cnt">1</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta.html" data-name="Shure SM58">Shure SM58</a></li>
+        </ul>
+      </div>
+      <div class="cat-block" data-cat="Multimedia">
+        <h2 class="cat-block-title"><a href="oferta.html">Multimedia</a><span class="cat-block-cnt">1</span></h2>
+        <ul class="cat-list">
+          <li><a href="oferta.html" data-name="Ekran LED / projektor">Ekran LED / projektor</a></li>
+        </ul>
+      </div>
+      </div>
+      <div class="catalog-empty" id="catEmpty" style="display:none">Brak wyników w katalogu — napisz do nas, sprowadzimy sprzęt.</div>
+      <div class="sitemap">
+        <h2 class="cat-block-title">Mapa strony</h2>
+        <ul class="site-list">
+          <li><a href="index.html">Strona główna</a></li>
+          <li><a href="oferta.html">Oferta — kategorie sprzętu</a>
+            <ul>
+              <li><a href="oferta-dj-mixery.html">DJ Mixery</a></li>
+              <li><a href="oferta.html">Odtwarzacze CD / USB</a></li>
+              <li><a href="oferta.html">Gramofony</a></li>
+              <li><a href="oferta.html">Kontrolery DJ</a></li>
+              <li><a href="oferta.html">Nagłośnienie</a></li>
+              <li><a href="oferta.html">Studio</a></li>
+              <li><a href="oferta.html">Efekty i FX</a></li>
+              <li><a href="oferta.html">Multimedia</a></li>
+            </ul>
+          </li>
+          <li><a href="produkt.html">Karta produktu — Allen &amp; Heath Xone:96</a></li>
+          <li><a href="o-nas.html">O nas</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -2426,13 +1779,10 @@ body.menu-open .drawer{transform:translateX(0)}
   <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Następne">›</button>
 </div>
 
-
-
 <script>
 // nav tło po scrollu
-var nav=document.querySelector('.nav');
+var nav=document.getElementById('nav');
 addEventListener('scroll',function(){
-  if(!nav)return;
   if(scrollY>100)nav.classList.add('scrolled');else nav.classList.remove('scrolled');
 },{passive:true});
 
@@ -2460,15 +1810,30 @@ seoCols.forEach(function(col){
 });
 
 // Lightbox galerii
-
-
-
-
-
-
-
-
-
+(function(){
+  var imgs=[].slice.call(document.querySelectorAll('.gallery img'));
+  var lb=document.getElementById('lightbox');
+  var lbImg=document.getElementById('lbImg');
+  var idx=0;
+  function show(i){
+    idx=(i+imgs.length)%imgs.length;
+    lbImg.src=imgs[idx].src;
+    lbImg.alt=imgs[idx].alt||'';
+  }
+  function open(i){show(i);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';}
+  imgs.forEach(function(im,i){im.addEventListener('click',function(){open(i);});});
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(){show(idx-1);});
+  document.getElementById('lbNext').addEventListener('click',function(){show(idx+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    else if(e.key==='ArrowLeft')show(idx-1);
+    else if(e.key==='ArrowRight')show(idx+1);
+  });
+})();
 
 // ——— wyszukiwarka sprzętu ———
 (function(){
@@ -2540,36 +1905,7 @@ seoCols.forEach(function(col){
     });
   });
 })();
-
-// prosty formularz zapytania — bez pełnego konfiguratora
-(function(){
-  var form = document.getElementById('inquiryForm');
-  if(!form) return;
-  var err = document.getElementById('inquiryErr');
-  var done = document.getElementById('inquiryDone');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = form.name.value.trim();
-    var contact = form.contact.value.trim();
-    if(!name){ err.textContent = 'Podaj imię i nazwisko.'; return; }
-    if(!contact){ err.textContent = 'Podaj telefon lub e-mail, żebyśmy mogli odpowiedzieć.'; return; }
-    err.textContent = '';
-
-    console.log('ZAPYTANIE KONTAKTOWE', {
-      name: name, contact: contact,
-      type: form.type.value, date: form.date.value, message: form.message.value
-    });
-
-    form.hidden = true;
-    done.hidden = false;
-    done.style.display = 'flex';
-  });
-})();
 </script>
-
-
-
 
 <script>
 (function(){
@@ -2587,6 +1923,24 @@ seoCols.forEach(function(col){
 b.addEventListener('click',function(e){e.stopPropagation();var o=ns.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');if(o)inp.focus();});
 document.addEventListener('click',function(e){if(!ns.contains(e.target))ns.classList.remove('open');});
 inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remove('open');});})();
+</script>
+<script>
+(function(){
+  var inp=document.getElementById('pageSearch'),info=document.getElementById('srchInfo'),empty=document.getElementById('catEmpty');
+  if(!inp)return;
+  var items=[].slice.call(document.querySelectorAll('.cat-list li')),blocks=[].slice.call(document.querySelectorAll('.cat-block'));
+  function norm(s){return s.toLowerCase().replace(/[^a-z0-9ąćęłńóśźż ]/gi,'');}
+  function run(q){
+    var v=norm(q).trim(),shown=0;
+    items.forEach(function(li){var a=li.querySelector('a');var m=!v||norm(a.getAttribute('data-name')).indexOf(v)>-1||norm(li.closest('.cat-block').getAttribute('data-cat')).indexOf(v)>-1;li.classList.toggle('hide',!m);if(m)shown++;});
+    blocks.forEach(function(b){var any=b.querySelectorAll('.cat-list li:not(.hide)').length>0;b.classList.toggle('hide',!any);});
+    empty.style.display=shown?'none':'block';
+    info.textContent=v?(shown+' pozycji dla „'+q.trim()+'”'):'';
+  }
+  var qs=new URLSearchParams(location.search).get('q');
+  if(qs){inp.value=qs;run(qs);}
+  inp.addEventListener('input',function(){run(inp.value);});
+})();
 </script>
 <script>
 (function(){var f=document.getElementById('footSearch');if(!f)return;f.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();var q=f.value.trim();location.href='szukaj.html'+(q?('?q='+encodeURIComponent(q)):'');}});})();

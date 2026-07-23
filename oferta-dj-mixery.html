@@ -2071,5 +2071,8 @@ b.addEventListener('click',function(e){e.stopPropagation();var o=ns.classList.to
 document.addEventListener('click',function(e){if(!ns.contains(e.target))ns.classList.remove('open');});
 inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remove('open');});})();
 </script>
+<script>
+(function(){var f=document.getElementById('footSearch');if(!f)return;f.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();var q=f.value.trim();location.href='szukaj.html'+(q?('?q='+encodeURIComponent(q)):'');}});})();
+</script>
 </body>
 </html>
