@@ -1517,6 +1517,15 @@ body.menu-open .drawer{transform:translateX(0)}
 .nav-search input{width:0;min-width:0;opacity:0;padding:0;border-color:transparent;pointer-events:none;transition:width .3s ease,opacity .25s ease,padding .3s ease,border-color .3s ease}
 .nav-search.open input{width:200px;opacity:1;padding:0 .9rem;border-color:var(--line);pointer-events:auto;margin-left:.4rem}
 .nav-search.open input:focus{width:200px;border-color:rgba(122,1,182,.6)}
+
+/* wyszukiwarka w stopce */
+.footer-search{position:relative;max-width:440px;margin:0 auto 2.75rem;display:flex;align-items:center}
+.footer-search>svg{position:absolute;left:1.05rem;width:16px;height:16px;color:var(--text-dim);pointer-events:none}
+.footer-search input{width:100%;height:48px;padding:0 1.1rem 0 2.85rem;background:var(--surface);border:1px solid var(--line);border-radius:100px;color:var(--text);font-family:inherit;font-size:.92rem;letter-spacing:.02em;transition:border-color .3s ease}
+.footer-search input::placeholder{color:var(--text-dim)}
+.footer-search input:focus{outline:none;border-color:rgba(122,1,182,.6)}
+.footer-search input::-webkit-search-cancel-button{-webkit-appearance:none}
+.footer-search .search-results{top:54px;left:0;right:0;width:100%}
 </style>
 </head>
 <body>
@@ -1533,13 +1542,6 @@ body.menu-open .drawer{transform:translateX(0)}
         <a href="o-nas.html" class="nav-link">O nas</a>
           <a href="oferta.html" class="nav-link">Nasz sprzęt</a>
         <a href="kontakt.html" class="nav-link">Kontakt</a>
-        <div class="nav-search">
-          <button type="button" class="ns-btn" aria-label="Szukaj sprzętu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
-          </svg></button>
-          <input type="search" id="navSearch" placeholder="Szukaj sprzętu…" autocomplete="off" aria-label="Szukaj sprzętu">
-          <div class="search-results" id="searchResults"></div>
-        </div>
         <a href="oferta.html" class="nav-cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
@@ -1856,6 +1858,11 @@ body.menu-open .drawer{transform:translateX(0)}
 <!-- ============ FOOTER ============ -->
 <footer class="section footer">
   <div class="container pad">
+    <div class="footer-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="footSearch" placeholder="Szukaj sprzętu…" autocomplete="off" aria-label="Szukaj sprzętu">
+      <div class="search-results" id="footSearchResults"></div>
+    </div>
     <div class="footer-mod">
       <div class="footer-left">
         <a href="index.html" class="logo" aria-label="The Loop">
@@ -2089,6 +2096,7 @@ seoCols.forEach(function(col){
   }
   attach('navSearch','searchResults');
   attach('mSearch','mSearchResults');
+  attach('footSearch','footSearchResults');
 })();
 
 // linki do podstron, które jeszcze nie istnieją — blokujemy skok, informujemy
