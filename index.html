@@ -796,7 +796,12 @@ main .container.pad-lg{padding-block:2rem}
 
 /* hero — nagłówek nad wideo */
 .hero-intro{max-width:60rem;margin-bottom:2.5rem}
-.hero-eyebrow{display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1rem}
+.hero-eyebrow{display:inline-block;font-size:1.18rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1.15rem;line-height:1.2}
+@media (max-width:991px){.hero-eyebrow{font-size:1.02rem;letter-spacing:.16em}}
+@media (max-width:767px){.hero-eyebrow{font-size:.9rem;letter-spacing:.14em;margin-bottom:.9rem}}
+.hero-trust{display:flex;align-items:center;gap:.55rem;font-size:.92rem;font-weight:600;color:var(--white);margin:0 0 1.4rem;line-height:1.4}
+.hero-trust svg{width:17px;height:17px;color:var(--accent-a);flex:0 0 auto}
+@media (max-width:767px){.hero-trust{font-size:.82rem;gap:.45rem;margin-bottom:1.1rem}.hero-trust svg{width:15px;height:15px}}
 
     .hero-intro h1 br{display:none}
 
@@ -1638,11 +1643,15 @@ background-size:220% 100%;animation:loopGrad 6s linear infinite}
 
       <div class="hero-intro">
         <p class="hero-eyebrow grad-text">Ready for Every Rider.</p>
-        <h1>Profesjonalny DJ Backline <br>dla <span class="grad-text">festiwali, klubów i światowej klasy</span> artystów</h1>
+        <h1>Profesjonalny DJ Backline <br>dla <span class="grad-text">festiwali, klubów i produkcji live</span></h1>
+        <p class="hero-trust">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>
+          Zaufali nam organizatorzy największych festiwali i produkcji międzynarodowych.
+        </p>
         <p class="hero-sub">
-          The Loop dostarcza i obsługuje sprzęt DJ zgodny z riderami technicznymi —
-          od przygotowania i transportu, przez montaż i wsparcie na miejscu, po odbiór
-          po wydarzeniu. Niezawodność, precyzja, zaufanie.
+          THELOOP dostarcza kompletne rozwiązania DJ Backline dla festiwali, klubów
+          i produkcji live. Od przygotowania pod rider i logistyki, po wsparcie techniczne
+          na miejscu — dbamy, żeby każdy setup był gotowy dokładnie wtedy, gdy liczy się najbardziej.
         </p>
       </div>
 
