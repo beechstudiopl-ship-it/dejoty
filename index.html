@@ -1110,6 +1110,12 @@ border-radius:8px;}
   /* bento — jedna kolumna na mobile */
   .bento{grid-template-columns:1fr;grid-auto-rows:auto;gap:.85rem}
 
+  /* mobile: najpierw liczby, potem baner, na końcu nowości + przygaszone zdjęcie CDJ */
+  .bento .bx-stat{order:1}
+  .bento .bx-feature{order:2}
+  .bento .bx-new{order:3}
+  .bx-feature .bx-bg{opacity:.7}
+
   .bx-tall{grid-row:auto}
 
   .bx-wide{grid-column:auto}
