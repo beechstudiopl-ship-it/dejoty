@@ -955,24 +955,17 @@ border-radius:8px;}
 .ref-title{font-size:1.9rem;font-weight:500;line-height:1.28;letter-spacing:.3px;color:var(--white);margin:0 auto 1.25rem;max-width:24ch}
 .ref-text{font-size:1rem;line-height:1.8;color:var(--text);max-width:66ch;margin:0 auto}
 .ref-text strong{color:var(--white);font-weight:700}
-.ref-cta{display:flex;justify-content:center;margin-top:2rem}
-.ref-marquee{overflow:hidden;margin-top:3rem;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
-.ref-track{display:flex;gap:1rem;width:max-content;animation:refScroll 55s linear infinite;will-change:transform}
-@keyframes refScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.ref-marquee:hover .ref-track{animation-play-state:paused}
-.ref-tile{flex:0 0 auto;min-width:200px;height:82px;display:flex;align-items:center;justify-content:center;text-align:center;
-  background:var(--surface);border:1px solid var(--line);border-radius:8px;
-  color:var(--text-dim);font-size:.8rem;letter-spacing:.04em;padding:.6rem 1rem;
-  transition:border-color .3s ease,color .3s ease}
-.ref-tile:hover{border-color:var(--accent-a);color:var(--text)}
-@media (prefers-reduced-motion:reduce){.ref-track{animation:none}}
+.ref-cta{display:flex;justify-content:center;margin-top:2.5rem}
+.ref-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:1.1rem 2.75rem;max-width:62rem;margin:2.75rem auto 0}
+.ref-logo{font-size:1.18rem;font-weight:500;letter-spacing:.4px;color:var(--text-dim);
+  white-space:nowrap;transition:color .3s ease}
+.ref-logo:hover{color:#fff}
 @media (max-width:767px){
   .ref-title{font-size:1.4rem;max-width:none}
   .ref-text{font-size:.95rem;line-height:1.7}
-  .ref-marquee{margin-top:2.25rem}
-  .ref-tile{min-width:158px;height:70px;font-size:.74rem}
+  .ref-logos{gap:.8rem 1.5rem;margin-top:2rem}
+  .ref-logo{font-size:1rem}
 }
 
 .logo-grid{
@@ -1731,43 +1724,15 @@ background-size:220% 100%;animation:loopGrad 6s linear infinite}
         <p class="trust-eyebrow">Referencje</p>
         <h2 class="ref-title">Zaufali nam organizatorzy największych festiwali i produkcji międzynarodowych.</h2>
         <p class="ref-text">THELOOP odpowiada za DJ&nbsp;Backline na największych festiwalach i produkcjach — w&nbsp;Polsce i za granicą — jako <strong>wykonawca</strong> oraz <strong>podwykonawca techniczny</strong>. Od przygotowania pod rider i logistyki po wsparcie na miejscu dbamy, żeby każdy setup był gotowy dokładnie wtedy, gdy liczy się najbardziej.</p>
-        <div class="ref-cta"><a href="referencje.html" class="btn btn-grad">Zobacz więcej</a></div>
-      </div>
-      <div class="ref-marquee" role="img" aria-label="Festiwale i produkcje, które obsłużyliśmy: Open'er Festival, Orange Warsaw Festival, Kraków Live Festival, A State of Trance, Ultra Europe, Dreamstate, Resistance, DON'T LET DADDY KNOW, Mystic Festival, Tauron Nowa Muzyka, Audioriver, Neversea, Beats for Love, Mayday, Warsaw Music Festival, Zamna">
-        <div class="ref-track">
-          <div class="ref-tile">Open'er Festival</div>
-          <div class="ref-tile">Orange Warsaw Festival</div>
-          <div class="ref-tile">Kraków Live Festival</div>
-          <div class="ref-tile">A State of Trance</div>
-          <div class="ref-tile">Ultra Europe</div>
-          <div class="ref-tile">Dreamstate</div>
-          <div class="ref-tile">Resistance</div>
-          <div class="ref-tile">DON'T LET DADDY KNOW</div>
-          <div class="ref-tile">Mystic Festival</div>
-          <div class="ref-tile">Tauron Nowa Muzyka</div>
-          <div class="ref-tile">Audioriver</div>
-          <div class="ref-tile">Neversea</div>
-          <div class="ref-tile">Beats for Love</div>
-          <div class="ref-tile">Mayday</div>
-          <div class="ref-tile">Warsaw Music Festival</div>
-          <div class="ref-tile">Zamna</div>
-          <div class="ref-tile" aria-hidden="true">Open'er Festival</div>
-          <div class="ref-tile" aria-hidden="true">Orange Warsaw Festival</div>
-          <div class="ref-tile" aria-hidden="true">Kraków Live Festival</div>
-          <div class="ref-tile" aria-hidden="true">A State of Trance</div>
-          <div class="ref-tile" aria-hidden="true">Ultra Europe</div>
-          <div class="ref-tile" aria-hidden="true">Dreamstate</div>
-          <div class="ref-tile" aria-hidden="true">Resistance</div>
-          <div class="ref-tile" aria-hidden="true">DON'T LET DADDY KNOW</div>
-          <div class="ref-tile" aria-hidden="true">Mystic Festival</div>
-          <div class="ref-tile" aria-hidden="true">Tauron Nowa Muzyka</div>
-          <div class="ref-tile" aria-hidden="true">Audioriver</div>
-          <div class="ref-tile" aria-hidden="true">Neversea</div>
-          <div class="ref-tile" aria-hidden="true">Beats for Love</div>
-          <div class="ref-tile" aria-hidden="true">Mayday</div>
-          <div class="ref-tile" aria-hidden="true">Warsaw Music Festival</div>
-          <div class="ref-tile" aria-hidden="true">Zamna</div>
+        <div class="ref-logos">
+          <span class="ref-logo">Open'er Festival</span>
+          <span class="ref-logo">A State of Trance</span>
+          <span class="ref-logo">Ultra Europe</span>
+          <span class="ref-logo">Orange Warsaw Festival</span>
+          <span class="ref-logo">Tauron Nowa Muzyka</span>
+          <span class="ref-logo">Kraków Live Festival</span>
         </div>
+        <div class="ref-cta"><a href="referencje.html" class="btn btn-grad">Zobacz więcej</a></div>
       </div>
     </div>
   </section>
