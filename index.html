@@ -949,23 +949,29 @@ border-radius:8px;}
   .trust-lead{font-size:.96rem;line-height:1.7;margin-bottom:2rem}
 }
 
-/* Referencje — tekst + pełnoszerokościowy pasek festiwali */
-.ref-copy{max-width:64rem;margin:0 auto;text-align:center}
-.ref-copy .trust-eyebrow{margin-bottom:1.1rem}
-.ref-title{font-size:1.9rem;font-weight:500;line-height:1.28;letter-spacing:.3px;color:var(--white);margin:0 auto 1.25rem;max-width:24ch}
-.ref-text{font-size:1rem;line-height:1.8;color:var(--text);max-width:66ch;margin:0 auto}
+/* Referencje — treść po lewej, lista po prawej */
+.ref-split{display:grid;grid-template-columns:.92fr 1.08fr;gap:5rem;align-items:start}
+.ref-left .trust-eyebrow{text-align:left;margin-bottom:1.1rem}
+.ref-title{font-size:1.95rem;font-weight:500;line-height:1.25;letter-spacing:.3px;color:var(--white);margin:0 0 1.4rem}
+.ref-text{font-size:1rem;line-height:1.8;color:var(--text);margin:0}
 .ref-text strong{color:var(--white);font-weight:700}
-.ref-cta{display:flex;justify-content:center;margin-top:2.5rem}
-.ref-logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
-  gap:1.1rem 2.75rem;max-width:62rem;margin:2.75rem auto 0}
-.ref-logo{font-size:1.18rem;font-weight:500;letter-spacing:.4px;color:var(--text-dim);
-  white-space:nowrap;transition:color .3s ease}
-.ref-logo:hover{color:#fff}
+.ref-cta{display:flex;justify-content:flex-start;margin-top:2.25rem}
+.ref-list{display:flex;flex-direction:column}
+.ref-row{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;
+  padding:1.15rem .15rem;border-top:1px solid var(--line);color:var(--heading);
+  font-size:1.3rem;font-weight:400;letter-spacing:.3px;
+  transition:color .3s ease,padding .3s ease}
+.ref-list .ref-row:last-child{border-bottom:1px solid var(--line)}
+.ref-row-arrow{color:var(--text-dim);font-size:1.1rem;flex:0 0 auto;transition:transform .3s ease,color .3s ease}
+.ref-row:hover{color:#fff;padding-left:.8rem}
+.ref-row:hover .ref-row-arrow{transform:translateX(7px);color:var(--accent-b)}
+@media (max-width:900px){
+  .ref-split{grid-template-columns:1fr;gap:2.5rem}
+}
 @media (max-width:767px){
-  .ref-title{font-size:1.4rem;max-width:none}
+  .ref-title{font-size:1.5rem}
   .ref-text{font-size:.95rem;line-height:1.7}
-  .ref-logos{gap:.8rem 1.5rem;margin-top:2rem}
-  .ref-logo{font-size:1rem}
+  .ref-row{font-size:1.1rem;padding:1rem .1rem}
 }
 
 .logo-grid{
@@ -1720,19 +1726,23 @@ background-size:220% 100%;animation:loopGrad 6s linear infinite}
   <!-- ============ REFERENCJE / FESTIWALE ============ -->
   <section class="section">
     <div class="container pad pad-md">
-      <div class="ref-copy">
-        <p class="trust-eyebrow">Referencje</p>
-        <h2 class="ref-title">Zaufali nam organizatorzy największych festiwali i produkcji międzynarodowych.</h2>
-        <p class="ref-text">THELOOP odpowiada za DJ&nbsp;Backline na największych festiwalach i produkcjach — w&nbsp;Polsce i za granicą — jako <strong>wykonawca</strong> oraz <strong>podwykonawca techniczny</strong>. Od przygotowania pod rider i logistyki po wsparcie na miejscu dbamy, żeby każdy setup był gotowy dokładnie wtedy, gdy liczy się najbardziej.</p>
-        <div class="ref-logos">
-          <span class="ref-logo">Open'er Festival</span>
-          <span class="ref-logo">A State of Trance</span>
-          <span class="ref-logo">Ultra Europe</span>
-          <span class="ref-logo">Orange Warsaw Festival</span>
-          <span class="ref-logo">Tauron Nowa Muzyka</span>
-          <span class="ref-logo">Kraków Live Festival</span>
+      <div class="ref-split">
+        <div class="ref-left">
+          <p class="trust-eyebrow">Referencje</p>
+          <h2 class="ref-title">Partner i dostawca DJ&nbsp;Backline dla największych wydarzeń.</h2>
+          <p class="ref-text">THELOOP obsługuje największe festiwale i produkcje live w&nbsp;Polsce i&nbsp;za granicą — jako <strong>wykonawca</strong> i <strong>podwykonawca techniczny</strong>. Odpowiadamy za sprzęt, od którego zależy główna scena: przygotowanie pod rider, logistykę i&nbsp;wsparcie na miejscu. Skala tych wydarzeń mówi o&nbsp;nas najwięcej — organizatorzy i&nbsp;agencje wracają, bo dowozimy bez kompromisów.</p>
+          <div class="ref-cta"><a href="referencje.html" class="btn btn-grad">Zobacz więcej</a></div>
         </div>
-        <div class="ref-cta"><a href="referencje.html" class="btn btn-grad">Zobacz więcej</a></div>
+        <div class="ref-list">
+          <a class="ref-row" href="referencje.html"><span>Open'er Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="ref-row" href="referencje.html"><span>Orange Warsaw Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="ref-row" href="referencje.html"><span>A State of Trance</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="ref-row" href="referencje.html"><span>Ultra Europe</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="ref-row" href="referencje.html"><span>Tauron Nowa Muzyka</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="ref-row" href="referencje.html"><span>Kraków Live Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="ref-row" href="referencje.html"><span>Neversea</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="ref-row" href="referencje.html"><span>Mystic Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
       </div>
     </div>
   </section>
