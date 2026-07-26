@@ -949,6 +949,39 @@ border-radius:8px;}
   .trust-lead{font-size:.96rem;line-height:1.7;margin-bottom:2rem}
 }
 
+/* Referencje — split + ruchoma ściana festiwali */
+.ref-split{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+.ref-copy .trust-eyebrow{text-align:left;margin-bottom:1.1rem}
+.ref-title{font-size:1.9rem;font-weight:500;line-height:1.28;letter-spacing:.3px;color:var(--white);margin:0 0 1.25rem}
+.ref-text{font-size:1rem;line-height:1.8;color:var(--text);max-width:54ch;margin:0}
+.ref-text strong{color:var(--white);font-weight:700}
+.ref-wall{display:grid;grid-template-columns:1fr 1fr;gap:1rem;height:420px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);
+          mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent);}
+.ref-col{display:flex;flex-direction:column;gap:1rem;animation:refUp 32s linear infinite;will-change:transform}
+.ref-col--down{animation:refDown 32s linear infinite}
+@keyframes refUp{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes refDown{from{transform:translateY(-50%)}to{transform:translateY(0)}}
+.ref-tile{flex:0 0 auto;height:78px;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;
+  color:var(--text-dim);font-size:.78rem;letter-spacing:.04em;padding:.6rem .8rem;
+  transition:border-color .3s ease,color .3s ease}
+.ref-tile:hover{border-color:var(--accent-a);color:var(--text)}
+.ref-wall:hover .ref-col{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.ref-col{animation:none}}
+@media (max-width:900px){
+  .ref-split{grid-template-columns:1fr;gap:2.25rem}
+  .ref-text{max-width:none}
+  .ref-title{font-size:1.6rem}
+  .ref-wall{height:360px}
+}
+@media (max-width:767px){
+  .ref-title{font-size:1.35rem}
+  .ref-wall{height:320px;gap:.7rem}
+  .ref-col{gap:.7rem}
+  .ref-tile{height:64px;font-size:.72rem}
+}
+
 .logo-grid{
   display:flex;flex-wrap:nowrap;gap:1rem;overflow-x:auto;
   padding-bottom:.5rem;scrollbar-width:thin;
@@ -1657,15 +1690,6 @@ background-size:220% 100%;animation:loopGrad 6s linear infinite}
       <div class="hero-intro">
         <p class="hero-eyebrow grad-text">Ready for Every Rider.</p>
         <h1>Profesjonalny DJ Backline <br>dla <span class="grad-text">festiwali, klubów i produkcji live</span></h1>
-        <p class="hero-trust">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg>
-          Zaufali nam organizatorzy największych festiwali i produkcji międzynarodowych.
-        </p>
-        <p class="hero-sub">
-          THELOOP dostarcza kompletne rozwiązania DJ Backline dla festiwali, klubów
-          i produkcji live. Od przygotowania pod rider i logistyki, po wsparcie techniczne
-          na miejscu — dbamy, żeby każdy setup był gotowy dokładnie wtedy, gdy liczy się najbardziej.
-        </p>
       </div>
 
       <div class="hero-media">
@@ -1710,25 +1734,50 @@ background-size:220% 100%;animation:loopGrad 6s linear infinite}
   <!-- ============ REFERENCJE / FESTIWALE ============ -->
   <section class="section">
     <div class="container pad pad-md">
-      <p class="trust-eyebrow">Referencje</p>
-      <p class="trust-lead">THELOOP odpowiada za DJ&nbsp;Backline na największych festiwalach i produkcjach muzycznych — w&nbsp;Polsce i za granicą — realizując je jako <strong>wykonawca</strong> oraz <strong>podwykonawca techniczny</strong>. Skala i renoma tych wydarzeń mówią o nas najwięcej: tam, gdzie nie ma miejsca na kompromis, organizatorzy wybierają nas.</p>
-      <div class="logo-grid">
-        <div class="logo-slot">Open'er Festival</div>
-        <div class="logo-slot">Orange Warsaw Festival</div>
-        <div class="logo-slot">Kraków Live Festival</div>
-        <div class="logo-slot">A State of Trance</div>
-        <div class="logo-slot">Ultra Europe</div>
-        <div class="logo-slot">Dreamstate</div>
-        <div class="logo-slot">Resistance</div>
-        <div class="logo-slot">DON'T LET DADDY KNOW</div>
-        <div class="logo-slot">Mystic Festival</div>
-        <div class="logo-slot">Tauron Nowa Muzyka</div>
-        <div class="logo-slot">Audioriver</div>
-        <div class="logo-slot">Neversea</div>
-        <div class="logo-slot">Beats for Love</div>
-        <div class="logo-slot">Mayday</div>
-        <div class="logo-slot">Warsaw Music Festival</div>
-        <div class="logo-slot">Zamna</div>
+      <div class="ref-split">
+        <div class="ref-copy">
+          <p class="trust-eyebrow">Referencje</p>
+          <h2 class="ref-title">Zaufali nam organizatorzy największych festiwali i produkcji międzynarodowych.</h2>
+          <p class="ref-text">THELOOP odpowiada za DJ&nbsp;Backline na największych festiwalach i produkcjach — w&nbsp;Polsce i za granicą — jako <strong>wykonawca</strong> oraz <strong>podwykonawca techniczny</strong>. Od przygotowania pod rider i logistyki po wsparcie na miejscu dbamy, żeby każdy setup był gotowy dokładnie wtedy, gdy liczy się najbardziej.</p>
+        </div>
+        <div class="ref-wall" role="img" aria-label="Festiwale i produkcje, które obsłużyliśmy: Open'er Festival, Kraków Live Festival, Ultra Europe, Resistance, Mystic Festival, Audioriver, Beats for Love, Warsaw Music Festival, Orange Warsaw Festival, A State of Trance, Dreamstate, DON'T LET DADDY KNOW, Tauron Nowa Muzyka, Neversea, Mayday, Zamna">
+        <div class="ref-col">
+          <div class="ref-tile">Open'er Festival</div>
+          <div class="ref-tile">Kraków Live Festival</div>
+          <div class="ref-tile">Ultra Europe</div>
+          <div class="ref-tile">Resistance</div>
+          <div class="ref-tile">Mystic Festival</div>
+          <div class="ref-tile">Audioriver</div>
+          <div class="ref-tile">Beats for Love</div>
+          <div class="ref-tile">Warsaw Music Festival</div>
+          <div class="ref-tile" aria-hidden="true">Open'er Festival</div>
+          <div class="ref-tile" aria-hidden="true">Kraków Live Festival</div>
+          <div class="ref-tile" aria-hidden="true">Ultra Europe</div>
+          <div class="ref-tile" aria-hidden="true">Resistance</div>
+          <div class="ref-tile" aria-hidden="true">Mystic Festival</div>
+          <div class="ref-tile" aria-hidden="true">Audioriver</div>
+          <div class="ref-tile" aria-hidden="true">Beats for Love</div>
+          <div class="ref-tile" aria-hidden="true">Warsaw Music Festival</div>
+        </div>
+        <div class="ref-col ref-col--down">
+          <div class="ref-tile">Orange Warsaw Festival</div>
+          <div class="ref-tile">A State of Trance</div>
+          <div class="ref-tile">Dreamstate</div>
+          <div class="ref-tile">DON'T LET DADDY KNOW</div>
+          <div class="ref-tile">Tauron Nowa Muzyka</div>
+          <div class="ref-tile">Neversea</div>
+          <div class="ref-tile">Mayday</div>
+          <div class="ref-tile">Zamna</div>
+          <div class="ref-tile" aria-hidden="true">Orange Warsaw Festival</div>
+          <div class="ref-tile" aria-hidden="true">A State of Trance</div>
+          <div class="ref-tile" aria-hidden="true">Dreamstate</div>
+          <div class="ref-tile" aria-hidden="true">DON'T LET DADDY KNOW</div>
+          <div class="ref-tile" aria-hidden="true">Tauron Nowa Muzyka</div>
+          <div class="ref-tile" aria-hidden="true">Neversea</div>
+          <div class="ref-tile" aria-hidden="true">Mayday</div>
+          <div class="ref-tile" aria-hidden="true">Zamna</div>
+        </div>
+        </div>
       </div>
     </div>
   </section>
