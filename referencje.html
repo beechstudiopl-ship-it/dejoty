@@ -2391,10 +2391,11 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 @media(max-width:767px){main h1,main h1.h2{font-size:2.1rem;letter-spacing:1px}}
 
 /* ====== REFERENCJE (strona) ====== */
-.ref-hero{display:grid;grid-template-columns:.82fr 1.18fr;gap:5rem;align-items:start;margin-top:1.5rem}
+.ref-hero{display:grid;grid-template-columns:.7fr 1.3fr;gap:3.5rem;align-items:start;margin-top:1.5rem}
 .ref-hero-copy{position:sticky;top:calc(var(--nav-h) + 40px)}
+.ref-hero-list{display:grid;grid-template-columns:1fr 1fr;gap:2.75rem 2.5rem;align-items:start}
 .ref-note{font-size:.82rem;line-height:1.65;color:var(--text-dim);margin:1.75rem 0 0;max-width:46ch}
-.ref-group + .ref-group{margin-top:3.25rem}
+.ref-group + .ref-group{margin-top:0}
 .ref-group-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;
   color:var(--white);margin:0 0 .35rem;padding-bottom:.65rem}
 .ref-group-title::after{content:"";display:block;height:2px;width:38px;margin-top:.7rem;
@@ -2402,12 +2403,12 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 .ref-rows{display:flex;flex-direction:column}
 .ref-item{border-top:1px solid var(--line)}
 .ref-rows .ref-item:last-child{border-bottom:1px solid var(--line)}
-.ref-row{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;cursor:pointer;
-  list-style:none;padding:1.15rem .25rem;color:var(--heading);
-  font-size:1.35rem;font-weight:400;letter-spacing:.3px;
+.ref-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;
+  list-style:none;padding:1.05rem .2rem;color:var(--heading);
+  font-size:1.15rem;font-weight:400;letter-spacing:.3px;
   transition:color .3s ease,padding .3s ease}
 .ref-row::-webkit-details-marker{display:none}
-.ref-row-arrow{color:var(--text-dim);font-size:1.6rem;line-height:1;transition:transform .3s ease,color .3s ease}
+.ref-row-arrow{color:var(--text-dim);font-size:1.4rem;line-height:1;transition:transform .3s ease,color .3s ease}
 .ref-row:hover{color:#fff;padding-left:.9rem}
 .ref-item[open] .ref-row{color:#fff}
 .ref-item[open] .ref-row-arrow{transform:rotate(90deg);color:var(--accent-b)}
@@ -2416,6 +2417,9 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 @media (max-width:900px){
   .ref-hero{grid-template-columns:1fr;gap:2.75rem}
   .ref-hero-copy{position:static}
+}
+@media (max-width:560px){
+  .ref-hero-list{grid-template-columns:1fr;gap:2.5rem}
 }
 @media (max-width:767px){
   .ref-row{font-size:1.08rem;padding:1rem .1rem}
