@@ -2403,7 +2403,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 .acc-list .racc:last-child{border-bottom:1px solid var(--line)}
 .racc-btn{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;
   background:none;border:0;cursor:pointer;font-family:inherit;list-style:none;
-  padding:1.15rem .1rem;color:var(--heading);font-size:1.2rem;letter-spacing:.3px;
+  padding:1.05rem .1rem;color:var(--heading);font-size:1.1rem;letter-spacing:.3px;
   transition:color .3s ease,padding .3s ease}
 .racc-btn::-webkit-details-marker{display:none}
 .racc-chev{width:11px;height:11px;flex:0 0 auto;display:block;color:var(--text-dim);
@@ -2416,9 +2416,9 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 .racc-panel p{margin:0}
 @media (max-width:767px){.racc-btn{font-size:1.08rem}.ref-tab{font-size:.72rem;letter-spacing:.14em}}
 
-.ref-hero{display:grid;grid-template-columns:.7fr 1.3fr;gap:3.5rem;align-items:start;margin-top:1.5rem}
-.ref-hero-copy{position:sticky;top:calc(var(--nav-h) + 40px)}
-.ref-hero-list{}
+.ref-hero{display:grid;grid-template-columns:minmax(0,34rem) 400px;gap:5rem;justify-content:space-between;align-items:start;margin-top:1.5rem}
+.ref-hero-copy{position:sticky;top:calc(var(--nav-h) + 40px);max-width:34rem}
+.ref-hero-list{max-width:400px}
 .ref-note{font-size:.82rem;line-height:1.65;color:var(--text-dim);margin:1.75rem 0 0;max-width:46ch}
 .ref-group + .ref-group{margin-top:0}
 .ref-group-title{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.2em;
@@ -2440,8 +2440,8 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 .ref-panel{padding:0 .25rem 1.4rem;color:var(--text-dim);font-size:.95rem;line-height:1.7;max-width:60ch}
 .ref-panel p{margin:0}
 @media (max-width:900px){
-  .ref-hero{grid-template-columns:1fr;gap:2.75rem}
-  .ref-hero-copy{position:static}
+  .ref-hero{grid-template-columns:1fr;gap:2.5rem}
+  .ref-hero-copy{position:static;max-width:none}
 }
 
 @media (max-width:767px){
