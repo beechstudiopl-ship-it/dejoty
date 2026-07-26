@@ -2400,14 +2400,19 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 .ref-group-title::after{content:"";display:block;height:2px;width:38px;margin-top:.7rem;
   background:var(--grad);border-radius:2px}
 .ref-rows{display:flex;flex-direction:column}
-.ref-row{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;
-  padding:1.15rem .25rem;border-top:1px solid var(--line);color:var(--heading);
+.ref-item{border-top:1px solid var(--line)}
+.ref-rows .ref-item:last-child{border-bottom:1px solid var(--line)}
+.ref-row{display:flex;align-items:center;justify-content:space-between;gap:1.25rem;cursor:pointer;
+  list-style:none;padding:1.15rem .25rem;color:var(--heading);
   font-size:1.35rem;font-weight:400;letter-spacing:.3px;
-  transition:color .3s ease,padding .3s ease,background .3s ease}
-.ref-rows .ref-row:last-child{border-bottom:1px solid var(--line)}
-.ref-row-arrow{color:var(--text-dim);font-size:1.15rem;transition:transform .3s ease,color .3s ease}
+  transition:color .3s ease,padding .3s ease}
+.ref-row::-webkit-details-marker{display:none}
+.ref-row-arrow{color:var(--text-dim);font-size:1.6rem;line-height:1;transition:transform .3s ease,color .3s ease}
 .ref-row:hover{color:#fff;padding-left:.9rem}
-.ref-row:hover .ref-row-arrow{transform:translateX(7px);color:var(--accent-b)}
+.ref-item[open] .ref-row{color:#fff}
+.ref-item[open] .ref-row-arrow{transform:rotate(90deg);color:var(--accent-b)}
+.ref-panel{padding:0 .25rem 1.4rem;color:var(--text-dim);font-size:.95rem;line-height:1.7;max-width:60ch}
+.ref-panel p{margin:0}
 @media (max-width:900px){
   .ref-hero{grid-template-columns:1fr;gap:2.75rem}
   .ref-hero-copy{position:static}
@@ -2431,6 +2436,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
       <nav class="nav-links" aria-label="Menu główne">
         <a href="o-nas.html" class="nav-link">O nas</a>
           <a href="oferta.html" class="nav-link">Nasz sprzęt</a>
+        <a href="referencje.html" class="nav-link active">Referencje</a>
         <a href="kontakt.html" class="nav-link">Kontakt</a>
         <a href="oferta.html" class="nav-cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -2479,6 +2485,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
     </div>
   </div>
 
+  <a href="referencje.html" class="m-link active">Referencje</a>
   <a href="kontakt.html" class="m-link">Kontakt</a>
 
   <!-- LISTA ZAMÓWIENIA -->
@@ -2521,36 +2528,111 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
           <div class="ref-group">
             <p class="ref-group-title">Wykonawca</p>
             <div class="ref-rows">
-              <a class="ref-row" href="#"><span class="ref-row-name">Resistance</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Zamna</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">A State of Trance</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Dreamstate</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">DON'T LET DADDY KNOW</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Upperground</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Warsaw Music Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Orange Warsaw Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Open'er Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Kraków Live Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">ING Silesia Beats Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Sunset Square</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Mystic Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Welur Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Summer Contrast</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Wisłoujście</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Mystic Creatures</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Resistance</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Zamna</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">A State of Trance</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Dreamstate</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">DON'T LET DADDY KNOW</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Upperground</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Warsaw Music Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Orange Warsaw Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Open'er Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Kraków Live Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">ING Silesia Beats Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Sunset Square</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Mystic Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Welur Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Summer Contrast</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Wisłoujście</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Mystic Creatures</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
             </div>
           </div>
           <div class="ref-group">
             <p class="ref-group-title">Podwykonawca</p>
             <div class="ref-rows">
-              <a class="ref-row" href="#"><span class="ref-row-name">Instytut Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Tauron Nowa Muzyka</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Mayday</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Beats for Love</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Neversea</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Ultra Europe</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Audioriver</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
-              <a class="ref-row" href="#"><span class="ref-row-name">Sunrise Festival</span><span class="ref-row-arrow" aria-hidden="true">&rarr;</span></a>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Instytut Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Tauron Nowa Muzyka</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Mayday</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Beats for Love</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Neversea</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Ultra Europe</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Audioriver</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
+              <details class="ref-item">
+                <summary class="ref-row"><span class="ref-row-name">Sunrise Festival</span><span class="ref-row-arrow" aria-hidden="true">&rsaquo;</span></summary>
+                <div class="ref-panel"><p>Krótki opis realizacji i zakres naszych prac przy tym wydarzeniu — w przygotowaniu.</p></div>
+              </details>
             </div>
           </div>
         </div>
