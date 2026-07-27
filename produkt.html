@@ -2524,9 +2524,11 @@ seoCols.forEach(function(col){
   var totalEl = document.getElementById('cartTotal');
 
   function totalQty(){ return items.reduce(function(s,i){return s+i.qty;},0); }
+  function save(){ try{ sessionStorage.setItem('tlCart', JSON.stringify(items)); }catch(e){} }
 
   function render(){
     var t = totalQty();
+    save();
     countEl.textContent = t;
     if(countElMobile) countElMobile.textContent = t;
     totalEl.textContent = t;
@@ -2656,6 +2658,8 @@ seoCols.forEach(function(col){
   });
   document.getElementById('doneClose').addEventListener('click',close);
 
+  /* przywrócenie zamówienia po powrocie na stronę (stan trzymany w sessionStorage) */
+  try{ var _s = sessionStorage.getItem('tlCart'); if(_s){ items = JSON.parse(_s) || []; } }catch(e){ items = []; }
   render(); syncButtons();
 })();
 
