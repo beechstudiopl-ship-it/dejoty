@@ -1484,7 +1484,7 @@ main h1{margin-bottom:1.5rem}
 
 .xs-desc{font-size:.8rem;color:var(--text-dim);line-height:1.55;margin:0 0 1.25rem;flex:1 1 auto}
 
-.xs-actions{display:flex;gap:.6rem;margin-top:auto;align-items:stretch}
+.xs-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;align-items:stretch}
 
 .xs-txt{white-space:nowrap}
 
@@ -1531,6 +1531,11 @@ main h1{margin-bottom:1.5rem}
 .brand-tab:hover{border-color:var(--accent-a);color:#fff}.brand-tab.active{background:var(--grad);border-color:transparent;color:#fff}.brand-tab.active .tab-cnt{color:rgba(255,255,255,.8)}
 .xs-ph{flex-direction:column;gap:.5rem;color:var(--text-dim)}.xs-ph svg{width:54px;height:54px;opacity:.4}.xs-ph span{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;opacity:.55}
 .xs-desc-empty{min-height:.5rem}
+.xs-src{display:inline-flex;align-items:center;gap:.4rem;margin-top:auto;text-decoration:none;padding:11px 1.1rem;border-radius:100px;border:1px solid transparent;color:var(--text-dim);font-size:.82rem;font-weight:500;letter-spacing:.02em;transition:.35s;white-space:nowrap}
+.xs-src:hover{color:#fff}
+.xs-src .xs-arr{transition:transform .3s ease}
+.xs-src:hover .xs-arr{transform:translate(3px,-3px)}
+@media(max-width:767px){.xs-src{padding:6px .7rem;font-size:.66rem}}
 .shop-main{min-width:0}
 .shop-main .xs-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:1100px){.shop-main .xs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -1693,80 +1698,80 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
         <div class="xs-card" data-brand="shure">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Shure M44-7 SET</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka DJ do scratchu i miksowania, wysoki output</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.shure.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="shure">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Shure Whitelabel SET</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka DJ, mocny sygnał, odporna na przeskoki</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.shure.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="ortofon">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Ortofon Concorde Scratch MKII</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka Concorde do scratchu, wysoki output</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.ortofon.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="ortofon">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Ortofon Concorde Club MKII</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka Concorde do miksowania klubowego</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.ortofon.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="ortofon">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Ortofon Concorde DJ S MKII</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka Concorde DJ, igła sferyczna</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.ortofon.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="ortofon">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Ortofon Concorde DJ S</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka Concorde DJ, igła sferyczna</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.ortofon.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="ortofon">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Ortofon Concorde PRO S</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka Concorde PRO do intensywnej pracy DJ</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.ortofon.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="reloop">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Reloop OM BK</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Wkładka DJ typu Concorde, czarna</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.reloop.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="inne">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Luke Absorber</h3>
-          <p class="xs-desc xs-desc-empty"></p>
+          <p class="xs-desc">Absorber drgań pod gramofon — redukcja sprzężeń</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
         <div class="xs-card" data-brand="inne">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Marble Block</h3>
-          <p class="xs-desc xs-desc-empty"></p>
+          <p class="xs-desc">Marmurowa podstawa antywibracyjna pod gramofon</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
         <div class="xs-card" data-brand="inne">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Squash Ball</h3>
-          <p class="xs-desc xs-desc-empty"></p>
+          <p class="xs-desc">Piłki do izolacji drgań pod nóżki gramofonu</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
         <div class="xs-card" data-brand="isonoe">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Isonoe Feet</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Nóżki antywibracyjne (M6) — izolacja gramofonu</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.isonoe.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
         <div class="xs-card" data-brand="isonoe">
           <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19 16 8"/><circle cx="17" cy="7" r="2"/><circle cx="5" cy="19" r="1.3"/></svg><span>zdjęcie wkrótce</span></div>
           <h3 class="xs-name">Isonoe Boots</h3>
-          <p class="xs-desc xs-desc-empty"></p>
-          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
+          <p class="xs-desc">Gumowe tuleje do nóżek Isonoe — dodatkowa izolacja</p>
+          <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a><a href="https://www.isonoe.com/" class="xs-src" target="_blank" rel="noopener">u producenta<span class="xs-arr" aria-hidden="true">↗</span></a></div>
         </div>
       </div>
         </div>
