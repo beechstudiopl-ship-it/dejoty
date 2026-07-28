@@ -2827,12 +2827,11 @@ seoCols.forEach(function(col){
 
 <script>
 (function(){
-  var mc=document.getElementById('mCartCount');
-  if(!mc)return;
-  // odczyt z sessionStorage jesli istnieje
   try{
     var stored=sessionStorage.getItem('tlCart');
-    if(stored){var items=JSON.parse(stored);var t=items.reduce(function(s,i){return s+i.qty;},0);mc.textContent=t;}
+    var t=stored?JSON.parse(stored).reduce(function(s,i){return s+(i.qty||0);},0):0;
+    var mc=document.getElementById('mCartCount');if(mc)mc.textContent=t;
+    var dc=document.querySelectorAll('.cart-count');for(var i=0;i<dc.length;i++)dc[i].textContent=t;
   }catch(e){}
 })();
 </script>
