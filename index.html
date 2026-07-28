@@ -849,7 +849,7 @@ main .container.pad-lg{padding-block:2rem}
 
 .bx-feature .bx-bg{
   position:absolute;inset:0;z-index:0;
-  background-size:auto 130%;background-position:center calc(100% + 34px);
+  background-size:cover;background-position:left center;
   opacity:1;filter:brightness(1.15) saturate(1.15);
   transition:transform .6s ease;
 }
@@ -858,7 +858,7 @@ main .container.pad-lg{padding-block:2rem}
 
 .bx-feature::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(180deg,rgba(16,18,23,.93) 0%,rgba(16,18,23,.74) 42%,rgba(16,18,23,.32) 74%,rgba(16,18,23,0) 100%);
+  background:linear-gradient(90deg,rgba(16,18,23,.97) 0%,rgba(16,18,23,.93) 46%,rgba(16,18,23,.6) 68%,rgba(16,18,23,0) 92%);
 }
 
 .bx-feature > *:not(.bx-bg){position:relative;z-index:2}
@@ -869,6 +869,8 @@ main .container.pad-lg{padding-block:2rem}
 .bx-feature ul{gap:.6rem}
 
 .bx-feature li{color:var(--text)}
+
+.bx-feature .bx-cta{margin-top:auto;align-self:flex-start;border-color:var(--line)}
 
 
 /* box wiodący — subtelna poświata gradientu, nie płaski fiolet */
@@ -1115,6 +1117,7 @@ border-radius:8px;}
   .bento .bx-feature{order:2}
   .bento .bx-new{order:3}
   .bx-feature .bx-bg{opacity:.7}
+  .bx-feature::after{background:linear-gradient(180deg,rgba(16,18,23,.92) 0%,rgba(16,18,23,.72) 45%,rgba(16,18,23,.3) 75%,rgba(16,18,23,0) 100%)}
 
   .bx-tall{grid-row:auto}
 
@@ -1768,6 +1771,7 @@ background-size:220% 100%;animation:loopGrad 6s linear infinite}
             <li>Agencje eventowe i production managerowie</li>
             <li>Technicy sceniczni i realizatorzy</li>
           </ul>
+          <a href="o-nas.html" class="btn bx-cta">Więcej o nas</a>
         </div>
 
         <div class="bx bx-stat">
