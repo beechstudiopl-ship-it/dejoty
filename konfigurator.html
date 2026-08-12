@@ -1555,23 +1555,23 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 <main>
   <section class="section">
     <div class="container pad">
-      <div class="kf-head">
-        <p class="kf-eyebrow grad-text">Konfigurator eventu</p>
-        <h1>Skonfiguruj event</h1>
-        <p class="kf-sub">Powiedz nam, co organizujesz — złożymy gotowy zestaw DJ Backline i wyślemy wycenę w 24 h. Bez błądzenia po katalogu.</p>
-        <div class="kf-steps" id="kfSteps">
-          <div class="kf-step" data-s="1"><span class="n">1</span> Typ</div>
-          <div class="kf-step" data-s="2"><span class="n">2</span> Skala</div>
-          <div class="kf-step" data-s="3"><span class="n">3</span> Standard</div>
-          <div class="kf-step" data-s="4"><span class="n">4</span> Dodatki</div>
-          <div class="kf-step" data-s="5"><span class="n">5</span> Logistyka</div>
-          <div class="kf-step" data-s="6"><span class="n">6</span> Kontakt</div>
+      <div class="kf-shell">
+        <div class="kf-head">
+          <p class="kf-eyebrow grad-text">Konfigurator eventu</p>
+          <h1>Skonfiguruj event</h1>
+          <p class="kf-sub">Powiedz nam, co organizujesz — złożymy gotowy zestaw DJ Backline i wyślemy wycenę w 24 h. Bez błądzenia po katalogu.</p>
         </div>
-        <label class="kf-help"><input type="checkbox" id="kfHelp"><span class="kf-help-box" aria-hidden="true"></span><span>Nie chcę wypełniać teraz — pomóżcie dobrać zestaw</span></label>
-      </div>
 
-      <div class="kf-grid">
-        <div class="kf-main">
+        <div class="kf-card">
+          <div class="kf-progress" id="kfSteps" role="list" aria-label="Kroki konfiguracji">
+            <div class="kf-node active" data-s="1" role="listitem"><span class="dot"><span class="num">1</span></span><span class="lbl">Typ</span></div>
+            <div class="kf-node" data-s="2" role="listitem"><span class="dot"><span class="num">2</span></span><span class="lbl">Skala</span></div>
+            <div class="kf-node" data-s="3" role="listitem"><span class="dot"><span class="num">3</span></span><span class="lbl">Standard</span></div>
+            <div class="kf-node" data-s="4" role="listitem"><span class="dot"><span class="num">4</span></span><span class="lbl">Dodatki</span></div>
+            <div class="kf-node" data-s="5" role="listitem"><span class="dot"><span class="num">5</span></span><span class="lbl">Logistyka</span></div>
+            <div class="kf-node" data-s="6" role="listitem"><span class="dot"><span class="num">6</span></span><span class="lbl">Kontakt</span></div>
+          </div>
+          <div class="kf-body">
           <div class="kf-panel" data-step="1">
             <h2 class="kf-qtitle">Co organizujesz?</h2>
             <p class="kf-qhint">Dopasujemy zestaw i logistykę do skali wydarzenia.</p>
@@ -1651,11 +1651,21 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
             </div>
           </div>
 
+          </div>
           <div class="kf-nav" id="kfNav">
             <button type="button" class="btn ghost" id="kfBack">← Wstecz</button>
             <button type="button" class="btn btn-grad" id="kfNext">Dalej →</button>
           </div>
         </div>
+
+        <label class="kf-help-bar">
+          <span class="kf-help-txt">
+            <b>Nie chcesz wypełniać teraz?</b>
+            <span>Zaznacz — dobierzemy zestaw i oddzwonimy z propozycją.</span>
+          </span>
+          <input type="checkbox" id="kfHelp" class="kf-switch-input" aria-label="Poproś o pomoc w doborze zestawu">
+          <span class="kf-switch" aria-hidden="true"><span class="kf-switch-thumb"></span></span>
+        </label>
       </div>
     </div>
   </section>
@@ -1957,11 +1967,11 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 <script>
 /* Konfigurator eventu — kreator krok po kroku (pasek klikalny) + mailto */
 (function(){
-  var kf=document.querySelector('.kf-main'); if(!kf)return;
+  var kf=document.querySelector('.kf-card'); if(!kf)return;
   var state={typ:'',sceny:1,dni:1,from:'',to:'',miejsce:'',standard:'',dodatki:[],logistyka:[],name:'',email:'',phone:'',msg:''};
   var step=1, MAX=6;
   var panels=[].slice.call(document.querySelectorAll('.kf-panel'));
-  var stepsEls=[].slice.call(document.querySelectorAll('.kf-step'));
+  var stepsEls=[].slice.call(document.querySelectorAll('.kf-node'));
   var back=document.getElementById('kfBack'), next=document.getElementById('kfNext'),
       nav=document.getElementById('kfNav'), err=document.getElementById('kfErr');
   var STD={
@@ -2055,29 +2065,112 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 
 
 <style>
-/* Konfigurator — wersja wycentrowana (bez panelu bocznego) */
-.kf-head{max-width:760px;margin:0 auto;text-align:center}
-.kf-sub{margin:0 auto}
-.kf-steps{justify-content:center}
-.kf-grid{display:block;max-width:760px;margin:2.75rem auto 0;padding-bottom:1rem}
-.kf-qtitle,.kf-qhint{text-align:center}
-.kf-rows,.kf-checks{margin-left:auto;margin-right:auto}
-.kf-row2{justify-items:stretch}
-</style>
+/* ===== Konfigurator — dopracowany UI ===== */
+.kf-shell{max-width:840px;margin:0 auto}
+.kf-head{text-align:center;max-width:600px;margin:0 auto}
+.kf-sub{margin:.9rem auto 0}
 
-<style>
-/* Konfigurator — checkbox "pomoz dobrac" */
-.kf-help{display:inline-flex;align-items:center;gap:.7rem;margin-top:1.5rem;cursor:pointer;
-  font-size:.9rem;color:var(--text);background:var(--surface);border:1px solid var(--line);
-  border-radius:100px;padding:.7rem 1.25rem;transition:border-color .25s ease}
-.kf-help:hover{border-color:rgba(122,1,182,.55)}
-.kf-help input{position:absolute;opacity:0;width:0;height:0}
-.kf-help-box{width:18px;height:18px;flex:0 0 auto;border:1px solid var(--line);border-radius:6px;
-  background:var(--surface-2);position:relative;transition:.2s}
-.kf-help-box::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;
-  border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;transition:.2s}
-.kf-help input:checked + .kf-help-box{background:var(--grad);border-color:transparent}
-.kf-help input:checked + .kf-help-box::after{opacity:1;transform:rotate(45deg) scale(1)}
+/* karta */
+.kf-card{margin-top:2.5rem;scroll-margin-top:calc(var(--nav-h) + 1.5rem);background:linear-gradient(180deg,rgba(255,255,255,.028),rgba(255,255,255,0)),var(--surface);
+  border:1px solid var(--line);border-radius:22px;padding:1.9rem 2.1rem 1.7rem;
+  box-shadow:0 30px 60px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.03)}
+
+/* pasek postepu */
+.kf-progress{display:flex;position:relative;padding:.2rem 0 1.6rem;margin-bottom:1.7rem;border-bottom:1px solid var(--line)}
+.kf-node{flex:1;display:flex;flex-direction:column;align-items:center;gap:.55rem;position:relative;cursor:pointer;min-width:0}
+.kf-node::before{content:"";position:absolute;top:19px;right:50%;width:100%;height:2px;background:var(--line);z-index:0;transition:background .35s ease}
+.kf-node:first-child::before{display:none}
+.kf-node.active::before,.kf-node.done::before{background:linear-gradient(90deg,var(--accent-a),var(--accent-b))}
+.kf-node .dot{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--line);color:var(--text-dim);font-size:.82rem;font-weight:600;position:relative;z-index:1;transition:.3s}
+.kf-node.done .dot{background:var(--grad);border-color:transparent;color:#fff}
+.kf-node.done .num{display:none}
+.kf-node.done .dot::after{content:"✓";font-size:1rem;color:#fff}
+.kf-node.active .dot{background:var(--grad);border-color:transparent;color:#fff;box-shadow:0 0 0 5px rgba(122,1,182,.16)}
+.kf-node .lbl{font-size:.8rem;color:var(--text-dim);white-space:nowrap;transition:.2s}
+.kf-node.active .lbl{color:#fff;font-weight:500}
+.kf-node.done .lbl{color:var(--text)}
+.kf-node:hover .dot{border-color:rgba(122,1,182,.55)}
+
+/* cialo kroku */
+.kf-body{min-height:284px;display:flex;flex-direction:column;justify-content:center}
+.kf-panel{display:none} .kf-panel.on{display:block;animation:kfIn .35s ease}
+.kf-qtitle{font-size:1.5rem;color:#fff;font-weight:500;letter-spacing:.3px;margin:0 0 .4rem;text-align:center;line-height:1.25}
+.kf-qhint{color:var(--text-dim);font-size:.94rem;margin:0 auto 1.7rem;line-height:1.6;text-align:center;max-width:46ch}
+
+/* opcje - karty wyboru */
+.kf-opts{display:grid;gap:.9rem} .kf-opts-2{grid-template-columns:1fr 1fr}
+.kf-opt{text-align:left;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:1.15rem 1.25rem;padding-right:2.9rem;cursor:pointer;transition:.22s;display:flex;flex-direction:column;gap:.3rem;font-family:inherit;position:relative}
+.kf-opt:hover{border-color:rgba(122,1,182,.5);transform:translateY(-2px);background:var(--surface)}
+.kf-opt .ic{display:none}
+.kf-opt .ot{color:#fff;font-size:1rem;font-weight:500}
+.kf-opt .od{color:var(--text-dim);font-size:.84rem;line-height:1.5}
+.kf-opt::after{content:"";position:absolute;top:1.15rem;right:1.15rem;width:20px;height:20px;border-radius:50%;border:1px solid var(--line);background:var(--bg);transition:.2s}
+.kf-opt.sel{border-color:transparent;background:radial-gradient(140% 160% at 0% 0%,rgba(78,33,194,.28),transparent 55%),var(--surface);box-shadow:0 0 0 1.5px rgba(122,1,182,.7)}
+.kf-opt.sel::after{background:var(--grad);border-color:transparent}
+.kf-opt.sel .ot::before{content:"✓";position:absolute;top:1.15rem;right:1.4rem;font-size:.72rem;color:#fff;z-index:2;line-height:20px}
+.kf-wide{grid-column:1/-1}
+
+/* pola - skala / kontakt */
+.kf-rows{display:flex;flex-direction:column;gap:1rem;max-width:520px;margin:0 auto;width:100%}
+.kf-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:.85rem 1.1rem}
+.kf-row label{margin:0}
+.kf-row label,.kf-row1 label,.kf-row2 label{font-size:.74rem;color:var(--text-dim);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:.45rem}
+.kf-row2{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+.kf-rows input,.kf-rows textarea{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:.8rem .95rem;color:var(--text);font-family:inherit;font-size:.92rem;color-scheme:dark;transition:.2s}
+.kf-rows input:focus,.kf-rows textarea:focus{outline:none;border-color:rgba(122,1,182,.65);background:var(--surface)}
+.kf-stepper{display:inline-flex;align-items:center;gap:.2rem;background:var(--bg);border:1px solid var(--line);border-radius:100px;padding:3px}
+.kf-stepper button{width:34px;height:34px;border:0;border-radius:100px;background:var(--surface);color:var(--text);font-size:1.15rem;cursor:pointer;font-family:inherit;transition:.2s}
+.kf-stepper button:hover{background:var(--accent-a);color:#fff}
+.kf-stepper .v{min-width:40px;text-align:center;color:#fff;font-size:1rem;font-weight:500}
+
+/* checkboxy jako karty */
+.kf-checks{display:flex;flex-direction:column;gap:.7rem;max-width:520px;margin:0 auto;width:100%}
+.kf-check{display:flex;align-items:center;gap:.85rem;cursor:pointer;font-size:.94rem;color:var(--text);background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:.9rem 1.1rem;transition:.2s}
+.kf-check:hover{border-color:rgba(122,1,182,.45)}
+.kf-check:has(input:checked){border-color:rgba(122,1,182,.65);background:radial-gradient(140% 180% at 0% 0%,rgba(78,33,194,.22),transparent 60%),var(--surface)}
+.kf-check input{position:absolute;opacity:0;width:0;height:0}
+.kf-check .box{width:22px;height:22px;flex:0 0 auto;border:1px solid var(--line);border-radius:7px;background:var(--bg);position:relative;transition:.2s}
+.kf-check .box::after{content:"";position:absolute;left:7px;top:3px;width:5px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;transition:.2s}
+.kf-check input:checked + .box{background:var(--grad);border-color:transparent}
+.kf-check input:checked + .box::after{opacity:1;transform:rotate(45deg) scale(1)}
+
+/* nawigacja */
+.kf-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.kf-nav .btn{min-width:132px;justify-content:center}
+.kf-nav .btn.ghost{background:var(--surface-2);border:1px solid var(--line);color:var(--text)}
+.kf-nav .btn.ghost:hover{border-color:rgba(122,1,182,.5);color:#fff}
+.kf-err{color:#e05a5a;font-size:.84rem;margin:1rem auto 0;text-align:center;min-height:1em}
+
+/* done */
+.kf-done{padding:1.5rem 0;text-align:center}
+.kf-done-ico{width:64px;height:64px;border-radius:100px;background:var(--grad);color:#fff;font-size:1.8rem;display:grid;place-items:center;margin:0 auto 1.3rem;box-shadow:0 0 0 8px rgba(122,1,182,.14)}
+
+/* pasek pomocy - przelacznik */
+.kf-help-bar{display:flex;align-items:center;justify-content:space-between;gap:1.2rem;margin-top:1.1rem;background:var(--surface-2);border:1px solid var(--line);border-radius:16px;padding:1rem 1.3rem;cursor:pointer;transition:.2s}
+.kf-help-bar:hover{border-color:rgba(122,1,182,.45)}
+.kf-help-txt{display:flex;flex-direction:column;gap:.15rem}
+.kf-help-txt b{color:#fff;font-weight:500;font-size:.95rem}
+.kf-help-txt span{color:var(--text-dim);font-size:.84rem}
+.kf-switch-input{position:absolute;opacity:0;width:0;height:0}
+.kf-switch{flex:0 0 auto;width:48px;height:27px;border-radius:100px;background:var(--bg);border:1px solid var(--line);position:relative;transition:.25s}
+.kf-switch-thumb{position:absolute;top:2px;left:2px;width:21px;height:21px;border-radius:50%;background:#cfcfd4;transition:.25s}
+.kf-switch-input:checked + .kf-switch{background:var(--grad);border-color:transparent}
+.kf-switch-input:checked + .kf-switch .kf-switch-thumb{left:23px;background:#fff}
+
+@keyframes kfIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+@media(max-width:640px){
+  .kf-card{padding:1.4rem 1.1rem 1.3rem;border-radius:18px}
+  .kf-progress{padding-bottom:1.1rem;margin-bottom:1.3rem}
+  .kf-node .lbl{display:none}
+  .kf-node .dot{width:32px;height:32px}
+  .kf-node::before{top:16px}
+  .kf-opts-2{grid-template-columns:1fr}
+  .kf-body{min-height:230px}
+  .kf-nav .btn{min-width:0;flex:1}
+  .kf-help-bar{padding:.9rem 1rem;gap:.9rem}
+  .kf-qtitle{font-size:1.3rem}
+}
 </style>
 </body>
 </html>
