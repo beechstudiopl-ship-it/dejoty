@@ -1642,8 +1642,8 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
           <div class="kf-panel" data-step="done">
             <div class="kf-done">
               <div class="kf-done-ico">✓</div>
-              <h2 class="kf-qtitle" style="text-align:center">Zapytanie wysłane</h2>
-              <p class="kf-qhint" style="text-align:center;max-width:42ch;margin:0 auto">Otworzyliśmy Twój program pocztowy z gotowym zapytaniem — wyślij je, a odezwiemy się z wyceną i potwierdzeniem dostępności w ciągu 24 h.</p>
+              <h2 class="kf-qtitle" style="text-align:center">Dziękujemy za kontakt</h2>
+              <p class="kf-qhint" style="text-align:center;max-width:44ch;margin:0 auto">Otrzymaliśmy Twoje zapytanie — odezwiemy się z wyceną i potwierdzeniem dostępności.<br><br>Zespół The Loop</p>
             </div>
           </div>
 
@@ -1963,6 +1963,10 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 <script>
 /* Konfigurator eventu — kreator krok po kroku (pasek klikalny) + mailto */
 (function(){
+  /* === WYSYŁKA na kontakt@theloop.pl ===
+     Puste = wysyłka przez mailto (otwiera pocztę). Wklej tu klucz z web3forms.com
+     (zarejestrowany na kontakt@theloop.pl), aby wysyłać automatycznie w tle. */
+  var SEND_KEY='';
   var kf=document.querySelector('.kf-card'); if(!kf)return;
   var state={typ:'',sceny:1,dni:1,from:'',to:'',miejsce:'',standard:'',dodatki:[],logistyka:[],name:'',email:'',phone:'',msg:''};
   var step=1, MAX=6;
@@ -2054,8 +2058,23 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     L.push('','Kontakt: '+state.name+' · '+state.email+' · '+(state.phone||'—'));
     if(state.msg) L.push('Uwagi: '+state.msg);
     var subject='Zapytanie o wycene — '+(state.typ||'event')+' ('+state.sceny+' sceny)';
-    window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(L.join('\n'));
-    showStep('done');
+    var body=L.join('\n');
+    // Wysylka na kontakt@theloop.pl. Po wklejeniu klucza Web3Forms (zarejestrowanego
+    // na kontakt@theloop.pl) formularz wysyla automatycznie w tle + autoodpowiedz do klienta.
+    // Klucz: https://web3forms.com  ->  wpisz kontakt@theloop.pl  ->  wklej ponizej.
+    if(SEND_KEY){
+      next.disabled=true; next.textContent='Wysyłanie…';
+      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+        body:JSON.stringify({access_key:SEND_KEY,subject:subject,from_name:'The Loop — konfigurator',email:state.email,replyto:state.email,message:body,
+          botcheck:'', // honeypot
+          autoresponder:{subject:'Dziękujemy za kontakt — The Loop',message:'Dziękujemy za kontakt. Otrzymaliśmy Twoje zapytanie i wkrótce się odezwiemy.\n\nZespół The Loop'}})})
+       .then(function(r){return r.json();})
+       .then(function(res){ next.disabled=false; if(res&&res.success){ showStep('done'); } else { throw new Error('send'); } })
+       .catch(function(){ next.disabled=false; window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body); showStep('done'); });
+    } else {
+      window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+      showStep('done');
+    }
   }
   back.addEventListener('click',function(){ if(typeof step==='number'&&step>1)showStep(step-1); });
   next.addEventListener('click',function(){ if(step<MAX)showStep(step+1); else submit(); });
