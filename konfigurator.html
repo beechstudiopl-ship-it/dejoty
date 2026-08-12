@@ -1558,18 +1558,18 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
       <div class="kf-shell">
         <div class="kf-head">
           <p class="kf-eyebrow grad-text">Konfigurator eventu</p>
-          <h1>Skonfiguruj event</h1>
+          <h1>Wyślij zapytanie</h1>
         </div>
 
+        <div class="kf-progress" id="kfSteps" role="list" aria-label="Kroki konfiguracji">
+          <button type="button" class="kf-node active" data-s="1" role="listitem"><span class="mk"><span class="num">1</span></span><span class="lbl">Typ</span></button>
+          <button type="button" class="kf-node" data-s="2" role="listitem"><span class="mk"><span class="num">2</span></span><span class="lbl">Skala</span></button>
+          <button type="button" class="kf-node" data-s="3" role="listitem"><span class="mk"><span class="num">3</span></span><span class="lbl">Standard</span></button>
+          <button type="button" class="kf-node" data-s="4" role="listitem"><span class="mk"><span class="num">4</span></span><span class="lbl">Dodatki</span></button>
+          <button type="button" class="kf-node" data-s="5" role="listitem"><span class="mk"><span class="num">5</span></span><span class="lbl">Logistyka</span></button>
+          <button type="button" class="kf-node" data-s="6" role="listitem"><span class="mk"><span class="num">6</span></span><span class="lbl">Kontakt</span></button>
+        </div>
         <div class="kf-card">
-          <div class="kf-progress" id="kfSteps" role="list" aria-label="Kroki konfiguracji">
-            <button type="button" class="kf-node active" data-s="1" role="listitem"><span class="mk"><span class="num">1</span></span><span class="lbl">Typ</span></button>
-            <button type="button" class="kf-node" data-s="2" role="listitem"><span class="mk"><span class="num">2</span></span><span class="lbl">Skala</span></button>
-            <button type="button" class="kf-node" data-s="3" role="listitem"><span class="mk"><span class="num">3</span></span><span class="lbl">Standard</span></button>
-            <button type="button" class="kf-node" data-s="4" role="listitem"><span class="mk"><span class="num">4</span></span><span class="lbl">Dodatki</span></button>
-            <button type="button" class="kf-node" data-s="5" role="listitem"><span class="mk"><span class="num">5</span></span><span class="lbl">Logistyka</span></button>
-            <button type="button" class="kf-node" data-s="6" role="listitem"><span class="mk"><span class="num">6</span></span><span class="lbl">Kontakt</span></button>
-          </div>
           <div class="kf-body">
           <div class="kf-panel" data-step="1">
             <h2 class="kf-qtitle">Co organizujesz?</h2>
@@ -2056,10 +2056,10 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   }
   back.addEventListener('click',function(){ if(typeof step==='number'&&step>1)showStep(step-1); });
   next.addEventListener('click',function(){ if(step<MAX)showStep(step+1); else submit(); });
-  var help=document.getElementById('kfHelp'), card=document.querySelector('.kf-card');
+  var help=document.getElementById('kfHelp'), shell=document.querySelector('.kf-shell');
   if(help){help.addEventListener('change',function(){
     state.help=help.checked;
-    card.classList.toggle('kf-help-on', help.checked);
+    shell.classList.toggle('kf-help-on', help.checked);
     if(help.checked){ showStep(6); } else { showStep(1,false); }
   });}
   showStep(1,false);
@@ -2080,7 +2080,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   box-shadow:0 30px 60px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.03)}
 
 /* pasek postepu — same numerki + nazwa, bez obrysow; zrobione wyszarzone */
-.kf-progress{display:flex;flex-wrap:wrap;justify-content:center;gap:.15rem .35rem;padding:0 0 1.1rem;margin-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.kf-progress{display:flex;flex-wrap:wrap;justify-content:center;gap:.15rem .5rem;padding:0;margin:1.1rem 0 1.1rem;border-bottom:0}
 .kf-node{display:inline-flex;align-items:baseline;gap:.4rem;padding:.28rem .5rem;border:0;background:transparent;color:var(--text-dim);font-family:inherit;font-size:.9rem;line-height:1;cursor:pointer;transition:color .2s ease,opacity .2s ease;white-space:nowrap}
 .kf-node .mk{font-weight:700;font-size:.82rem;color:inherit;opacity:.85}
 .kf-node:hover{color:var(--text)}
@@ -2160,9 +2160,9 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .kf-switch-input:checked + .kf-switch .kf-switch-thumb{left:23px;background:#fff}
 
 /* tryb "tylko formularz" — po zaznaczeniu przelacznika pomocy: bez krokow */
-.kf-card.kf-help-on .kf-progress{display:none}
-.kf-card.kf-help-on #kfBack{display:none}
-.kf-card.kf-help-on .kf-nav{justify-content:flex-end;border-top:0;padding-top:.5rem;margin-top:1rem}
+.kf-shell.kf-help-on .kf-progress{display:none}
+.kf-shell.kf-help-on #kfBack{display:none}
+.kf-shell.kf-help-on .kf-nav{justify-content:flex-end;border-top:0;padding-top:.5rem;margin-top:1rem}
 
 @keyframes kfIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
