@@ -1983,7 +1983,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     battle:{label:'Battle / scratch',per:[['Technics SL-1210 MK7',2],['Pioneer DJM-S11',1]]},
     custom:{label:'Wg ridera',per:[]}
   };
-  function showStep(s){
+  function showStep(s,scroll){
     step=s;
     panels.forEach(function(p){p.classList.toggle('on', p.getAttribute('data-step')==String(s));});
     stepsEls.forEach(function(el){var n=+el.getAttribute('data-s');
@@ -1993,7 +1993,11 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     nav.style.display='flex';
     back.style.visibility = s>1?'visible':'hidden';
     next.textContent = s===MAX ? 'Wyślij do wyceny →' : 'Dalej →';
-    kf.scrollIntoView({behavior:'smooth',block:'start'});
+    /* przewijaj tylko przy nawigacji uzytkownika i tylko gdy karta jest poza widokiem — nie przy wejsciu na strone */
+    if(scroll!==false){
+      var r=kf.getBoundingClientRect(), navH=parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'))||90;
+      if(r.top<navH+8 || r.bottom>window.innerHeight) kf.scrollIntoView({behavior:'smooth',block:'start'});
+    }
   }
   document.querySelectorAll('.kf-opts[data-field]').forEach(function(grp){
     var field=grp.getAttribute('data-field');
@@ -2061,7 +2065,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   next.addEventListener('click',function(){ if(step<MAX)showStep(step+1); else submit(); });
   var help=document.getElementById('kfHelp');
   if(help){help.addEventListener('change',function(){ state.help=help.checked; if(help.checked) showStep(6); });}
-  showStep(1);
+  showStep(1,false);
 })();
 </script>
 
