@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Konfigurator eventu — zestaw DJ Backline w 2 minuty | The Loop</title>
+<title>Konfigurator eventu — zestaw DJ Backline | The Loop</title>
 <meta name="description" content="Wypożyczalnia sprzętu DJ The Loop — miksery, odtwarzacze CD/USB, gramofony, kontrolery, nagłośnienie i multimedia. Trójmiasto i cała Polska.">
 <style>
 /* ============================================================
@@ -1558,7 +1558,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
     <div class="container pad">
       <div class="kf-head">
         <p class="kf-eyebrow grad-text">Konfigurator eventu</p>
-        <h1>Skonfiguruj event w 2 minuty</h1>
+        <h1>Skonfiguruj event</h1>
         <p class="kf-sub">Powiedz nam, co organizujesz — złożymy gotowy zestaw DJ Backline i wyślemy wycenę w 24 h. Bez błądzenia po katalogu.</p>
         <div class="kf-steps" id="kfSteps">
           <div class="kf-step" data-s="1"><span class="n">1</span> Typ</div>
@@ -1651,10 +1651,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
             </div>
           </div>
 
-          <div class="kf-nav" id="kfNav">
-            <button type="button" class="btn ghost" id="kfBack">← Wstecz</button>
-            <button type="button" class="btn btn-grad" id="kfNext">Dalej →</button>
-          </div>
+          <div class="kf-actions"><button type="button" class="btn btn-grad kf-send" id="kfSend">Wyślij do wyceny →</button></div>
         </div>
       </div>
     </div>
@@ -1954,15 +1951,11 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 </style>
 
 <script>
-/* Konfigurator eventu — kreator + wysyłka na maila (mailto) */
+/* Konfigurator eventu — wszystkie kroki widoczne + wysyłka na maila (mailto) */
 (function(){
   var kf=document.querySelector('.kf-main'); if(!kf)return;
   var state={typ:'',sceny:1,dni:1,from:'',to:'',miejsce:'',standard:'',dodatki:[],logistyka:[],name:'',email:'',phone:'',msg:''};
-  var step=1, MAX=6;
-  var panels=[].slice.call(document.querySelectorAll('.kf-panel'));
-  var stepsEls=[].slice.call(document.querySelectorAll('.kf-step'));
-  var back=document.getElementById('kfBack'), next=document.getElementById('kfNext'),
-      nav=document.getElementById('kfNav'), err=document.getElementById('kfErr');
+  var err=document.getElementById('kfErr');
   var STD={
     pioneer:{label:'Standard Pioneer',per:[['Pioneer CDJ-3000',2],['Pioneer DJM-A9',1]]},
     '4deck':{label:'Setup 4-decki',per:[['Pioneer CDJ-3000',4],['Pioneer DJM-V10',1]]},
@@ -1970,17 +1963,6 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     battle:{label:'Battle / scratch',per:[['Technics SL-1210 MK7',2],['Pioneer DJM-S11',1]]},
     custom:{label:'Wg ridera',per:[]}
   };
-  function showStep(s){
-    step=s;
-    panels.forEach(function(p){p.classList.toggle('on', p.getAttribute('data-step')==String(s));});
-    stepsEls.forEach(function(el){var n=+el.getAttribute('data-s');
-      el.classList.toggle('active', n===s && typeof s==='number');
-      el.classList.toggle('done', typeof s==='number' ? n<s : true);});
-    if(s==='done'){ nav.style.display='none'; return; }
-    nav.style.display='flex';
-    back.style.visibility = s>1?'visible':'hidden';
-    next.textContent = s===MAX ? 'Wyślij zapytanie →' : 'Dalej →';
-  }
   document.querySelectorAll('.kf-opts[data-field]').forEach(function(grp){
     var field=grp.getAttribute('data-field');
     grp.querySelectorAll('.kf-opt').forEach(function(btn){
@@ -2010,6 +1992,10 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
       });
     });
   });
+  var panels=[].slice.call(kf.querySelectorAll('.kf-panel'));
+  document.querySelectorAll('.kf-step').forEach(function(el){
+    el.addEventListener('click',function(){var n=+el.getAttribute('data-s'); if(panels[n-1])panels[n-1].scrollIntoView({behavior:'smooth',block:'start'});});
+  });
   function eqList(){
     var out=[];
     if(state.standard && STD[state.standard] && STD[state.standard].per.length){
@@ -2019,8 +2005,8 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   }
   function submit(){
     err.textContent='';
-    if(!state.name){ showStep(6); err.textContent='Podaj imię i nazwisko.'; return; }
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)){ showStep(6); err.textContent='Podaj poprawny adres e-mail.'; return; }
+    if(!state.name){ err.textContent='Podaj imię i nazwisko.'; err.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)){ err.textContent='Podaj poprawny adres e-mail.'; err.scrollIntoView({behavior:'smooth',block:'center'}); return; }
     var L=['Zapytanie z konfiguratora eventu — The Loop','',
       'Typ: '+(state.typ||'—'),
       'Sceny / setupy: '+state.sceny,
@@ -2036,11 +2022,10 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     if(state.msg) L.push('Uwagi: '+state.msg);
     var subject='Zapytanie o wycene — '+(state.typ||'event')+' ('+state.sceny+' sceny)';
     window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(L.join('\n'));
-    showStep('done');
+    kf.classList.add('kf-sent');
+    var d=kf.querySelector('.kf-panel[data-step="done"]'); if(d)d.scrollIntoView({behavior:'smooth',block:'center'});
   }
-  back.addEventListener('click',function(){ if(typeof step==='number'&&step>1)showStep(step-1); });
-  next.addEventListener('click',function(){ if(step<MAX)showStep(step+1); else submit(); });
-  showStep(1);
+  document.getElementById('kfSend').addEventListener('click',submit);
 })();
 </script>
 
@@ -2054,6 +2039,20 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .kf-qtitle,.kf-qhint{text-align:center}
 .kf-rows,.kf-checks{margin-left:auto;margin-right:auto}
 .kf-row2{justify-items:stretch}
+</style>
+
+<style>
+/* Konfigurator — wszystkie kroki widoczne (bez wizarda) */
+.kf-panel{display:block;margin-bottom:2.5rem}
+.kf-panel[data-step="done"]{display:none;margin-bottom:0}
+.kf-panel + .kf-panel:not([data-step="done"]){border-top:1px solid var(--line);padding-top:2.25rem}
+.kf-main.kf-sent > .kf-panel:not([data-step="done"]){display:none}
+.kf-main.kf-sent > .kf-actions{display:none}
+.kf-main.kf-sent > .kf-panel[data-step="done"]{display:block}
+.kf-actions{display:flex;justify-content:center;margin-top:1.75rem}
+.kf-send{min-width:280px;justify-content:center}
+.kf-step{cursor:pointer;transition:border-color .25s ease,color .25s ease}
+.kf-step:hover{border-color:rgba(122,1,182,.6);color:#fff}
 </style>
 </body>
 </html>
