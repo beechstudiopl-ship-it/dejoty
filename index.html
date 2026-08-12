@@ -636,11 +636,10 @@ main .container.pad-lg{padding-block:2rem}
 /* =========================================================
    STOPKA: desktop rozwinięta bez strzałek, mobile akordeon
    ========================================================= */
-/* --- akordeon ze strzałkami na wszystkich szerokościach (klik = rozwiń) --- */
-.seo-col h4 button{cursor:pointer;pointer-events:auto;padding:1.1rem 0}
-.seo-col ul{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.seo-col.open ul{max-height:32rem;padding-bottom:1rem}
-.seo-grid{align-items:start}
+/* --- desktop: wszystko widoczne, bez chevronów, bez klikania --- */
+.seo-col h4 .chev{display:none}
+.seo-col h4 button{cursor:default;pointer-events:none}
+.seo-col ul{max-height:none;overflow:visible}
 
 /* --- mobile: akordeon ze strzałkami --- */
 @media (max-width:767px){
@@ -2036,6 +2035,7 @@ seoCols.forEach(function(col){
   var btn=col.querySelector('h4 button');
   if(!btn)return;
   btn.addEventListener('click',function(){
+    if(window.matchMedia('(min-width:768px)').matches)return; // desktop: bez zwijania
     var open=col.classList.toggle('open');
     btn.setAttribute('aria-expanded',open);
   });
