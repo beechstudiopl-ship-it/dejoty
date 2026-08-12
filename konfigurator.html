@@ -1559,7 +1559,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
         <div class="kf-head">
           <p class="kf-eyebrow grad-text">Konfigurator eventu</p>
           <h1>Skonfiguruj event</h1>
-          <p class="kf-sub">Powiedz nam, co organizujesz — złożymy gotowy zestaw DJ Backline i wyślemy wycenę w 24 h. Bez błądzenia po katalogu.</p>
         </div>
 
         <div class="kf-card">
@@ -1574,7 +1573,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
           <div class="kf-body">
           <div class="kf-panel" data-step="1">
             <h2 class="kf-qtitle">Co organizujesz?</h2>
-            <p class="kf-qhint">Dopasujemy zestaw i logistykę do skali wydarzenia.</p>
             <div class="kf-opts kf-opts-2" data-field="typ">
               <button type="button" class="kf-opt"><span class="ot">Festiwal</span><span class="od">Wiele scen, backline pod rider.</span><input type="hidden" value="Festiwal"></button>
               <button type="button" class="kf-opt"><span class="ot">Klub</span><span class="od">Jedna–dwie sceny, sprzęt klubowy.</span><input type="hidden" value="Klub"></button>
@@ -1585,7 +1583,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 
           <div class="kf-panel" data-step="2">
             <h2 class="kf-qtitle">Jaka skala?</h2>
-            <p class="kf-qhint">Podaj liczbę scen i termin — resztę policzymy.</p>
             <div class="kf-rows">
               <div class="kf-row2 kf-steprow">
                 <div class="kf-row"><label>Liczba scen / setupów</label><div class="kf-stepper" data-field="sceny"><button type="button" data-d="-1">−</button><span class="v">1</span><button type="button" data-d="1">+</button></div></div>
@@ -1601,7 +1598,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 
           <div class="kf-panel" data-step="3">
             <h2 class="kf-qtitle">Jaki standard DJ na każdą scenę?</h2>
-            <p class="kf-qhint">Gotowe zestawy zgodne z riderem. Szczegóły dopniemy przy wycenie.</p>
             <div class="kf-opts kf-opts-2" data-field="standard">
               <button type="button" class="kf-opt"><span class="ot">Standard Pioneer</span><span class="od">2× CDJ-3000 + DJM-A9 na scenę.</span><input type="hidden" value="pioneer"></button>
               <button type="button" class="kf-opt"><span class="ot">Setup 4-decki</span><span class="od">4× CDJ-3000 + DJM-V10.</span><input type="hidden" value="4deck"></button>
@@ -1613,7 +1609,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 
           <div class="kf-panel" data-step="4">
             <h2 class="kf-qtitle">Dodatki</h2>
-            <p class="kf-qhint">Zaznacz, czego jeszcze potrzebujesz.</p>
             <div class="kf-checks" data-field="dodatki">
               <label class="kf-check"><input type="checkbox" value="Monitory odsłuchowe"><span class="box"></span><span>Monitory odsłuchowe</span></label>
               <label class="kf-check"><input type="checkbox" value="Statywy / stoły DJ"><span class="box"></span><span>Statywy / stoły DJ</span></label>
@@ -1625,7 +1620,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 
           <div class="kf-panel" data-step="5">
             <h2 class="kf-qtitle">Logistyka</h2>
-            <p class="kf-qhint">Możemy zdjąć z Ciebie całą obsługę.</p>
             <div class="kf-checks" data-field="logistyka">
               <label class="kf-check"><input type="checkbox" value="Dowóz, montaż i odbiór"><span class="box"></span><span>Dowóz, montaż i odbiór po evencie</span></label>
               <label class="kf-check"><input type="checkbox" value="Technik / realizator on-site"><span class="box"></span><span>Technik / realizator na miejscu</span></label>
@@ -1635,7 +1629,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 
           <div class="kf-panel" data-step="6">
             <h2 class="kf-qtitle">Gdzie wysłać wycenę?</h2>
-            <p class="kf-qhint">Odpowiadamy z wyceną i potwierdzeniem dostępności w 24 h.</p>
             <div class="kf-rows">
               <div class="kf-row1"><label>Imię i nazwisko *</label><input type="text" data-field="name" autocomplete="name"></div>
               <div class="kf-row1"><label>E-mail *</label><input type="email" data-field="email" autocomplete="email"></div>
@@ -2063,8 +2056,12 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   }
   back.addEventListener('click',function(){ if(typeof step==='number'&&step>1)showStep(step-1); });
   next.addEventListener('click',function(){ if(step<MAX)showStep(step+1); else submit(); });
-  var help=document.getElementById('kfHelp');
-  if(help){help.addEventListener('change',function(){ state.help=help.checked; if(help.checked) showStep(6); });}
+  var help=document.getElementById('kfHelp'), card=document.querySelector('.kf-card');
+  if(help){help.addEventListener('change',function(){
+    state.help=help.checked;
+    card.classList.toggle('kf-help-on', help.checked);
+    if(help.checked){ showStep(6); } else { showStep(1,false); }
+  });}
   showStep(1,false);
 })();
 </script>
@@ -2082,22 +2079,19 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   border:1px solid var(--line);border-radius:20px;padding:1.6rem 1.9rem 1.4rem;
   box-shadow:0 30px 60px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.03)}
 
-/* pasek postepu — proste kroki w jednym wierszu z ptaszkami */
-.kf-progress{display:flex;flex-wrap:wrap;justify-content:center;gap:.3rem;padding:0 0 1.15rem;margin-bottom:1.3rem;border-bottom:1px solid var(--line)}
-.kf-node{display:inline-flex;align-items:center;gap:.5rem;padding:.36rem .8rem .36rem .42rem;border:1px solid transparent;border-radius:100px;background:transparent;color:var(--text-dim);font-family:inherit;font-size:.85rem;line-height:1;cursor:pointer;transition:.2s;white-space:nowrap}
-.kf-node .mk{width:21px;height:21px;flex:0 0 auto;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--line);color:var(--text-dim);font-size:.72rem;font-weight:600;transition:.2s}
-.kf-node:hover{color:var(--text);border-color:var(--line)}
-.kf-node.active{background:var(--surface-2);border-color:rgba(122,1,182,.55);color:#fff}
-.kf-node.active .mk{background:var(--grad);border-color:transparent;color:#fff}
-.kf-node.done{color:var(--text)}
-.kf-node.done .mk{background:var(--grad);border-color:transparent;color:#fff}
-.kf-node.done .mk .num{display:none}
-.kf-node.done .mk::after{content:"✓";font-size:.66rem;color:#fff;font-weight:700}
+/* pasek postepu — same numerki + nazwa, bez obrysow; zrobione wyszarzone */
+.kf-progress{display:flex;flex-wrap:wrap;justify-content:center;gap:.15rem .35rem;padding:0 0 1.1rem;margin-bottom:1.25rem;border-bottom:1px solid var(--line)}
+.kf-node{display:inline-flex;align-items:baseline;gap:.4rem;padding:.28rem .5rem;border:0;background:transparent;color:var(--text-dim);font-family:inherit;font-size:.9rem;line-height:1;cursor:pointer;transition:color .2s ease,opacity .2s ease;white-space:nowrap}
+.kf-node .mk{font-weight:700;font-size:.82rem;color:inherit;opacity:.85}
+.kf-node:hover{color:var(--text)}
+.kf-node.active{color:#fff}
+.kf-node.active .mk{color:var(--accent-b);opacity:1}
+.kf-node.done{color:var(--text-dim);opacity:.5}
 
 /* cialo kroku */
 .kf-body{min-height:236px;display:flex;flex-direction:column;justify-content:center}
 .kf-panel{display:none} .kf-panel.on{display:block;animation:kfIn .35s ease}
-.kf-qtitle{font-size:1.35rem;color:#fff;font-weight:500;letter-spacing:.2px;margin:0 0 .35rem;text-align:center;line-height:1.25}
+.kf-qtitle{font-size:1.35rem;color:#fff;font-weight:500;letter-spacing:.2px;margin:0 0 1.4rem;text-align:center;line-height:1.25}
 .kf-qhint{color:var(--text-dim);font-size:.9rem;margin:0 auto 1.35rem;line-height:1.55;text-align:center;max-width:46ch}
 
 /* opcje - karty wyboru */
@@ -2121,8 +2115,8 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .kf-row2{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
 .kf-steprow .kf-row{gap:.6rem}
 .kf-steprow .kf-row label{margin:0;flex:1;min-width:0}
-.kf-rows input,.kf-rows textarea{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:.62rem .85rem;color:var(--text);font-family:inherit;font-size:.9rem;color-scheme:dark;transition:.2s}
-.kf-rows textarea{min-height:70px;resize:vertical}
+.kf-rows input,.kf-rows textarea{width:100%;background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:.85rem .9rem;color:var(--text);font-family:inherit;font-size:.92rem;color-scheme:dark;transition:.2s}
+.kf-rows textarea{min-height:90px;resize:vertical}
 .kf-rows input:focus,.kf-rows textarea:focus{outline:none;border-color:rgba(122,1,182,.65);background:var(--surface)}
 .kf-stepper{display:inline-flex;align-items:center;gap:.15rem;background:var(--bg);border:1px solid var(--line);border-radius:100px;padding:2px}
 .kf-stepper button{width:28px;height:28px;border:0;border-radius:100px;background:var(--surface);color:var(--text);font-size:1rem;cursor:pointer;font-family:inherit;transition:.2s}
@@ -2162,6 +2156,11 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .kf-switch-thumb{position:absolute;top:2px;left:2px;width:21px;height:21px;border-radius:50%;background:#cfcfd4;transition:.25s}
 .kf-switch-input:checked + .kf-switch{background:var(--grad);border-color:transparent}
 .kf-switch-input:checked + .kf-switch .kf-switch-thumb{left:23px;background:#fff}
+
+/* tryb "tylko formularz" — po zaznaczeniu przelacznika pomocy: bez krokow */
+.kf-card.kf-help-on .kf-progress{display:none}
+.kf-card.kf-help-on #kfBack{display:none}
+.kf-card.kf-help-on .kf-nav{justify-content:flex-end;border-top:0;padding-top:.5rem;margin-top:1rem}
 
 @keyframes kfIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
