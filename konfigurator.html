@@ -1635,6 +1635,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
               <div class="kf-row1"><label>Telefon</label><input type="tel" data-field="phone" autocomplete="tel"></div>
               <div class="kf-row1"><label>Uwagi / szczegóły ridera</label><textarea data-field="msg" rows="3" placeholder="Dodatkowe informacje o evencie"></textarea></div>
             </div>
+            <label class="kf-consent"><input type="checkbox" id="kfConsent"><span class="kf-consent-box" aria-hidden="true"></span><span>Akceptuję <a href="#" target="_blank" rel="noopener">regulamin</a> oraz <a href="#" target="_blank" rel="noopener">politykę prywatności</a>.</span></label>
             <p class="kf-err" id="kfErr"></p>
           </div>
 
@@ -2036,6 +2037,8 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     err.textContent='';
     if(!state.name){ showStep(6); err.textContent='Podaj imię i nazwisko.'; return; }
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)){ showStep(6); err.textContent='Podaj poprawny adres e-mail.'; return; }
+    var consent=document.getElementById('kfConsent');
+    if(consent && !consent.checked){ showStep(6); err.textContent='Zaznacz akceptację regulaminu i polityki prywatności.'; return; }
     var L=['Zapytanie z konfiguratora eventu — The Loop','',
       'Typ: '+(state.typ||'—'),
       'Sceny / setupy: '+state.sceny,
@@ -2080,8 +2083,8 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   box-shadow:0 30px 60px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.03)}
 
 /* pasek postepu — same numerki + nazwa, bez obrysow; zrobione wyszarzone */
-.kf-progress{display:flex;flex-wrap:wrap;justify-content:center;gap:.15rem .5rem;padding:0;margin:1.1rem 0 1.1rem;border-bottom:0}
-.kf-node{display:inline-flex;align-items:baseline;gap:.4rem;padding:.28rem .5rem;border:0;background:transparent;color:var(--text-dim);font-family:inherit;font-size:.9rem;line-height:1;cursor:pointer;transition:color .2s ease,opacity .2s ease;white-space:nowrap}
+.kf-progress{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem .5rem;padding:0;margin:1.1rem 0 1.1rem;border-bottom:0}
+.kf-node{display:inline-flex;align-items:baseline;gap:.4rem;padding:.28rem 0;border:0;background:transparent;color:var(--text-dim);font-family:inherit;font-size:.9rem;line-height:1;cursor:pointer;transition:color .2s ease,opacity .2s ease;white-space:nowrap}
 .kf-node .mk{font-weight:700;font-size:.82rem;color:inherit;opacity:.85}
 .kf-node:hover{color:var(--text)}
 .kf-node.active{color:#fff}
@@ -2126,7 +2129,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .kf-stepper .v{min-width:20px;text-align:center;color:#fff;font-size:1rem;font-weight:600}
 
 /* checkboxy jako karty */
-.kf-checks{display:flex;flex-direction:column;gap:.55rem;max-width:none;margin:0;width:100%}
+.kf-checks{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;max-width:none;margin:0;width:100%}
 .kf-check{display:flex;align-items:center;gap:.75rem;cursor:pointer;font-size:.9rem;color:var(--text);background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:.7rem 1rem;transition:.2s}
 .kf-check:hover{border-color:rgba(122,1,182,.45)}
 .kf-check:has(input:checked){border-color:rgba(122,1,182,.65);background:radial-gradient(140% 180% at 0% 0%,rgba(78,33,194,.22),transparent 60%),var(--surface)}
@@ -2142,6 +2145,14 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .kf-nav .btn.ghost{background:var(--surface-2);border:1px solid var(--line);color:var(--text)}
 .kf-nav .btn.ghost:hover{border-color:rgba(122,1,182,.5);color:#fff}
 .kf-err{color:#e05a5a;font-size:.82rem;margin:.8rem auto 0;text-align:center;min-height:1em}
+.kf-consent{display:flex;align-items:flex-start;gap:.6rem;margin-top:1.1rem;cursor:pointer;font-size:.85rem;color:var(--text-dim);line-height:1.5}
+.kf-consent input{position:absolute;opacity:0;width:0;height:0}
+.kf-consent-box{width:20px;height:20px;flex:0 0 auto;margin-top:1px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);position:relative;transition:.2s}
+.kf-consent-box::after{content:"";position:absolute;left:7px;top:3px;width:4px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;transition:.2s}
+.kf-consent input:checked + .kf-consent-box{background:var(--grad);border-color:transparent}
+.kf-consent input:checked + .kf-consent-box::after{opacity:1;transform:rotate(45deg) scale(1)}
+.kf-consent a{color:var(--accent-b);text-decoration:underline}
+.kf-consent a:hover{color:#fff}
 
 /* done */
 .kf-done{padding:1.5rem 0;text-align:center}
@@ -2173,6 +2184,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   .kf-node{font-size:.8rem;padding:.32rem .55rem .32rem .34rem;gap:.4rem}
   .kf-node .mk{width:19px;height:19px;font-size:.68rem}
   .kf-opts-2{grid-template-columns:1fr}
+  .kf-checks{grid-template-columns:1fr}
   .kf-body{min-height:220px}
   .kf-nav .btn{min-width:0;flex:1}
   .kf-help-bar{padding:.9rem 1rem;gap:.9rem}
