@@ -1568,6 +1568,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
           <div class="kf-step" data-s="5"><span class="n">5</span> Logistyka</div>
           <div class="kf-step" data-s="6"><span class="n">6</span> Kontakt</div>
         </div>
+        <label class="kf-help"><input type="checkbox" id="kfHelp"><span class="kf-help-box" aria-hidden="true"></span><span>Nie chcę wypełniać teraz — pomóżcie dobrać zestaw</span></label>
       </div>
 
       <div class="kf-grid">
@@ -1651,7 +1652,10 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
             </div>
           </div>
 
-          <div class="kf-actions"><button type="button" class="btn btn-grad kf-send" id="kfSend">Wyślij do wyceny →</button></div>
+          <div class="kf-nav" id="kfNav">
+            <button type="button" class="btn ghost" id="kfBack">← Wstecz</button>
+            <button type="button" class="btn btn-grad" id="kfNext">Dalej →</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1951,11 +1955,15 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 </style>
 
 <script>
-/* Konfigurator eventu — wszystkie kroki widoczne + wysyłka na maila (mailto) */
+/* Konfigurator eventu — kreator krok po kroku (pasek klikalny) + mailto */
 (function(){
   var kf=document.querySelector('.kf-main'); if(!kf)return;
   var state={typ:'',sceny:1,dni:1,from:'',to:'',miejsce:'',standard:'',dodatki:[],logistyka:[],name:'',email:'',phone:'',msg:''};
-  var err=document.getElementById('kfErr');
+  var step=1, MAX=6;
+  var panels=[].slice.call(document.querySelectorAll('.kf-panel'));
+  var stepsEls=[].slice.call(document.querySelectorAll('.kf-step'));
+  var back=document.getElementById('kfBack'), next=document.getElementById('kfNext'),
+      nav=document.getElementById('kfNav'), err=document.getElementById('kfErr');
   var STD={
     pioneer:{label:'Standard Pioneer',per:[['Pioneer CDJ-3000',2],['Pioneer DJM-A9',1]]},
     '4deck':{label:'Setup 4-decki',per:[['Pioneer CDJ-3000',4],['Pioneer DJM-V10',1]]},
@@ -1963,6 +1971,18 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     battle:{label:'Battle / scratch',per:[['Technics SL-1210 MK7',2],['Pioneer DJM-S11',1]]},
     custom:{label:'Wg ridera',per:[]}
   };
+  function showStep(s){
+    step=s;
+    panels.forEach(function(p){p.classList.toggle('on', p.getAttribute('data-step')==String(s));});
+    stepsEls.forEach(function(el){var n=+el.getAttribute('data-s');
+      el.classList.toggle('active', n===s && typeof s==='number');
+      el.classList.toggle('done', typeof s==='number' ? n<s : true);});
+    if(s==='done'){ nav.style.display='none'; return; }
+    nav.style.display='flex';
+    back.style.visibility = s>1?'visible':'hidden';
+    next.textContent = s===MAX ? 'Wyślij do wyceny →' : 'Dalej →';
+    kf.scrollIntoView({behavior:'smooth',block:'start'});
+  }
   document.querySelectorAll('.kf-opts[data-field]').forEach(function(grp){
     var field=grp.getAttribute('data-field');
     grp.querySelectorAll('.kf-opt').forEach(function(btn){
@@ -1992,9 +2012,9 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
       });
     });
   });
-  var panels=[].slice.call(kf.querySelectorAll('.kf-panel'));
-  document.querySelectorAll('.kf-step').forEach(function(el){
-    el.addEventListener('click',function(){var n=+el.getAttribute('data-s'); if(panels[n-1])panels[n-1].scrollIntoView({behavior:'smooth',block:'start'});});
+  /* pasek kroków klikalny — skok do dowolnego kroku */
+  stepsEls.forEach(function(el){
+    el.addEventListener('click',function(){ var n=+el.getAttribute('data-s'); if(n>=1&&n<=MAX)showStep(n); });
   });
   function eqList(){
     var out=[];
@@ -2005,8 +2025,8 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   }
   function submit(){
     err.textContent='';
-    if(!state.name){ err.textContent='Podaj imię i nazwisko.'; err.scrollIntoView({behavior:'smooth',block:'center'}); return; }
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)){ err.textContent='Podaj poprawny adres e-mail.'; err.scrollIntoView({behavior:'smooth',block:'center'}); return; }
+    if(!state.name){ showStep(6); err.textContent='Podaj imię i nazwisko.'; return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(state.email)){ showStep(6); err.textContent='Podaj poprawny adres e-mail.'; return; }
     var L=['Zapytanie z konfiguratora eventu — The Loop','',
       'Typ: '+(state.typ||'—'),
       'Sceny / setupy: '+state.sceny,
@@ -2015,6 +2035,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
       'Miejsce: '+(state.miejsce||'—'),
       'Standard: '+(STD[state.standard]?STD[state.standard].label:'—'),
       '','Zestaw:'];
+    if(state.help) L.splice(1,0,'*** PROSBA O POMOC W DOBORZE — klient prosi o kontakt, oddzwonic ***');
     eqList().forEach(function(x){L.push(' - '+x);});
     L.push('','Dodatki: '+((state.dodatki||[]).join(', ')||'—'));
     L.push('Logistyka: '+((state.logistyka||[]).join(', ')||'—'));
@@ -2022,10 +2043,13 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
     if(state.msg) L.push('Uwagi: '+state.msg);
     var subject='Zapytanie o wycene — '+(state.typ||'event')+' ('+state.sceny+' sceny)';
     window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(L.join('\n'));
-    kf.classList.add('kf-sent');
-    var d=kf.querySelector('.kf-panel[data-step="done"]'); if(d)d.scrollIntoView({behavior:'smooth',block:'center'});
+    showStep('done');
   }
-  document.getElementById('kfSend').addEventListener('click',submit);
+  back.addEventListener('click',function(){ if(typeof step==='number'&&step>1)showStep(step-1); });
+  next.addEventListener('click',function(){ if(step<MAX)showStep(step+1); else submit(); });
+  var help=document.getElementById('kfHelp');
+  if(help){help.addEventListener('change',function(){ state.help=help.checked; if(help.checked) showStep(6); });}
+  showStep(1);
 })();
 </script>
 
@@ -2042,17 +2066,18 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 </style>
 
 <style>
-/* Konfigurator — wszystkie kroki widoczne (bez wizarda) */
-.kf-panel{display:block;margin-bottom:2.5rem}
-.kf-panel[data-step="done"]{display:none;margin-bottom:0}
-.kf-panel + .kf-panel:not([data-step="done"]){border-top:1px solid var(--line);padding-top:2.25rem}
-.kf-main.kf-sent > .kf-panel:not([data-step="done"]){display:none}
-.kf-main.kf-sent > .kf-actions{display:none}
-.kf-main.kf-sent > .kf-panel[data-step="done"]{display:block}
-.kf-actions{display:flex;justify-content:center;margin-top:1.75rem}
-.kf-send{min-width:280px;justify-content:center}
-.kf-step{cursor:pointer;transition:border-color .25s ease,color .25s ease}
-.kf-step:hover{border-color:rgba(122,1,182,.6);color:#fff}
+/* Konfigurator — checkbox "pomoz dobrac" */
+.kf-help{display:inline-flex;align-items:center;gap:.7rem;margin-top:1.5rem;cursor:pointer;
+  font-size:.9rem;color:var(--text);background:var(--surface);border:1px solid var(--line);
+  border-radius:100px;padding:.7rem 1.25rem;transition:border-color .25s ease}
+.kf-help:hover{border-color:rgba(122,1,182,.55)}
+.kf-help input{position:absolute;opacity:0;width:0;height:0}
+.kf-help-box{width:18px;height:18px;flex:0 0 auto;border:1px solid var(--line);border-radius:6px;
+  background:var(--surface-2);position:relative;transition:.2s}
+.kf-help-box::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;
+  border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;transition:.2s}
+.kf-help input:checked + .kf-help-box{background:var(--grad);border-color:transparent}
+.kf-help input:checked + .kf-help-box::after{opacity:1;transform:rotate(45deg) scale(1)}
 </style>
 </body>
 </html>
