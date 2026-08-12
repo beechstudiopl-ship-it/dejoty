@@ -1649,7 +1649,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
 
           </div>
           <div class="kf-nav" id="kfNav">
-            <button type="button" class="btn ghost" id="kfBack">← Wstecz</button>
+            <button type="button" class="btn ghost" id="kfBack" style="visibility:hidden">← Wstecz</button>
             <button type="button" class="btn btn-grad" id="kfNext">Dalej →</button>
           </div>
         </div>
@@ -2083,7 +2083,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
   box-shadow:0 30px 60px -40px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.03)}
 
 /* pasek postepu — same numerki + nazwa, bez obrysow; zrobione wyszarzone */
-.kf-progress{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:.4rem 1.1rem;padding:0;margin:1.1rem 0 .5rem;border-bottom:0}
+.kf-progress{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1rem;padding:0;margin:1.1rem 0 .5rem;border-bottom:0}
 .kf-node{display:inline-flex;align-items:baseline;gap:.4rem;padding:.28rem 0;border:0;background:transparent;color:var(--text-dim);font-family:inherit;font-size:.9rem;line-height:1;cursor:pointer;transition:color .2s ease,opacity .2s ease;white-space:nowrap}
 .kf-node .mk{font-weight:700;font-size:.82rem;color:inherit;opacity:.85}
 .kf-node:hover{color:var(--text)}
@@ -2180,9 +2180,9 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 @media(max-width:640px){
   .kf-card{padding:1.4rem 1.1rem 1.3rem;border-radius:18px}
   .kf-head h1{font-size:1.9rem}
-  .kf-progress{gap:.25rem;padding-bottom:1rem;margin-bottom:1.15rem}
-  .kf-node{font-size:.8rem;padding:.32rem .55rem .32rem .34rem;gap:.4rem}
-  .kf-node .mk{width:19px;height:19px;font-size:.68rem}
+  .kf-progress{gap:.3rem .75rem;margin:.9rem 0 .5rem;justify-content:center}
+  .kf-node{font-size:.8rem;padding:.2rem 0;gap:.3rem}
+  .kf-node .mk{font-size:.76rem}
   .kf-opts-2{grid-template-columns:1fr}
   .kf-checks{grid-template-columns:1fr}
   .kf-body{min-height:220px}
