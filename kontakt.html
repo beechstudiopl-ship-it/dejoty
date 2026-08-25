@@ -2606,19 +2606,15 @@ seoCols.forEach(function(col){
     var body=L.join('\n');
     var btn=form.querySelector('button[type=submit]');
     function showDone(){ form.hidden=true; done.hidden=false; done.style.display='flex'; }
-    // CONTACT_SEND_KEY: wklej klucz z web3forms.com (kontakt@theloop.pl) = auto-wysyłka w tle
-    var CONTACT_SEND_KEY='';
-    if(CONTACT_SEND_KEY){
-      btn.disabled=true; var t0=btn.textContent; btn.textContent='Wysyłanie…';
-      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-        body:JSON.stringify({access_key:CONTACT_SEND_KEY,subject:subject,from_name:'The Loop — kontakt',email:contact,replyto:contact,message:body,
-          autoresponder:{subject:'Dziękujemy za kontakt — The Loop',message:'Dziękujemy za kontakt. Otrzymaliśmy Twoje zapytanie i wkrótce się odezwiemy.\n\nZespół The Loop'}})})
-       .then(function(r){return r.json();}).then(function(res){ btn.disabled=false; btn.textContent=t0; if(res&&res.success){showDone();}else{throw 0;} })
-       .catch(function(){ btn.disabled=false; btn.textContent=t0; window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body); showDone(); });
-    } else {
-      window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-      showDone();
-    }
+    /* Wysyłka serwerowa przez FormSubmit.co (bez konta), fallback mailto.
+       Pierwsza wysyłka -> 1x e-mail aktywacyjny na kontakt@theloop.pl (kliknij link). */
+    var MAIL_TO='kontakt@theloop.pl';
+    btn.disabled=true; var t0=btn.textContent; btn.textContent='Wysyłanie…';
+    fetch('https://formsubmit.co/ajax/'+MAIL_TO,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({_subject:subject, imie:name, kontakt:contact, rodzaj:form.type.value||'—', data:form.date.value||'—', wiadomosc:form.message.value||'—', _template:'table', _captcha:'false'})})
+     .then(function(r){return r.json();})
+     .then(function(res){ btn.disabled=false; btn.textContent=t0; if(res&&(res.success===true||res.success==='true')){showDone();}else{throw 0;} })
+     .catch(function(){ btn.disabled=false; btn.textContent=t0; window.location.href='mailto:'+MAIL_TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body); showDone(); });
   });
 })();
 </script>

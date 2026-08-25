@@ -2590,10 +2590,10 @@ seoCols.forEach(function(col){
 
   var form = document.getElementById('cartForm');
   var err  = document.getElementById('formErr');
-  /* === WYSYŁKA listy zamówienia na kontakt@theloop.pl ===
-     Puste = mailto (otwiera pocztę). Wklej klucz z web3forms.com
-     (zarejestrowany na kontakt@theloop.pl), aby wysyłać automatycznie w tle. */
-  var CART_SEND_KEY='';
+  /* === WYSYŁKA listy zamówienia (serwerowo przez FormSubmit.co, fallback mailto) ===
+     Pierwsza wysyłka -> FormSubmit przyśle 1x e-mail aktywacyjny na ten adres;
+     po kliknięciu linku wszystkie zapytania trafiają automatycznie do skrzynki. */
+  var MAIL_TO='kontakt@theloop.pl';
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var name = form.name.value.trim(), mail = form.email.value.trim();
@@ -2613,17 +2613,12 @@ seoCols.forEach(function(col){
     var body=L.join('\n'), btn=form.querySelector('button[type=submit]');
     function done(){ panel.classList.remove('show-form'); panel.classList.add('show-done');
       items=[]; try{sessionStorage.setItem('tlCart','[]');}catch(_){} render(); syncButtons(); form.reset(); }
-    if(CART_SEND_KEY){
-      btn.disabled=true; var t0=btn.textContent; btn.textContent='Wysyłanie…';
-      fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-        body:JSON.stringify({access_key:CART_SEND_KEY,subject:subject,from_name:'The Loop — lista zamówienia',email:mail,replyto:mail,message:body,
-          autoresponder:{subject:'Dziękujemy za kontakt — The Loop',message:'Dziękujemy za kontakt. Otrzymaliśmy Twoje zapytanie i wkrótce się odezwiemy.\n\nZespół The Loop'}})})
-       .then(function(r){return r.json();}).then(function(res){ btn.disabled=false; btn.textContent=t0; if(res&&res.success){done();}else{throw 0;} })
-       .catch(function(){ btn.disabled=false; btn.textContent=t0; window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body); done(); });
-    } else {
-      window.location.href='mailto:kontakt@theloop.pl?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
-      done();
-    }
+    btn.disabled=true; var t0=btn.textContent; btn.textContent='Wysyłanie…';
+    fetch('https://formsubmit.co/ajax/'+MAIL_TO,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({_subject:subject, imie:name, kontakt:mail, telefon:form.phone.value||'—', zamowienie:body, _template:'table', _captcha:'false'})})
+     .then(function(r){return r.json();})
+     .then(function(res){ btn.disabled=false; btn.textContent=t0; if(res&&(res.success===true||res.success==='true')){done();}else{throw 0;} })
+     .catch(function(){ btn.disabled=false; btn.textContent=t0; window.location.href='mailto:'+MAIL_TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body); done(); });
   });
   document.getElementById('doneClose').addEventListener('click',close);
 
