@@ -409,7 +409,7 @@ body.menu-open
   padding-top:3.5rem;margin-top:3.5rem;
 }
 .seo-grid{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:2.5rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;
 }
 .seo-col h4{
   font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;
@@ -1965,7 +1965,7 @@ main .page-head p:not(.crumbs){
 }
 .k-form-txt p{color:var(--text-dim);line-height:1.75;margin:0;font-size:.92rem}
 
-.k-form{display:flex;flex-direction:column;gap:1.25rem}
+.k-form{display:flex;flex-direction:column;gap:1rem}
 .k-form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 .k-form label{
   display:block;font-size:.75rem;color:var(--text-dim);letter-spacing:.06em;
@@ -1983,7 +1983,7 @@ main .page-head p:not(.crumbs){
 .k-form textarea{min-height:90px;resize:vertical;padding:.7rem .9rem;line-height:1.6}
 .k-form input:focus,.k-form textarea:focus{outline:none;border-color:rgba(122,1,182,.7)}
 .k-form input::placeholder,.k-form textarea::placeholder{color:var(--text-dim);opacity:.7}
-.k-form-err{color:#e05a5a;font-size:.8rem;margin:0;min-height:1em}
+.k-form-err{color:#e05a5a;font-size:.8rem;margin:0;min-height:0}
 .k-form button{align-self:flex-start;padding:.95rem 2rem}
 
 .k-form-done{
@@ -2349,11 +2349,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
   <section class="section km-section">
     <div class="container pad pad-lg">
       <div class="km-reviews">
-        <div class="km-rev-intro">
-          <svg class="km-g" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-          <div class="km-rev-score"><span class="km-rev-num">5,0</span><span class="km-stars">★★★★★</span></div>
-          <p class="km-rev-src">na podstawie opinii w Google</p>
-        </div>
         <!-- przykladowe opinie — podmien na prawdziwe z profilu Google -->
         <div class="km-rev-grid">
           <blockquote class="km-rev">
@@ -2371,12 +2366,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
             <p>Współpraca przy kilku eventach — zawsze terminowo, sprzęt topowy, obsługa techniczna na miejscu. Będziemy wracać.</p>
             <footer><span class="km-rev-av">PW</span><span class="km-rev-who">Paweł W. <span>· Google</span></span></footer>
           </blockquote>
-        </div>
-        <div class="km-rev-cta">
-          <a href="https://share.google/kDApOTBqLWUQXlUgW" target="_blank" rel="noopener" class="km-g-btn">
-            <svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-            Zobacz opinie w Google
-          </a>
         </div>
       </div>
     </div>
@@ -2427,15 +2416,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
             <li><a href="referencje.html">Kraków Live</a></li>
             <li><a href="referencje.html">Mystic Festival</a></li>
             <li><a href="referencje.html">Wszystkie realizacje →</a></li>
-          </ul>
-        </div>
-        <div class="seo-col">
-          <h4><button type="button" aria-expanded="false"><span>Informacje</span><span class="chev" aria-hidden="true"></span></button></h4>
-          <ul>
-            <li><a href="#" data-todo="/faq">FAQ</a></li>
-            <li><a href="#" data-todo="/obszar-dzialania">Obszar działania</a></li>
-            <li><a href="#" data-todo="/regulamin">Regulamin najmu</a></li>
-            <li><a href="#" data-todo="/polityka-prywatnosci">Polityka prywatności</a></li>
           </ul>
         </div>
       </div>
@@ -2674,7 +2654,7 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .km-rev-who{color:#fff;font-size:.88rem;font-weight:500}
 .km-rev-who span{color:var(--text-dim);font-weight:400}
 /* checkbox zgody w formularzu */
-.k-consent{display:flex;align-items:flex-start;gap:.6rem;margin:.2rem 0 .2rem;cursor:pointer;font-size:.86rem;color:var(--text-dim);line-height:1.5}
+.k-consent{display:flex;align-items:flex-start;gap:.6rem;margin:.1rem 0 -.1rem;cursor:pointer;font-size:.86rem;color:var(--text-dim);line-height:1.5}
 .k-consent input{position:absolute;opacity:0;width:0;height:0}
 .k-consent-box{width:20px;height:20px;flex:0 0 auto;margin-top:1px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);position:relative;transition:.2s}
 .k-consent-box::after{content:"";position:absolute;left:7px;top:3px;width:4px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;transition:.2s}
