@@ -2296,15 +2296,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
           <p class="k-sub">Dodaj sprzęt do listy i wyślij zapytanie</p>
         </a>
 
-        <a href="https://share.google/kDApOTBqLWUQXlUgW" target="_blank" rel="noopener" class="k-card">
-          <span class="k-ico">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </span>
-          <h3>Google</h3>
-          <p class="k-val">Znajdź nas w Google</p>
-          <p class="k-sub">Profil, lokalizacja i opinie</p>
-        </a>
-
       </div>
 
     </div>
@@ -2340,6 +2331,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
           <label class="k-form-full">Czego potrzebujesz?
             <textarea name="message" rows="3" placeholder="Opisz w kilku słowach — np. mikser, dwa CDJ-e i nagłośnienie na 150 osób"></textarea>
           </label>
+          <label class="k-consent"><input type="checkbox" id="inquiryConsent"><span class="k-consent-box" aria-hidden="true"></span><span>Akceptuję <a href="#" target="_blank" rel="noopener">regulamin</a> oraz <a href="#" target="_blank" rel="noopener">politykę prywatności</a>.</span></label>
           <p class="k-form-err" id="inquiryErr"></p>
           <button type="submit" class="btn btn-grad">Wyślij zapytanie</button>
         </form>
@@ -2356,26 +2348,19 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
   <!-- ============ MAPA + OPINIE GOOGLE ============ -->
   <section class="section km-section">
     <div class="container pad pad-lg">
-      <div class="km-grid">
-
-        <div class="km-map">
-          <iframe src="https://maps.google.com/maps?q=Gda%C5%84sk%2C%20Polska&z=10&output=embed"
-                  title="The Loop — lokalizacja" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-          <a href="https://share.google/kDApOTBqLWUQXlUgW" target="_blank" rel="noopener" class="km-map-btn">
+      <div class="km-reviews">
+        <div class="km-rev-head">
+          <div>
+            <div class="km-rev-top"><span class="km-rev-num">5,0</span><span class="km-stars">★★★★★</span></div>
+            <p class="km-rev-src">Opinie w Google</p>
+          </div>
+          <a href="https://share.google/kDApOTBqLWUQXlUgW" target="_blank" rel="noopener" class="km-rev-all">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Otwórz w Google Maps
+            Zobacz na Google Maps →
           </a>
         </div>
-
-        <div class="km-reviews">
-          <div class="km-rev-head">
-            <div>
-              <div class="km-rev-top"><span class="km-rev-num">5,0</span><span class="km-stars">★★★★★</span></div>
-              <p class="km-rev-src">Opinie w Google</p>
-            </div>
-            <a href="https://share.google/kDApOTBqLWUQXlUgW" target="_blank" rel="noopener" class="km-rev-all">Wszystkie opinie →</a>
-          </div>
-          <!-- przykladowe opinie — podmien na prawdziwe z profilu Google -->
+        <!-- przykladowe opinie — podmien na prawdziwe z profilu Google -->
+        <div class="km-rev-grid">
           <blockquote class="km-rev">
             <span class="km-stars sm">★★★★★</span>
             <p>Sprzęt zawsze sprawdzony i gotowy do grania, dowóz na czas. Pełen profesjonalizm — polecam każdemu organizatorowi.</p>
@@ -2392,7 +2377,6 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
             <footer><span class="km-rev-av">PW</span><span class="km-rev-who">Paweł W. <span>· Google</span></span></footer>
           </blockquote>
         </div>
-
       </div>
     </div>
   </section>
@@ -2607,6 +2591,8 @@ seoCols.forEach(function(col){
     var contact = form.contact.value.trim();
     if(!name){ err.textContent = 'Podaj imię i nazwisko.'; return; }
     if(!contact){ err.textContent = 'Podaj telefon lub e-mail, żebyśmy mogli odpowiedzieć.'; return; }
+    var consent = document.getElementById('inquiryConsent');
+    if(consent && !consent.checked){ err.textContent = 'Zaznacz akceptację regulaminu i polityki prywatności.'; return; }
     err.textContent = '';
 
     var L=['Zapytanie z formularza kontaktowego — The Loop','',
@@ -2669,25 +2655,36 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 .km-map-btn:hover{background:var(--grad);border-color:transparent}
 .km-map-btn svg{width:18px;height:18px}
 
-.km-reviews{display:flex;flex-direction:column;gap:1rem}
+.km-reviews{display:flex;flex-direction:column;gap:1.1rem}
 .km-rev-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem}
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.4rem}
 .km-rev-top{display:flex;align-items:baseline;gap:.6rem}
 .km-rev-num{font-size:1.7rem;font-weight:600;color:#fff;line-height:1}
 .km-stars{color:#FFC24B;letter-spacing:2px;font-size:1.05rem}
 .km-stars.sm{font-size:.9rem;letter-spacing:1.5px}
 .km-rev-src{color:var(--text-dim);font-size:.82rem;margin:.35rem 0 0;letter-spacing:.02em}
-.km-rev-all{color:var(--accent-b);font-size:.85rem;font-weight:500;white-space:nowrap}
+.km-rev-all{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent-b);font-size:.88rem;font-weight:500;white-space:nowrap}
+.km-rev-all svg{width:17px;height:17px}
 .km-rev-all:hover{color:#fff}
+.km-rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
 .km-rev{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem;transition:border-color .25s}
 .km-rev:hover{border-color:rgba(122,1,182,.4)}
-.km-rev p{color:var(--text);font-size:.92rem;line-height:1.6;margin:.55rem 0 .85rem}
+.km-rev p{color:var(--text);font-size:.9rem;line-height:1.6;margin:.55rem 0 .85rem}
 .km-rev footer{display:flex;align-items:center;gap:.7rem}
 .km-rev-av{width:34px;height:34px;flex:0 0 auto;border-radius:50%;background:var(--grad);color:#fff;
   display:grid;place-items:center;font-size:.78rem;font-weight:600}
 .km-rev-who{color:#fff;font-size:.88rem;font-weight:500}
 .km-rev-who span{color:var(--text-dim);font-weight:400}
-@media(max-width:860px){ .km-grid{grid-template-columns:1fr} .km-map{min-height:320px} .km-map iframe{min-height:320px} }
+/* checkbox zgody w formularzu */
+.k-consent{display:flex;align-items:flex-start;gap:.6rem;margin:.2rem 0 .2rem;cursor:pointer;font-size:.86rem;color:var(--text-dim);line-height:1.5}
+.k-consent input{position:absolute;opacity:0;width:0;height:0}
+.k-consent-box{width:20px;height:20px;flex:0 0 auto;margin-top:1px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);position:relative;transition:.2s}
+.k-consent-box::after{content:"";position:absolute;left:7px;top:3px;width:4px;height:9px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) scale(.6);opacity:0;transition:.2s}
+.k-consent input:checked + .k-consent-box{background:var(--grad);border-color:transparent}
+.k-consent input:checked + .k-consent-box::after{opacity:1;transform:rotate(45deg) scale(1)}
+.k-consent a{color:var(--accent-b);text-decoration:underline}
+.k-consent a:hover{color:#fff}
+@media(max-width:860px){ .km-rev-grid{grid-template-columns:1fr} }
 </style>
 </body>
 </html>
