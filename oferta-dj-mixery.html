@@ -2083,6 +2083,13 @@ body.qv-open .qv-modal{transform:none}
 .qv-add:hover{filter:brightness(1.1)}
 .qv-add .i{font-size:1.1rem;line-height:1}
 .qv-add.added{background:var(--surface);color:var(--text);box-shadow:none;border:1px solid var(--line)}
+.qv-qty{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:auto;margin-bottom:.9rem}
+.qv-info .qv-add{margin-top:0}
+.qv-qty-lbl{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim)}
+.qv-stepper{display:flex;align-items:center;gap:.15rem;background:var(--surface-2);border:1px solid var(--line);border-radius:100px;padding:3px}
+.qv-stepper button{width:32px;height:32px;border:0;border-radius:100px;cursor:pointer;background:none;color:var(--text);font-size:1.15rem;line-height:1;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;transition:background .25s ease,color .25s ease}
+.qv-stepper button:hover{background:var(--accent-a);color:var(--white)}
+.qv-qty-val{min-width:30px;text-align:center;font-size:.95rem;color:var(--text)}
 .qv-close{position:absolute;top:.9rem;right:1rem;background:none;border:0;color:var(--text-dim);
   font-size:1.9rem;line-height:1;cursor:pointer;padding:.2rem .4rem;transition:color .3s ease;z-index:2}
 .qv-close:hover{color:#fff}
@@ -2098,6 +2105,14 @@ body.qv-open .qv-modal{transform:none}
       <p class="qv-eyebrow">Szybki podgląd</p>
       <h2 class="qv-name" id="qvName"></h2>
       <p class="qv-desc" id="qvDesc"></p>
+      <div class="qv-qty">
+        <span class="qv-qty-lbl">Ilość</span>
+        <div class="qv-stepper">
+          <button type="button" data-act="minus" aria-label="Mniej">−</button>
+          <span class="qv-qty-val" id="qvQtyVal">1</span>
+          <button type="button" data-act="plus" aria-label="Więcej">+</button>
+        </div>
+      </div>
       <button type="button" class="qv-add" id="qvAdd"><span class="i" aria-hidden="true">+</span><span class="qv-txt">Dodaj do zamówienia</span></button>
     </div>
   </div>
@@ -2109,18 +2124,29 @@ body.qv-open .qv-modal{transform:none}
   var PH="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='48'%3E%3Crect width='56' height='48' fill='%2312141a'/%3E%3C/svg%3E";
   var ov=document.getElementById('qvOverlay'); if(!ov)return;
   var media=document.getElementById('qvMedia'), nameEl=document.getElementById('qvName'),
-      descEl=document.getElementById('qvDesc'), addBtn=document.getElementById('qvAdd');
-  var current=null;
+      descEl=document.getElementById('qvDesc'), addBtn=document.getElementById('qvAdd'),
+      qtyValEl=document.getElementById('qvQtyVal');
+  var current=null, qty=1;
   function readCart(){try{return JSON.parse(sessionStorage.getItem('tlCart'))||[];}catch(e){return[];}}
   function writeCart(items){try{sessionStorage.setItem('tlCart',JSON.stringify(items));}catch(e){}
     var t=items.reduce(function(s,i){return s+(i.qty||0);},0);
     var mc=document.getElementById('mCartCount'); if(mc)mc.textContent=t;
     var dc=document.querySelectorAll('.cart-count'); for(var i=0;i<dc.length;i++)dc[i].textContent=t;}
   function inCart(id){return readCart().some(function(i){return i.id===id;});}
+  function cartQty(id){var it=readCart().filter(function(i){return i.id===id;})[0];return it?(it.qty||1):0;}
   function setBtn(){var on=current&&inCart(current.id);
     addBtn.classList.toggle('added',!!on);
     addBtn.querySelector('.qv-txt').textContent=on?'Dodano do listy':'Dodaj do zamówienia';
     addBtn.querySelector('.i').textContent=on?'✓':'+';}
+  function showQty(){if(qtyValEl)qtyValEl.textContent=qty;}
+  function setQty(v){
+    qty=Math.max(1,v); showQty();
+    if(current&&inCart(current.id)){                 /* aktualizuj ilość w koszyku na żywo */
+      var items=readCart();
+      items.forEach(function(i){if(i.id===current.id)i.qty=qty;});
+      writeCart(items);
+    }
+  }
   function open(card){
     var img=card.querySelector('.xs-media img');
     var name=((card.querySelector('.xs-name')||{}).textContent||'').trim();
@@ -2129,14 +2155,18 @@ body.qv-open .qv-modal{transform:none}
     current={id:name,name:name,kind:'',img:src||PH};
     media.innerHTML=img?'<img src="'+src+'" alt="">':'<div class="qv-ph">Zdjęcie wkrótce</div>';
     nameEl.textContent=name; descEl.textContent=desc||'';
+    qty=cartQty(name)||1; showQty();
     setBtn(); document.body.classList.add('qv-open');
   }
   function close(){document.body.classList.remove('qv-open');}
+  [].slice.call(document.querySelectorAll('.qv-stepper button')).forEach(function(b){
+    b.addEventListener('click',function(){setQty(b.getAttribute('data-act')==='plus'?qty+1:qty-1);});
+  });
   addBtn.addEventListener('click',function(){
     if(!current)return;
     var items=readCart();
-    if(inCart(current.id)){items=items.filter(function(i){return i.id!==current.id;});}
-    else{items.push({id:current.id,name:current.name,kind:current.kind,img:current.img,qty:1});}
+    if(inCart(current.id)){items=items.filter(function(i){return i.id!==current.id;}); qty=1; showQty();}
+    else{items.push({id:current.id,name:current.name,kind:current.kind,img:current.img,qty:qty});}
     writeCart(items); setBtn();
   });
   document.querySelectorAll('.xs-more-btn').forEach(function(a){
