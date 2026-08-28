@@ -2093,7 +2093,7 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
   <a href="kontakt.html" class="m-link">Kontakt</a>
 
   <!-- LISTA ZAMÓWIENIA -->
-  <a href="oferta.html" class="m-order">
+  <a href="produkt.html#zamowienie" class="m-order">
     <span class="m-order-icon">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
     </span>
@@ -2615,6 +2615,8 @@ seoCols.forEach(function(col){
   /* przywrócenie zamówienia po powrocie na stronę (stan trzymany w sessionStorage) */
   try{ var _s = sessionStorage.getItem('tlCart'); if(_s){ items = JSON.parse(_s) || []; } }catch(e){ items = []; }
   render(); syncButtons();
+  /* auto-otwarcie panelu zamówienia po wejściu z innej strony (#zamowienie) */
+  if(location.hash==='#zamowienie'){ open(); }
 })();
 
 // ——— wyszukiwarka sprzętu ———
