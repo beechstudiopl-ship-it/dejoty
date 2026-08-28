@@ -1,0 +1,47 @@
+========================================================
+  THE LOOP — instrukcja wgrania na hosting
+========================================================
+
+CO JEST W PACZCE
+- pliki .html            -> strona
+- send.php               -> wysyłka zapytań na e-mail (Twój kod na serwerze)
+- showstart.mp4,
+  onasvideo.mp4,
+  onasvideo-poster.webp  -> materiały wideo
+
+--------------------------------------------------------
+JAK WGRAĆ (5 minut)
+--------------------------------------------------------
+1. Zaloguj się do panelu hostingu (cyberFolks / nazwa.pl /
+   home.pl / LH.pl) i otwórz "Menedżer plików" albo połącz
+   się przez FTP (np. FileZilla).
+
+2. Wejdź do katalogu strony — zwykle "public_html"
+   (czasem "www" lub "htdocs"). To tam, gdzie ma leżeć index.html.
+
+3. Wgraj TAM WSZYSTKIE pliki z tej paczki — razem, płasko,
+   w jednym katalogu (w tym send.php).
+
+4. Gotowe. Wejdź na stronę, dodaj sprzęt do zamówienia,
+   wyślij zapytanie -> mail przyjdzie automatycznie na skrzynkę.
+
+--------------------------------------------------------
+E-MAIL — WAŻNE
+--------------------------------------------------------
+- Adres, na który przychodzą zapytania, ustawiasz w pliku
+  send.php (pierwsze linie):
+      $TO   = 'kontakt@theloop.pl';   <- tu trafiają maile
+      $FROM = 'kontakt@theloop.pl';   <- nadawca (ta sama domena!)
+
+- Skrzynka kontakt@theloop.pl powinna ISTNIEĆ na domenie
+  theloop.pl (zakładasz ją w panelu hostingu, sekcja "Poczta").
+  Dzięki temu maile nie wpadają do spamu.
+
+- Pierwszy test nie doszedł? Sprawdź folder SPAM i upewnij się,
+  że skrzynka kontakt@theloop.pl jest utworzona.
+
+--------------------------------------------------------
+Strona jest w pełni statyczna (HTML). Jedyny element
+serwerowy to send.php — działa na każdym hostingu z PHP
+(czyli praktycznie każdym polskim hostingu współdzielonym).
+========================================================
