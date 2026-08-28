@@ -2313,7 +2313,7 @@ body.cart-open .cart-panel{transform:translateX(0)}
   text-transform:uppercase;line-height:1.4;
 }
 
-.cart-form label span{color:var(--accent-a)}
+.cart-form label:not(.check) span{color:var(--accent-a)}
 
 .cart-form input,.cart-form textarea{
   display:block;width:100%;box-sizing:border-box;margin-top:.45rem;
@@ -2343,7 +2343,7 @@ body.cart-open .cart-panel{transform:translateX(0)}
 
 .cart-form .check{
   display:flex;align-items:flex-start;gap:.7rem;cursor:pointer;
-  font-size:.82rem;color:var(--text);letter-spacing:0;
+  font-size:.82rem;color:#fff;letter-spacing:0;
   text-transform:none;line-height:1.45;
 }
 
@@ -2585,11 +2585,11 @@ body.cart-open .cart-panel{transform:translateX(0)}
     function done(){ panel.classList.remove('show-form'); panel.classList.add('show-done');
       items=[]; save(); render(); form.reset(); }
     btn.disabled=true; var t0=btn.textContent; btn.textContent='Wysyłanie…';
-    fetch('https://formsubmit.co/ajax/'+MAIL_TO,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-      body:JSON.stringify({_subject:subject, imie:name, kontakt:mail, telefon:form.phone.value||'—', zamowienie:body, _template:'table', _captcha:'false'})})
+    fetch('send.php',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+      body:JSON.stringify({subject:subject, imie:name, email:mail, telefon:form.phone.value||'—', tresc:body})})
      .then(function(r){return r.json();})
-     .then(function(res){ btn.disabled=false; btn.textContent=t0; if(res&&(res.success===true||res.success==='true')){done();}else{throw 0;} })
-     .catch(function(){ btn.disabled=false; btn.textContent=t0; window.location.href='mailto:'+MAIL_TO+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body); done(); });
+     .then(function(res){ btn.disabled=false; btn.textContent=t0; if(res&&res.ok){done();}else{throw (res&&res.error)||0;} })
+     .catch(function(msg){ btn.disabled=false; btn.textContent=t0; if(err){err.textContent=(typeof msg==='string'?msg:'Nie udało się wysłać — spróbuj ponownie za chwilę lub napisz na '+MAIL_TO);} });
   });
   var doneClose = document.getElementById('doneClose');
   if(doneClose) doneClose.addEventListener('click', close);
