@@ -855,7 +855,14 @@ main .container.pad-lg{padding-block:2rem}
   transition:transform .6s ease;
 }
 
+/* brandowa nakładka (fiolet) — pojawia się po najechaniu */
+.bx-bg::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 150% at 100% 0%, rgba(122,1,182,.5), transparent 55%),radial-gradient(130% 150% at 8% 100%, rgba(78,33,194,.45), transparent 55%);
+  mix-blend-mode:screen;opacity:0;transition:opacity .5s ease;
+}
 .bx-feature:hover .bx-bg{transform:scale(1.03)}
+.bx-feature:hover .bx-bg::after{opacity:1}
 
 /* ładny gradient na zdjęciu: ciemno po lewej (tekst) -> ciepłe zdjęcie po prawej, + dół pod przycisk */
 .bx-feature::after{
