@@ -849,27 +849,37 @@ main .container.pad-lg{padding-block:2rem}
 }
 
 .bx-feature .bx-bg{
-  position:absolute;left:52%;right:-6%;top:0;bottom:0;z-index:0;
-  background-size:cover;background-position:50% center;
-  opacity:1;filter:brightness(1.08) saturate(1.12);
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 24%);
-          mask-image:linear-gradient(90deg,transparent 0,#000 24%);
+  position:absolute;left:44%;right:-6%;top:0;bottom:0;z-index:0;
+  background-size:cover;background-position:52% center;
+  opacity:1;filter:brightness(1.12) saturate(1.2) contrast(1.02);
+  -webkit-mask-image:linear-gradient(100deg,transparent 0,rgba(0,0,0,.55) 22%,#000 44%);
+          mask-image:linear-gradient(100deg,transparent 0,rgba(0,0,0,.55) 22%,#000 44%);
   transition:transform .6s ease;
 }
+/* ciepła poświata skupiona na urządzeniu */
+.bx-bg::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(75% 85% at 74% 70%, rgba(255,168,54,.4), transparent 62%);
+  mix-blend-mode:screen;
+}
+/* brandowa maska — fiolet w rogach */
 .bx-bg::after{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(120% 160% at 100% 0%, rgba(122,1,182,.5), transparent 60%),radial-gradient(120% 160% at 0% 100%, rgba(78,33,194,.5), transparent 60%);
+  background:radial-gradient(120% 150% at 100% 0%, rgba(122,1,182,.55), transparent 55%),radial-gradient(130% 150% at 8% 100%, rgba(78,33,194,.5), transparent 55%);
   mix-blend-mode:screen;
 }
 
 .bx-feature:hover .bx-bg{transform:scale(1.03)}
 
+/* lewa strona: czysta ciemność pod tekstem + delikatna winieta rogów (bez muła) */
 .bx-feature::after{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg,rgba(16,18,23,.72) 0%,rgba(16,18,23,.28) 34%,rgba(16,18,23,0) 50%);
+  background:
+    linear-gradient(97deg,rgba(16,18,23,.97) 0%,rgba(16,18,23,.8) 28%,rgba(16,18,23,.32) 46%,rgba(16,18,23,0) 62%),
+    linear-gradient(180deg,rgba(16,18,23,.5) 0%,transparent 24%,transparent 74%,rgba(16,18,23,.45) 100%);
 }
 
-.bx-feature > *:not(.bx-bg){position:relative;z-index:2;max-width:50%}
+.bx-feature > *:not(.bx-bg){position:relative;z-index:2;max-width:47%}
 
 .bx-feature h3{font-size:2.1rem;margin-bottom:1.1rem}
 .bx-feature .bx-lead{color:var(--text-dim);font-size:.95rem;line-height:1.6;margin:0 0 1.2rem;max-width:40ch}
