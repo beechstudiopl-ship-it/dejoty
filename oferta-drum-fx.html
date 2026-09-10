@@ -1068,7 +1068,7 @@ border-radius:8px;}
 
   .cat{margin-bottom:0border-radius:8px;}
 
-  .cat-img{height:240px}
+  .cat-img{height:150px}
 
 
   /* galeria w pionie — mniejsze foty na mobile */
@@ -1135,7 +1135,7 @@ border-radius:8px;}
   letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.25rem;
 }
 
-  .cat-grid-4 .cat-img{height:210px;margin-top:-56px}
+  .cat-grid-4 .cat-img{height:140px;margin-top:-40px}
 
 main h1 + p,
 main .hero-sub,
@@ -1217,7 +1217,7 @@ main .page-head p:not(.crumbs){
   /* kategorie — kafelki jak teraz, ale w pionie 1 kolumna */
   .cat-grid{grid-template-columns:1fr;gap:4.5rem}
   .cat{margin-bottom:0border-radius:8px;}
-  .cat-img{height:240px}
+  .cat-img{height:150px}
   .btn{font-size:.85rem;padding:12px 1.5rem}
   .btn-center{margin-top:2.5rem}
 
@@ -1273,7 +1273,7 @@ main .page-head p:not(.crumbs){
 }
 @media (max-width:767px){
   .cat-grid-4{grid-template-columns:1fr;gap:4rem;margin-top:5.5rem}
-  .cat-grid-4 .cat-img{height:210px;margin-top:-56px}
+  .cat-grid-4 .cat-img{height:140px;margin-top:-40px}
 }
 @media (max-width:767px){
   main h1{font-size:1.6rem;letter-spacing:1px;margin-bottom:1rem}
@@ -2304,6 +2304,14 @@ body.cart-open .cart-panel{transform:translateX(0)}
   .cart-panel{width:100%;max-width:100%}
   .cart-head,.cart-body,.cart-foot,.cart-form,.cart-done{padding-left:1.25rem;padding-right:1.25rem}
   .form-row{grid-template-columns:1fr}
+}
+
+/* --- normalizacja rozmiaru zdjec kart: desktop wieksze + nawis, mobile mniejsze --- */
+.xs-media{height:170px;display:flex;align-items:center;justify-content:center;margin:-64px 0 1.3rem}
+.xs-media img{max-width:100%;max-height:200px;object-fit:contain;border-radius:8px;transition:transform .4s ease}
+@media(max-width:767px){
+  .xs-media{height:auto;min-height:120px;margin:-6px 0 .8rem}
+  .xs-media img{max-width:100%;max-height:116px}
 }
 </style>
 <div class="cart-overlay" id="cartOverlay"></div>
