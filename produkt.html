@@ -2702,5 +2702,9 @@ inp.addEventListener('keydown',function(e){if(e.key==='Escape')ns.classList.remo
 <script>
 (function(){var f=document.getElementById('footSearch');if(!f)return;f.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();var q=f.value.trim();location.href='szukaj.html'+(q?('?q='+encodeURIComponent(q)):'');}});})();
 </script>
+<script>
+/* rozwijane kategorie w menu mobilnym */
+(function(){var g=document.getElementById('mSprzet');if(!g)return;var b=g.querySelector('.m-toggle');if(!b)return;b.addEventListener('click',function(){var o=g.classList.toggle('open');b.setAttribute('aria-expanded',o);});})();
+</script>
 </body>
 </html>
