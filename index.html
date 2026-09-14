@@ -1611,6 +1611,30 @@ background:linear-gradient(90deg,#7A01B6 0%,#9b4dff 15%,#c9a7ff 30%,#9b4dff 45%,
 background-size:220% 100%;animation:loopGrad 6s linear infinite}
 @keyframes loopGrad{from{background-position:0 0}to{background-position:-220% 0}}
 @media (prefers-reduced-motion:reduce){.footer-left .logo-anim{animation:none;background-position:30% 0}}
+
+/* animacja logo po kliknieciu */
+@keyframes logoPop{0%{transform:scale(1)}28%{transform:scale(.88) rotate(-2deg)}58%{transform:scale(1.1) rotate(1.5deg)}100%{transform:scale(1) rotate(0)}}
+a.logo{transition:filter .25s ease}
+a.logo.logo-clicked{animation:logoPop .55s cubic-bezier(.34,1.56,.64,1)}
+a.logo.logo-clicked .logo-img{filter:drop-shadow(0 0 12px rgba(122,1,182,.85))}
+
+
+/* przyklejony kontakt WhatsApp (kolor marki) */
+.wa-fab{position:fixed;left:16px;bottom:16px;z-index:120;display:inline-flex;align-items:center;gap:.55rem;padding:.62rem .95rem;border-radius:999px;background:var(--grad);color:#fff;font-size:.86rem;font-weight:600;letter-spacing:.01em;text-decoration:none;box-shadow:0 12px 30px -10px rgba(122,1,182,.75);transition:transform .2s ease,box-shadow .2s ease}
+.wa-fab:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(122,1,182,.9);color:#fff}
+.wa-fab svg{width:20px;height:20px;fill:#fff;flex:0 0 auto}
+@media(max-width:767px){.wa-fab{left:12px;bottom:12px;padding:.55rem .8rem;font-size:.8rem}}
+
+
+/* wyrownanie linii w stopce (accordion) - rowne odstepy gora/dol */
+@media(max-width:767px){
+  .seo-nav{border-top:0;padding-top:0}
+  .seo-col{border-top:1px solid var(--line);border-bottom:0}
+  .seo-col:last-child{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .seo-col h4 button{padding:1rem 0}
+  .seo-col.open ul{padding-bottom:1rem}
+}
+
 </style>
 </head>
 <body>
@@ -1655,8 +1679,8 @@ background-size:220% 100%;animation:loopGrad 6s linear infinite}
   </div>
 
   <!-- LINKI MENU -->
-  <div class="m-group" id="mSprzet">
-    <button type="button" class="m-link m-toggle" aria-expanded="false">
+  <div class="m-group open" id="mSprzet">
+    <button type="button" class="m-link m-toggle" aria-expanded="true">
       <span>Nasz sprzęt</span>
       <svg class="m-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
     </button>
@@ -2626,5 +2650,10 @@ body.cart-open .cart-panel{transform:translateX(0)}
   if(location.hash==='#zamowienie'){ open(); }
 })();
 </script>
+<script>
+/* animacja logo po kliknieciu -> potem nawigacja */
+(function(){document.querySelectorAll('a.logo').forEach(function(l){l.addEventListener('click',function(e){if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;if(l.classList.contains('logo-clicked'))return;var href=l.getAttribute('href');if(!href)return;e.preventDefault();l.classList.add('logo-clicked');setTimeout(function(){window.location.href=href;},480);});});})();
+</script>
+<a class="wa-fab" href="https://wa.me/48690414092" target="_blank" rel="noopener" aria-label="WhatsApp +48 690 414 092"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.6-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38 0 1.4 1.02 2.76 1.17 2.95.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.68.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.77.46 3.42 1.27 4.86L2 22l5.28-1.38A9.94 9.94 0 0 0 12.02 22C17.54 22 22 17.52 22 12S17.54 2 12.02 2z"/></svg><span>+48 690 414 092</span></a>
 </body>
 </html>
