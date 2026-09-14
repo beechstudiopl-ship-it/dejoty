@@ -1746,26 +1746,22 @@ main h1,main h1.h2{font-size:3.4rem;font-weight:500;letter-spacing:2px;line-heig
           <p class="xs-desc">Absorber drgań pod gramofon — redukcja sprzężeń</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="xs-card" data-brand="inne">
-          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5-5L5 20"/></svg><span>zdjęcie wkrótce</span></div>
+        <div class="xs-card xs-nomedia" data-brand="inne">
           <h3 class="xs-name">Marble Block</h3>
           <p class="xs-desc">Marmurowa podstawa antywibracyjna pod gramofon</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="xs-card" data-brand="inne">
-          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5-5L5 20"/></svg><span>zdjęcie wkrótce</span></div>
+        <div class="xs-card xs-nomedia" data-brand="inne">
           <h3 class="xs-name">Squash Ball</h3>
           <p class="xs-desc">Piłki do izolacji drgań pod nóżki gramofonu</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="xs-card" data-brand="isonoe">
-          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5-5L5 20"/></svg><span>zdjęcie wkrótce</span></div>
+        <div class="xs-card xs-nomedia" data-brand="isonoe">
           <h3 class="xs-name">Isonoe Feet</h3>
           <p class="xs-desc">Nóżki antywibracyjne (M6) — izolacja gramofonu</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="xs-card" data-brand="isonoe">
-          <div class="xs-media xs-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 16l-5-5L5 20"/></svg><span>zdjęcie wkrótce</span></div>
+        <div class="xs-card xs-nomedia" data-brand="isonoe">
           <h3 class="xs-name">Isonoe Boots</h3>
           <p class="xs-desc">Gumowe tuleje do nóżek Isonoe — dodatkowa izolacja</p>
           <div class="xs-actions"><a href="produkt.html" class="xs-more-btn">Więcej<span class="xs-arr" aria-hidden="true">→</span></a></div>
@@ -2344,6 +2340,8 @@ body.cart-open .cart-panel{transform:translateX(0)}
 
 /* --- normalizacja rozmiaru zdjec kart: desktop wieksze + nawis, mobile mniejsze --- */
 .xs-media{height:170px;display:flex;align-items:center;justify-content:center;margin:-64px 0 1.3rem}
+.xs-card.xs-nomedia{margin-top:0}
+.shop-main .xs-grid{row-gap:.6rem}
 .xs-media img{max-width:100%;max-height:110px;object-fit:contain;border-radius:8px;transition:transform .4s ease}
 @media(max-width:767px){
   .brand-tabs{display:none}
