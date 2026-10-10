@@ -1635,6 +1635,41 @@ a.logo.logo-clicked .logo-img{filter:drop-shadow(0 0 12px rgba(122,1,182,.85))}
   .seo-col.open ul{padding-bottom:1rem}
 }
 
+
+/* ---- Realizacje (strona główna) ---- */
+.cases-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem 2rem;flex-wrap:wrap;margin-bottom:2rem}
+.cases-eyebrow{display:inline-block;font-size:.82rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.85rem}
+.cases-all{color:var(--white);font-size:1rem;padding-bottom:.35rem;border-bottom:2px solid var(--accent-b);transition:border-color .25s ease}
+.cases-all:hover{border-color:var(--accent-a)}
+.cases-filter{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.cf-btn{background:transparent;color:var(--text);border:1px solid var(--line);border-radius:100px;padding:.7rem 1.4rem;font-size:.9rem;transition:.25s}
+.cf-btn:hover{border-color:var(--text-dim);color:var(--white)}
+.cf-btn.is-active{background:var(--grad);border-color:transparent;color:var(--white)}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.case{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;transition:border-color .25s ease,transform .25s ease}
+.case:hover{border-color:var(--accent-b);transform:translateY(-3px)}
+.case[hidden]{display:none}
+.case-top{position:relative;height:150px;display:flex;align-items:flex-end;padding:1.25rem 1.5rem;overflow:hidden;
+  background:radial-gradient(120% 140% at 100% 0%,rgba(122,1,182,.55),rgba(78,33,194,.18) 45%,transparent 70%),var(--surface-2);border-bottom:1px solid var(--line)}
+.case-mark{font-size:2.6rem;line-height:.95;font-weight:700;text-transform:uppercase;letter-spacing:.02em;
+  -webkit-text-fill-color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35);white-space:nowrap}
+.case-body{display:flex;flex-direction:column;gap:.7rem;padding:1.5rem;flex:1}
+.case-tag{align-self:flex-start;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);
+  background:rgba(122,1,182,.22);border:1px solid rgba(122,1,182,.5);border-radius:100px;padding:.35rem .8rem}
+.case h3{font-size:1.4rem;font-weight:500;color:var(--white);line-height:1.15}
+.case-place{font-size:.85rem;color:var(--text-dim);margin-top:-.35rem}
+.case p{line-height:1.55}
+.case-link{margin-top:auto;padding-top:.5rem;align-self:flex-start;color:var(--white);border-bottom:1px solid var(--accent-b);font-size:.92rem}
+.case-link:hover{border-color:var(--accent-a)}
+@media (max-width:991px){.cases-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:767px){
+  .cases-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);gap:1rem;margin-inline:calc(var(--pad)*-1);padding:0 var(--pad) .5rem;scrollbar-width:none}
+  .cases-grid::-webkit-scrollbar{display:none}
+  .case{flex:0 0 82%;scroll-snap-align:start}
+  .case:hover{transform:none}
+  .case-top{height:120px}
+  .case-mark{font-size:2rem}
+}
 </style>
 </head>
 <body>
@@ -1880,6 +1915,116 @@ a.logo.logo-clicked .logo-img{filter:drop-shadow(0 0 12px rgba(122,1,182,.85))}
       </div>
       <div class="btn-center">
         <a href="oferta-dj-mixery.html" class="btn btn-grad">Zobacz wszystkie</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REALIZACJE ============ -->
+  <section class="section" id="realizacje">
+    <div class="container pad pad-lg">
+      <div class="cases-head">
+        <div>
+          <p class="cases-eyebrow grad-text">Nasze realizacje</p>
+          <h2 class="h2">Zobacz, gdzie <span class="grad-text">gra nasz sprzęt</span></h2>
+        </div>
+        <a href="referencje.html" class="cases-all">Zobacz wszystkie realizacje <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="cases-filter" role="group" aria-label="Filtruj realizacje">
+        <button type="button" class="cf-btn is-active" data-f="all" aria-pressed="true">Wszystkie</button>
+        <button type="button" class="cf-btn" data-f="wyk" aria-pressed="false">Wykonawca</button>
+        <button type="button" class="cf-btn" data-f="pod" aria-pressed="false">Podwykonawca</button>
+      </div>
+      <div class="cases-grid" id="casesGrid">
+        <article class="case" data-role="wyk">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Open'er Festival</span></div>
+          <div class="case-body">
+            <span class="case-tag">Wykonawca · Festiwal</span>
+            <h3>Open'er Festival</h3>
+            <p class="case-place">Gdynia</p>
+            <p>Największy i&nbsp;najbardziej rozpoznawalny festiwal muzyczny w&nbsp;Polsce, odbywający się w&nbsp;Gdyni.</p>
+            <a class="case-link" href="https://opener.pl/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="wyk">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Orange Warsaw Festival</span></div>
+          <div class="case-body">
+            <span class="case-tag">Wykonawca · Festiwal</span>
+            <h3>Orange Warsaw Festival</h3>
+            <p class="case-place">Warszawa</p>
+            <p>Jeden z&nbsp;największych festiwali w&nbsp;stolicy, organizowany na Torze Służewiec w&nbsp;Warszawie.</p>
+            <a class="case-link" href="https://orangewarsawfestival.pl/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="wyk">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Upperground</span></div>
+          <div class="case-body">
+            <span class="case-tag">Wykonawca · Festiwal</span>
+            <h3>Upperground</h3>
+            <p class="case-place">Warszawa</p>
+            <p>Globalny festiwal muzyki elektronicznej (ARTBAT), którego flagowe edycje odbywają się na Stadionie Legii w&nbsp;Warszawie.</p>
+            <a class="case-link" href="https://uppergroundpoland.com/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="wyk">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Mystic Festival</span></div>
+          <div class="case-body">
+            <span class="case-tag">Wykonawca · Festiwal</span>
+            <h3>Mystic Festival</h3>
+            <p class="case-place">Gdańsk</p>
+            <p>Największy w&nbsp;Polsce festiwal muzyki metalowej i&nbsp;pokrewnej, w&nbsp;gdańskiej Stoczni.</p>
+            <a class="case-link" href="https://www.mysticfestival.pl/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="wyk">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">A State of Trance</span></div>
+          <div class="case-body">
+            <span class="case-tag">Wykonawca · Marka</span>
+            <h3>A State of Trance</h3>
+            <p class="case-place">Marka międzynarodowa</p>
+            <p>Kultowa marka trance Armina van Buurena — jeden z&nbsp;największych brandów muzyki tanecznej na świecie.</p>
+            <a class="case-link" href="https://www.astateoftrance.com/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="wyk">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Zamna</span></div>
+          <div class="case-body">
+            <span class="case-tag">Wykonawca · Festiwal</span>
+            <h3>Zamna</h3>
+            <p class="case-place">Marka międzynarodowa</p>
+            <p>Międzynarodowy festiwal muzyki elektronicznej wywodzący się z&nbsp;Tulum w&nbsp;Meksyku, z&nbsp;edycjami na całym świecie.</p>
+            <a class="case-link" href="https://zamnafestival.com/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="pod">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Audioriver</span></div>
+          <div class="case-body">
+            <span class="case-tag">Podwykonawca · Festiwal</span>
+            <h3>Audioriver</h3>
+            <p class="case-place">Płock</p>
+            <p>Jeden z&nbsp;najważniejszych festiwali muzyki elektronicznej w&nbsp;Europie Środkowo-Wschodniej.</p>
+            <a class="case-link" href="https://www.audioriver.pl/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="pod">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Mayday</span></div>
+          <div class="case-body">
+            <span class="case-tag">Podwykonawca · Rave</span>
+            <h3>Mayday</h3>
+            <p class="case-place">Katowice</p>
+            <p>Legendarny rave w&nbsp;katowickim Spodku — jedno z&nbsp;najdłużej działających wydarzeń techno w&nbsp;Polsce.</p>
+            <a class="case-link" href="https://mayday.pl/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="case" data-role="pod">
+          <div class="case-top" aria-hidden="true"><span class="case-mark">Ultra Europe</span></div>
+          <div class="case-body">
+            <span class="case-tag">Podwykonawca · Festiwal</span>
+            <h3>Ultra Europe</h3>
+            <p class="case-place">Split, Chorwacja</p>
+            <p>Europejska odsłona kultowej marki Ultra, odbywająca się w&nbsp;chorwackim Splicie.</p>
+            <a class="case-link" href="https://ultraeurope.com/" target="_blank" rel="noopener">Strona wydarzenia <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -2655,5 +2800,18 @@ body.cart-open .cart-panel{transform:translateX(0)}
 (function(){document.querySelectorAll('a.logo').forEach(function(l){l.addEventListener('click',function(e){if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;if(l.classList.contains('logo-clicked'))return;var href=l.getAttribute('href');if(!href)return;e.preventDefault();l.classList.add('logo-clicked');setTimeout(function(){window.location.href=href;},480);});});})();
 </script>
 <a class="wa-fab" href="https://wa.me/48690414092" target="_blank" rel="noopener" aria-label="WhatsApp +48 690 414 092"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.29-.15-1.7-.84-1.96-.93-.26-.1-.45-.15-.64.14-.19.29-.74.93-.9 1.12-.17.19-.33.21-.62.07-.29-.15-1.22-.45-2.32-1.43-.86-.77-1.44-1.72-1.6-2-.17-.29-.02-.45.13-.6.13-.13.29-.34.43-.5.15-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.15-.64-1.55-.88-2.12-.23-.55-.47-.48-.64-.49l-.55-.01c-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38 0 1.4 1.02 2.76 1.17 2.95.14.19 2.01 3.08 4.88 4.32.68.29 1.21.47 1.63.6.68.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.34zM12.02 2C6.5 2 2.02 6.48 2.02 12c0 1.77.46 3.42 1.27 4.86L2 22l5.28-1.38A9.94 9.94 0 0 0 12.02 22C17.54 22 22 17.52 22 12S17.54 2 12.02 2z"/></svg><span>+48 690 414 092</span></a>
+<script>
+/* Realizacje — filtr Wykonawca / Podwykonawca */
+(function(){
+  var grid=document.getElementById('casesGrid'); if(!grid) return;
+  var btns=document.querySelectorAll('.cf-btn');
+  btns.forEach(function(b){ b.addEventListener('click',function(){
+    var f=b.dataset.f;
+    btns.forEach(function(x){ var on=x===b; x.classList.toggle('is-active',on); x.setAttribute('aria-pressed',on); });
+    grid.querySelectorAll('.case').forEach(function(c){ c.hidden = f!=='all' && c.dataset.role!==f; });
+    grid.scrollLeft=0;
+  }); });
+})();
+</script>
 </body>
 </html>
